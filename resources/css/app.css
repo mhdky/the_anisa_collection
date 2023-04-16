@@ -5,3 +5,37 @@
 [x-cloak] {
     display: none;
 }
+
+* {
+    @apply font-roboto
+}
+
+.lineFs {
+    @apply rotate-45 absolute top-2
+}
+.lineSc {
+    @apply hidden
+}
+.lineTh {
+    @apply -rotate-45 absolute top-2
+}
+
+.list-nav-mobile-show {
+    transform: translate(0);
+}
+
+.profile-logout {
+    animation: feed-in 0.5s ;
+}
+
+@keyframes feed-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
