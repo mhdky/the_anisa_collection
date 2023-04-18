@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +20,14 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// home
 Route::get('/', [HomeController::class, 'index']);
+
+// product
+Route::get('/product', [ProductController::class, 'show']);
+
+// product for collection
+Route::get('/collection/{category:slug}', [ProductController::class, 'productCategory']);
 
 Route::middleware([
     'auth:sanctum',

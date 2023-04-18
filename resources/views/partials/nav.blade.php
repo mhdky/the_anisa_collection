@@ -22,7 +22,7 @@
     </nav>
 
     {{-- list navigation mobile --}}
-    <div class="list-mobile bg-white fixed top-0 right-0 left-0 bottom-0 -translate-y-full px-5 transition-all duration-300 md-768:hidden">
+    <div class="list-mobile bg-white fixed z-20 top-0 right-0 left-0 bottom-0 -translate-y-full px-5 transition-all duration-300 md-768:hidden">
         {{-- search mobile --}}
         <form action="/product" autocomplete="off" class="mt-[90px]">
             <input type="search" name="search" value="{{ request('search') }}" placeholder="Masukan kata kunci pencarian" class="w-full rounded-[5px] bg-gray-100 border border-gray-300 outline-none focus:border-transparent focus:ring-yellow-primary focus:shadow-sm focus:shadow-yellow-primary">
@@ -69,8 +69,8 @@
                             <div class="bg-yellow-primary w-72 h-10 absolute z-30 top-8 -left-5 rounded-md shadow-md">
                                 <div class="relative w-full h-full p-[3px] flex items-center">
                                     <i class="fas fa-sort-up text-yellow-primary absolute -top-[5px] left-[22px]"></i>
-                                    <input type="search" name="search" value="{{ request('search') }}" placeholder="Masukan keyword pencarian" id="input-search" class="bg-white text-sm w-full h-full rounded-l-[3px] border border-white outline-none focus:ring-transparent focus:border-transparent">
-                                    <button type="submit" class="bg-zinc-700 h-full rounded-r-[3px] px-4"><i class="fas fa-search text-white text-sm"></i></button>
+                                    <input type="search" name="search" value="{{ request('search') }}" placeholder="Masukan keyword pencarian" id="input-search" class="inputSearchDesktop bg-white text-sm w-full h-full rounded-l-[3px] border border-white outline-none focus:ring-transparent focus:border-transparent">
+                                    <button type="submit" disabled oninput="FnSearchDesktop()" class="btnSearchDesktop bg-zinc-700 h-full rounded-r-[3px] px-4"><i class="fas fa-search text-white text-sm"></i></button>
                                 </div>
                             </div>
                         </form>
@@ -156,3 +156,9 @@
     <div class="back-top bg-black-primary w-10 h-10 hidden justify-center items-center rounded-[5px] fixed right-5 bottom-5 border border-gray-400 hover:bg-black-hover md-830:cursor-pointer" onclick="topFunction()">
         <i class="fas fa-angle-up text-white"></i>
     </div>
+
+    @auth
+        @push('drop-down-js')
+            <script src="{{ asset('js/drop-down.js') }}"></script>
+        @endpush
+    @endauth

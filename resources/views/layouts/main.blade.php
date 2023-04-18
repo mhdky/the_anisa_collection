@@ -22,6 +22,7 @@
     @yield('container')
 
     @stack('script')
+    @stack('drop-down-js')
     <script src="https://kit.fontawesome.com/209072fbdb.js" crossorigin="anonymous"></script>
 </body>
 </html>
