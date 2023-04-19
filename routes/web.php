@@ -25,6 +25,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 // product
 Route::get('/product', [ProductController::class, 'show']);
+Route::get('product/{product:url}', [ProductController::class, 'detailProduct']);
 
 // product for collection
 Route::get('/collection/{category:slug}', [ProductController::class, 'productCategory']);

@@ -21,4 +21,11 @@ class ProductController extends Controller
             'products' => $category->product()->latest()->paginate(12)->withQueryString()
         ]);
     }
+
+    public function detailProduct(Product $product) {
+        return view('product.detail', [
+            'title' => 'Anisa Collection - ' . $product->name,
+            'product' => $product
+        ]);
+    }
 }
