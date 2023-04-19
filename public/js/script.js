@@ -44,3 +44,14 @@ function FnSearchDesktop() {
         btnSearchDesktop.disabled = true;
     }
 }
+
+// input search mobile desabled and none disabled
+function FnSearchMobile() {
+    const inputSearchMobile = document.querySelector('.inputSearchMobile').value.replace(/\s/g,'');
+    const btnSearchMobile = document.querySelector('.btnSearchMobile');
+    if(inputSearchMobile.length > 0) {
+        btnSearchMobile.disabled = false;
+    } else {
+        btnSearchMobile.disabled = true;
+    }
+}

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    @include('partials.nav')
+    @include('partials.navbar')
 
     {{-- name section dan card product --}}
     <div class="w-full mt-20 lg-1100:w-[1100px] lg-1100:mx-auto md-768:mt-11">
@@ -62,6 +62,8 @@
         {{-- pagination --}}
         <div class="w-full flex justify-center my-3 sm-640:mt-10 sm-640:mb-20">{{ $products->links() }}</div>
     </div>
+
+    @include('partials.footer')
 @endsection
 
 @push('script')

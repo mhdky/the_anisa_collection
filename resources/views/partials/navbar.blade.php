@@ -17,7 +17,7 @@
             </div>
         @else
             {{-- sign in --}}
-            <a href="/login" class="text-[0.9rem] font-medium">Sign in</a>
+            <a href="/login" class="text-[0.9rem] font-medium">Login</a>
         @endauth
     </nav>
 
@@ -25,7 +25,8 @@
     <div class="list-mobile bg-white fixed z-20 top-0 right-0 left-0 bottom-0 -translate-y-full px-5 transition-all duration-300 md-768:hidden">
         {{-- search mobile --}}
         <form action="/product" autocomplete="off" class="mt-[90px]">
-            <input type="search" name="search" value="{{ request('search') }}" placeholder="Masukan kata kunci pencarian" class="w-full rounded-[5px] bg-gray-100 border border-gray-300 outline-none focus:border-transparent focus:ring-yellow-primary focus:shadow-sm focus:shadow-yellow-primary">
+            <input type="search" name="search" value="{{ request('search') }}" placeholder="Masukan kata kunci pencarian" oninput="FnSearchMobile()" class="inputSearchMobile w-full rounded-[5px] bg-gray-100 border border-gray-300 outline-none focus:border-transparent focus:ring-yellow-primary focus:shadow-sm focus:shadow-yellow-primary">
+            <button type="submit" disabled class="btnSearchMobile"></button>
         </form>
         {{-- list navigation --}}
         <ul class="mt-5 font-bold">
@@ -69,8 +70,8 @@
                             <div class="bg-yellow-primary w-72 h-10 absolute z-30 top-8 -left-5 rounded-md shadow-md">
                                 <div class="relative w-full h-full p-[3px] flex items-center">
                                     <i class="fas fa-sort-up text-yellow-primary absolute -top-[5px] left-[22px]"></i>
-                                    <input type="search" name="search" value="{{ request('search') }}" placeholder="Masukan keyword pencarian" id="input-search" class="inputSearchDesktop bg-white text-sm w-full h-full rounded-l-[3px] border border-white outline-none focus:ring-transparent focus:border-transparent">
-                                    <button type="submit" disabled oninput="FnSearchDesktop()" class="btnSearchDesktop bg-zinc-700 h-full rounded-r-[3px] px-4"><i class="fas fa-search text-white text-sm"></i></button>
+                                    <input type="search" name="search" value="{{ request('search') }}" placeholder="Masukan keyword pencarian" oninput="FnSearchDesktop()" id="input-search" class="inputSearchDesktop bg-white text-sm w-full h-full rounded-l-[3px] border border-white outline-none focus:ring-transparent focus:border-transparent">
+                                    <button type="submit" disabled class="btnSearchDesktop bg-yellow-primary h-full rounded-r-[3px] px-4"><i class="fas fa-search text-white text-sm"></i></button>
                                 </div>
                             </div>
                         </form>
@@ -129,8 +130,8 @@
                 </div>
             @else
                 <div class="flex items-center">
-                    <a href="/login" class="text-[0.9rem] mr-3">Sign in</a>
-                    <a href="/sign-up" class="bg-black-primary px-2 py-1 text-white text-[0.9rem] rounded-md hover:bg-black-hover md-950:px-3 md-950:py-2">Sign up</a>
+                    <a href="/login" class="text-[0.9rem] mr-3">Login</a>
+                    <a href="/register" class="bg-black-primary px-2 py-1 text-white text-[0.9rem] rounded-md hover:bg-black-hover md-950:px-3 md-950:py-2">Register</a>
                 </div>
             @endauth
         </div>

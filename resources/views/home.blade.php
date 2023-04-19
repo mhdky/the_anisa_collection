@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    @include('partials.nav')
+    @include('partials.navbar')
 
     {{-- jumbotron --}}
     <div class="bg-black-primary w-full h-[55vw] mt-[65px] flex items-center relative overflow-hidden md-768:w-[95vw] md-768:mx-auto md-768:mt-2 md-768:rounded-xl md-768:h-[47vw] md-930:w-[96vw] md-930:h-[44vw] lg-1100:w-[1060px] lg-1100:h-[480px]">
@@ -155,6 +155,8 @@
             </div>
         </div>
     </div>
+
+    @include('partials.footer')
 @endsection
 
 @push('script')
