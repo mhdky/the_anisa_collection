@@ -18,5 +18,7 @@
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
+
+        <script src="https://kit.fontawesome.com/209072fbdb.js" crossorigin="anonymous"></script>
     </body>
 </html>
