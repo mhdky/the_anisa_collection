@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,13 @@ Route::get('/', [HomeController::class, 'index']);
 // product
 Route::get('/product', [ProductController::class, 'show']);
 Route::get('product/{product:url}', [ProductController::class, 'detailProduct']);
+
+// dashboad product
+Route::get('/dashboard/product', function(){
+    return view('admin-dashboard.product.index', [
+        'title' => 'Anisa Collection - Admin Dashboard - Product',
+    ]);
+});
 
 // product for collection
 Route::get('/collection/{category:slug}', [ProductController::class, 'productCategory']);

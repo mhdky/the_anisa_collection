@@ -17,12 +17,17 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- livewire --}}
+    @stack('liveware-style')
 </head>
 <body>
     @yield('container')
 
     @stack('script')
     @stack('drop-down-js')
+    @stack('livewire-script')
+    @stack('unique')
     <script src="https://kit.fontawesome.com/209072fbdb.js" crossorigin="anonymous"></script>
 </body>
 </html>
