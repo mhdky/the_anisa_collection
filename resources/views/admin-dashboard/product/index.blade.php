@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.admin-main')
 
 @push('liveware-style')
     @livewireStyles
@@ -6,8 +6,6 @@
 
 @section('container')
     {{-- @livewire('admin-dashboard.product.create') --}}
-
-    @include('partials.dashboard.navbar')
 @endsection
 
 @push('livewire-script')

@@ -1,4 +1,4 @@
-    {{-- navigation mobile --}}
+    {{-- nav mobile --}}
     <nav class="bg-white fixed z-40 top-0 w-full flex justify-between items-center px-5 py-4 border-b border-gray-300 md-768:hidden">
         {{-- burger button --}}
         <div class="burger-button w-5 h-4 flex flex-col justify-between relative">
@@ -43,7 +43,7 @@
                 {{-- my profile mobile --}}
                 <a href="/profile" class="text-gray-500 font-bold mt-3 pb-3 block">My Profile</a>
                 @can('admin')
-                    <a href="/profile" class="text-gray-500 font-bold mt-3 mb-5 block">Admin Dashboard</a>
+                    <a href="/dashboard/product" class="text-gray-500 font-bold mt-3 mb-5 block">Admin Dashboard</a>
                 @endcan
                 {{-- sign out mobile --}}
                 <form method="POST" action="{{ route('logout') }}" class="border-t border-gray-300">

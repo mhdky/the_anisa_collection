@@ -39,3 +39,17 @@
         transform: translateY(0);
     }
 }
+
+.lineS {
+    @apply rotate-45 absolute top-2
+}
+.lineD {
+    @apply hidden
+}
+.lineT {
+    @apply -rotate-45 absolute top-2
+}
+
+.listNavAdmShow {
+    @apply -translate-y-0
+}
