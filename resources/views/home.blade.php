@@ -156,7 +156,11 @@
         </div>
     </div>
 
+    
     @include('partials.footer')
+    @can('admin')
+        <a href="admin/dashboard">Admin Dashboard</a>
+    @endcan
 @endsection
 
 @push('script')

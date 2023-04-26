@@ -108,12 +108,12 @@
                                     <p class="text-white text-[0.8rem]">My profile</p>
                                 </a>
                                 {{-- admin dashboard --}}
-                                {{-- @can('admin')
-                                    <a href="/profile" class="w-full h-10 px-2 flex items-center {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
+                                @can('admin')
+                                    <a href="/dashboard/product" class="w-full h-10 px-2 flex items-center {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
                                         <i class="fas fa-tachometer-alt text-white text-[0.9rem] mr-2"></i>
                                         <p class="text-white text-[0.8rem]">Admin Dash...</p>
                                     </a>
-                                @endcan --}}
+                                @endcan
                                 {{-- sign out --}}
                                 <form method="POST" action="{{ route('logout') }}" class="w-full h-10 rounded-b-md {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
                                     @csrf

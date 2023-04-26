@@ -33,7 +33,7 @@ Route::get('/dashboard/product', function(){
     return view('admin-dashboard.product.index', [
         'title' => 'Anisa Collection - Admin Dashboard - Product',
     ]);
-});
+})->middleware('admin');
 
 // product for collection
 Route::get('/collection/{category:slug}', [ProductController::class, 'productCategory']);
