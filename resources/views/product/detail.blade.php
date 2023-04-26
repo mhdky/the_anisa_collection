@@ -6,7 +6,7 @@
     <div class="w-full flex flex-col mt-16 md-768:bg-gray-secondary md-768:flex-row md-768:mt-5 md-768:w-[96%] md-768:mx-auto md-768:rounded-[10px] md-768:overflow-hidden lg-1100:w-[1065px]">
         {{-- image --}}
         <div class="bg-gray-secondary w-full mx-auto p-5 md-768:w-1/2 md-768:h-max">
-            <img src="{{ asset('img/' . $product->image) }}" alt="Product" class="w-full">
+            <img src="{{ asset('storage/' . $product->image) }}" alt="Product" class="w-full">
         </div>
     
         <div class="bg-gray-secondary w-full mt-3 mx-auto py-5 flex flex-col md-768:w-1/2 md-768:mt-0">
@@ -84,8 +84,8 @@
     @include('partials.footer')
 @endsection
     
-@push('script-alert-ok')
-    <script src="{{ asset('js/script-alert-ok.js') }}"></script>
+@push('script')
+    <script src="{{ asset('js/script.js') }}"></script>
 @endpush
 
 {{-- @include('partials.alert-ok-to-cart') --}}

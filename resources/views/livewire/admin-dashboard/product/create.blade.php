@@ -25,7 +25,7 @@
             <p class="text-red-500 mt-1">{{ $message }}</p>
         @enderror
 
-        <input type="text" wire:model="image" id="" placeholder="image" class="w-full mt-5">
+        <input type="file" wire:model="image" id="" placeholder="image" class="w-full mt-5">
         @error('image')
             <p class="text-red-500 mt-1">{{ $message }}</p>
         @enderror

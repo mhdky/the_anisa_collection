@@ -5,7 +5,9 @@
 @endpush
 
 @section('container')
-    @livewire('admin-dashboard.product.create')
+    {{-- @livewire('admin-dashboard.product.create') --}}
+
+    @include('partials.dashboard.navbar')
 @endsection
 
 @push('livewire-script')
