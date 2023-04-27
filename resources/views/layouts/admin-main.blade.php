@@ -23,8 +23,8 @@
 </head>
 <body>
     {{-- nav mobile top --}}
-    <div class="bg-white w-full py-4 px-3 flex justify-between items-center border-b border-zinc-200 fixed top-0 z-10">
-        <a href="/" class="text-xl text-yellow-primary font-playfair font-bold">Anisa Collection</a>
+    <div class="bg-white w-full py-4 px-3 flex justify-between items-center border-b border-zinc-200 fixed top-0 z-10 md-900:hidden">
+        <a href="/" class="text-2xl text-yellow-primary font-playfair font-bold">Anisa Collection</a>
         
         {{-- search button --}}
         <div class="searchBtnAdm w-[22px] h-4 flex flex-col justify-between relative">
@@ -32,23 +32,23 @@
         </div>
     </div>
 
-    <div class="bg-zinc-100 w-full h-16 fixed bottom-0 border-t border-zinc-200 flex justify-evenly items-center">
-        <a href="/" class="h-full flex flex-col justify-center items-center px-5">
+    <div class="bg-zinc-100 w-full h-16 fixed bottom-0 border-t border-zinc-200 flex justify-evenly items-center md-900:hidden">
+        <a href="/" class="h-full flex flex-col justify-center items-center px-4">
             <img src="{{ asset('img/home.png') }}" alt="Home" class="w-[20px] mb-1">
             <p class="text-zinc-600 text-sm font-medium">Home</p>
         </a>
 
-        <a href="/dashboard/product" class="{{ (Request::is('dashboard/product') ? 'bg-zinc-200' : '') }} h-full flex flex-col justify-center items-center px-5">
+        <a href="/dashboard/product" class="{{ (Request::is('dashboard/product') ? 'bg-zinc-200' : '') }} h-full flex flex-col justify-center items-center px-4">
             <img src="{{ asset('img/clothing.png') }}" alt="Home" class="w-[20px] mb-1">
             <p class="text-zinc-600 text-sm font-medium">Produk</p>
         </a>
 
-        <a href="/dashboard/order" class="{{ (Request::is('dashboard/order') ? 'bg-zinc-200' : '') }} h-full flex flex-col justify-center items-center px-5">
+        <a href="/dashboard/order" class="{{ (Request::is('dashboard/order') ? 'bg-zinc-200' : '') }} h-full flex flex-col justify-center items-center px-4">
             <img src="{{ asset('img/bag-ds.png') }}" alt="Home" class="w-[20px] mb-1">
             <p class="text-zinc-600 text-sm font-medium">Pemesanan</p>
         </a>
 
-        <a href="/dashboard/setting" class="{{ (Request::is('dashboard/setting') ? 'bg-zinc-200' : '') }} h-full flex flex-col justify-center items-center px-5">
+        <a href="/dashboard/setting" class="{{ (Request::is('dashboard/setting') ? 'bg-zinc-200' : '') }} h-full flex flex-col justify-center items-center px-4">
             <img src="{{ asset('img/user-settings.png') }}" alt="Home" class="w-[20px] mb-1">
             <p class="text-zinc-600 text-sm font-medium">Pengturan</p>
         </a>
@@ -63,6 +63,40 @@
                 <input type="search" name="search" value="{{ request('search') }}" placeholder="Search product" oninput="FnSearchMobile()" class="inputSearchMobileAdm w-full flex-[2] rounded-[5px] bg-gray-100 border border-gray-300 outline-none focus:border-gray-300 focus:ring-0">
                 <button type="submit" disabled class="btnSearchMobile"></button>
             </form>
+        </div>
+    </div>
+
+    {{-- nav desktop --}}
+    <div class="bg-white w-full h-16 pr-5 border-b border-zinc-200 fixed z-20 top-0 hidden justify-between md-900:flex">
+        {{-- logo --}}
+        <div class="w-[235px] px-4 flex items-center border-r border-zinc-200">
+            <a href="/" class="text-[20px] text-yellow-primary font-bold font-playfair">ANISA COLLECTION</a>
+        </div>
+
+        <div class="w-full h-full pl-4 flex-[2] flex justify-between items-center">
+            {{-- search desktop --}}
+            <div class="bg-zinc-100 w-60 h-8 rounded-[5px] flex items-center pl-3">
+                <i class="fas fa-search text-zinc-600 text-[12px]"></i>
+                <input type="search" name="" id="" placeholder="Search product" class="bg-transparent w-full h-full outline-none border-none text-[13px] focus:ring-0 placeholder:text-gray-600">
+            </div>
+
+            {{-- admin name --}}
+            <h2 class="text-zinc-600 text-sm font-medium">{{ Str::limit(Auth::user()->name, 20) }}</h2>
+        </div>
+    </div>
+
+    {{-- list dan section --}}
+    <div class="w-full flex">
+        {{-- list desktop --}}
+        <div class="bg-white w-[235px] h-screen hidden border-r border-zinc-200 sticky top-0 md-900:block">
+            <div class="w-full mt-16">
+                <ul class="mx-8 my-10 inline-block">
+                    <li class="mb-5"><a href="/" class="text-zinc-600 text-sm hover:text-yellow-primary">Home</a></li>
+                    <li class="mb-5"><a href="/dashboard/product" class="{{ (Request::is('dashboard/product') ? 'text-yellow-primary' : 'text-zinc-600') }} text-sm hover:text-yellow-primary">Produk</a></li>
+                    <li class="mb-5"><a href="/dashboard/order" class="text-zinc-600 text-sm hover:text-yellow-primary">Pemesanan</a></li>
+                    <li class="mb-5"><a href="/dashboard/setting" class="text-zinc-600 text-sm hover:text-yellow-primary">Pengaturan</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
