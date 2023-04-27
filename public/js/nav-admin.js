@@ -1,10 +1,15 @@
-const burgerBtnAdm = document.querySelector('.burgerBtnAdm');
-const lineAdm = document.querySelectorAll('.lineAdm');
-const listNavAdm = document.querySelector('.listNavAdm');
+// show search mobile admin
+const searchBtnAdm = document.querySelector('.searchBtnAdm');
+const searchAdm = document.querySelector('.searchAdm');
+const inputSearchMobileAdm = document.querySelector('.inputSearchMobileAdm');
+searchBtnAdm.addEventListener('click', () => {
+    searchAdm.style.display = 'block';
+    setTimeout(() => {
+        inputSearchMobileAdm.focus();
+    }, 100);
+});
 
-burgerBtnAdm.addEventListener('click', () => {
-    lineAdm[0].classList.toggle('lineS');
-    lineAdm[1].classList.toggle('lineD');
-    lineAdm[2].classList.toggle('lineT');
-    listNavAdm.classList.toggle('listNavAdmShow');
-})
+// close search mobile admin
+document.querySelector('.closeSearchMobileAdm').addEventListener('click', () => {
+    searchAdm.style.display = 'none';
+});
