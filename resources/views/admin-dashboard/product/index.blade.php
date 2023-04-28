@@ -31,13 +31,10 @@
                         <p class="text-zinc-600 text-[14px]">Edit</p>
                     </a>
 
-                    <form action="" method="post">
-                        @csrf
-                        <button class="flex items-center w-32 h-9 px-3 hover:bg-zinc-100 cursor-default md-800:cursor-pointer">
-                            <i class="fa-solid fa-trash text-zinc-600 mr-3"></i>
-                            <p class="text-zinc-600 text-[14px]">Hapus</p>
-                        </button>
-                    </form>
+                    <div class="btnHapusProductAdm flex items-center w-32 h-9 px-3 hover:bg-zinc-100 cursor-default md-800:cursor-pointer">
+                        <i class="fa-solid fa-trash text-zinc-600 mr-3"></i>
+                        <p class="text-zinc-600 text-[14px]">Hapus</p>
+                    </div>
                 </div>
 
                 <div class="closeOptionMenu fixed top-0 right-0 bottom-0 left-0 z-10 hidden"></div>
@@ -93,7 +90,6 @@
                     <p class="text-[14px] text-zinc-600 text-justify leading-[18px] mt-1 mb-5 md-1000:w-[800px]">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est itaque dolorem illum quos dolor voluptatum ut nemo exercitationem numquam corporis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum iusto hic pariatur explicabo nemo impedit dolorem fuga sit a cum?</p>
                 </div>
             </div>
-
             {{-- 02 --}}
             <div class="cardProductBorder border border-zinc-200 w-full mb-4 p-3 rounded-md relative">
                 {{-- button option --}}
@@ -109,13 +105,10 @@
                         <p class="text-zinc-600 text-[14px]">Edit</p>
                     </a>
 
-                    <form action="" method="post">
-                        @csrf
-                        <button class="flex items-center w-32 h-9 px-3 hover:bg-zinc-100 cursor-default md-800:cursor-pointer">
-                            <i class="fa-solid fa-trash text-zinc-600 mr-3"></i>
-                            <p class="text-zinc-600 text-[14px]">Hapus</p>
-                        </button>
-                    </form>
+                    <div class="btnHapusProductAdm flex items-center w-32 h-9 px-3 hover:bg-zinc-100 cursor-default md-800:cursor-pointer">
+                        <i class="fa-solid fa-trash text-zinc-600 mr-3"></i>
+                        <p class="text-zinc-600 text-[14px]">Hapus</p>
+                    </div>
                 </div>
 
                 <div class="closeOptionMenu fixed top-0 right-0 bottom-0 left-0 z-10 hidden"></div>
@@ -173,6 +166,9 @@
             </div>
         </div>
     </div>
+
+    {{-- alert delete --}}
+    @include('partials.dashboard.alert-delete')
 @endsection
 
 @push('nav-admin')

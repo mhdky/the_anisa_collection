@@ -24,8 +24,11 @@ for(let a = 0; a < buttonDetilMobile.length || a < detailDescriptionCardMobile.l
 const buttonOption = document.querySelectorAll('.buttonOption');
 const optionMenu = document.querySelectorAll('.optionMenu');
 const closeOptionMenu = document.querySelectorAll('.closeOptionMenu');
+const btnHapusProductAdm = document.querySelectorAll('.btnHapusProductAdm');
+const alertHapusProductAdm = document.querySelector('.alertHapusProductAdm');
+const noDeleteProductAdm = document.querySelector('.noDeleteProductAdm');
 
-for(let b = 0; b < buttonOption.length || b < optionMenu.length || b < closeOptionMenu.length; b++) {
+for(let b = 0; b < buttonOption.length || b < optionMenu.length || b < closeOptionMenu.length || b < btnHapusProductAdm.length;  b++) {
     // show option menu
     buttonOption[b].addEventListener('click', () => {
         optionMenu[b].style.display = 'block';
@@ -38,5 +41,16 @@ for(let b = 0; b < buttonOption.length || b < optionMenu.length || b < closeOpti
         optionMenu[b].style.display = 'none';
         closeOptionMenu[b].style.display = 'none';
         document.querySelector('body').style.overflow = 'auto';
-    })
+    });
+
+    btnHapusProductAdm[b].addEventListener('click', () => {
+        optionMenu[b].style.display = 'none';
+        closeOptionMenu[b].style.display = 'none';
+        document.querySelector('body').style.overflow = 'auto';
+        alertHapusProductAdm.style.display = 'flex';
+    });
+
+    noDeleteProductAdm.addEventListener('click', () => {
+        alertHapusProductAdm.style.display = 'none';
+    });
 }
