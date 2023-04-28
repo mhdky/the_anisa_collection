@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <div class="bg-zinc-100 w-full h-16 fixed bottom-0 border-t border-zinc-200 flex justify-evenly items-center md-900:hidden">
+    <div class="bg-zinc-100 w-full h-16 fixed z-10 bottom-0 border-t border-zinc-200 flex justify-evenly items-center md-900:hidden">
         <a href="/" class="h-full flex flex-col justify-center items-center px-4">
             <img src="{{ asset('img/home.png') }}" alt="Home" class="w-[20px] mb-1">
             <p class="text-zinc-600 text-sm font-medium">Home</p>
@@ -98,11 +98,15 @@
                 </ul>
             </div>
         </div>
+
+        {{-- section --}}
+        @yield('container')
     </div>
 
     @stack('livewire-script')
     @stack('unique')
-    <script src="{{ asset('js/nav-admin.js') }}"></script>
+    @stack('nav-admin')
+    @stack('detail-card-product')
     <script src="https://kit.fontawesome.com/209072fbdb.js" crossorigin="anonymous"></script>
 </body>
 </html>
