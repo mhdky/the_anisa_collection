@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Models\Category;
@@ -29,11 +30,10 @@ Route::get('/product', [ProductController::class, 'show']);
 Route::get('product/{product:url}', [ProductController::class, 'detailProduct']);
 
 // dashboad product
-Route::get('/dashboard/product', function(){
-    return view('admin-dashboard.product.index', [
-        'title' => 'Anisa Collection - Admin Dashboard - Product',
-    ]);
-})->middleware('admin');
+Route::get('/dashboard/product', [DashboardProductController::class, 'index'])->middleware('admin');
+// add product
+Route::get('/dashboard/product/add', [DashboardProductController::class, 'create'])->middleware('admin');
+Route::post('/dashboard/product/add', [DashboardProductController::class, 'store'])->middleware('admin');
 
 // product for collection
 Route::get('/collection/{category:slug}', [ProductController::class, 'productCategory']);

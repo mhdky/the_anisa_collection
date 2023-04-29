@@ -54,18 +54,24 @@
             </h1>
     
             <table class="w-full">
-                <tr>
-                    <td class="w-[132px] text-sm text-[#929292] font-bold py-1">Merek</td>
-                    <td class="text-sm text-slate-secondary font-bold py-1">{{ Str::title($product->merek) }}</td>
-                </tr>
-                <tr>
-                    <td class="w-[132px] text-sm text-[#929292] font-bold py-1">Bahan</td>
-                    <td class="text-sm text-slate-secondary font-bold py-1">{{ Str::title($product->bahan) }}</td>
-                </tr>
-                <tr>
-                    <td class="w-[132px] text-sm text-[#929292] font-bold py-1">Jenis Lengan</td>
-                    <td class="text-sm text-slate-secondary font-bold py-1">{{ Str::title($product->jenis_lengan) }}</td>
-                </tr>
+                @if ($product->merek !== NULL)
+                    <tr>
+                        <td class="w-[132px] text-sm text-[#929292] font-bold py-1">Merek</td>
+                        <td class="text-sm text-slate-secondary font-bold py-1">{{ Str::title($product->merek) }}</td>
+                    </tr>
+                @endif
+                @if ($product->bahan !== NULL)
+                    <tr>
+                        <td class="w-[132px] text-sm text-[#929292] font-bold py-1">Bahan</td>
+                        <td class="text-sm text-slate-secondary font-bold py-1">{{ Str::title($product->bahan) }}</td>
+                    </tr>
+                @endif
+                @if ($product->jenis_lengan !== NULL)
+                    <tr>
+                        <td class="w-[132px] text-sm text-[#929292] font-bold py-1">Jenis Lengan</td>
+                        <td class="text-sm text-slate-secondary font-bold py-1">{{ Str::title($product->jenis_lengan) }}</td>
+                    </tr>
+                @endif
                 <tr>
                     <td class="w-[132px] text-sm text-[#929292] font-bold py-1">Ukuran</td>
                     <td class="text-sm text-slate-secondary font-bold py-1">{{ $product->size }}</td>

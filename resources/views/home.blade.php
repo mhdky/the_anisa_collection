@@ -46,7 +46,7 @@
                 <div class="{{ ($loop->index === 3) ? 'sm-500:hidden md-890:block' : '' }} bg-black-primary w-[42.5vw] m-1 p-2 rounded-[10px] sm-350:w-[43vw] sm-400:w-[44vw] sm-440:w-[45vw] sm-500:w-[30vw] sm-640:w-[30.5vw] sm-640:p-3 sm-740:w-[30.2vw] sm-740:m-2 md-830:w-[30.5vw] md-890:w-[22.5vw] md-950:w-[22.7vw] md-1000:w-[22.9vw] lg-1100:w-[253px] lg-1130:w-[247px] lg-1130:m-3">
                     {{-- image card --}}
                     <div class="w-full h-[40vw] rounded-[10px] overflow-hidden sm-350:h-[41vw] sm-400:h-[42.5vw] sm-440:h-[43.5vw] sm-500:h-[30vw] md-890:h-[22vw] lg-1100:h-[260px] lg-1130:h-[240px]">
-                        <img src="{{ asset('img/' . $product->image) }}" alt="Product" class="w-full h-full object-cover">
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="Product" class="w-full h-full object-cover">
                     </div>
 
                     {{-- harga --}}

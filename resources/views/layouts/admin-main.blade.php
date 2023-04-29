@@ -17,9 +17,6 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    {{-- livewire --}}
-    @stack('liveware-style')
 </head>
 <body>
     {{-- nav mobile top --}}
@@ -38,7 +35,7 @@
             <p class="text-zinc-600 text-sm font-medium">Home</p>
         </a>
 
-        <a href="/dashboard/product" class="{{ (Request::is('dashboard/product') ? 'bg-zinc-200' : '') }} h-full flex flex-col justify-center items-center px-4">
+        <a href="/dashboard/product" class="{{ (Request::is('dashboard/product*') ? 'bg-zinc-200' : '') }} h-full flex flex-col justify-center items-center px-4">
             <img src="{{ asset('img/clothing.png') }}" alt="Home" class="w-[20px] mb-1">
             <p class="text-zinc-600 text-sm font-medium">Produk</p>
         </a>
@@ -81,7 +78,9 @@
             </div>
 
             {{-- admin name --}}
-            <h2 class="text-zinc-600 text-sm font-medium">{{ Str::limit(Auth::user()->name, 20) }}</h2>
+            @auth
+                <h2 class="text-zinc-600 text-sm font-medium">{{ Str::limit(Auth::user()->name, 20) }}</h2>
+            @endauth
         </div>
     </div>
 
@@ -92,7 +91,7 @@
             <div class="w-full mt-16">
                 <ul class="mx-8 my-10 inline-block">
                     <li class="mb-5"><a href="/" class="text-zinc-600 text-sm hover:text-yellow-primary">Home</a></li>
-                    <li class="mb-5"><a href="/dashboard/product" class="{{ (Request::is('dashboard/product') ? 'text-yellow-primary' : 'text-zinc-600') }} text-sm hover:text-yellow-primary">Produk</a></li>
+                    <li class="mb-5"><a href="/dashboard/product" class="{{ (Request::is('dashboard/product*') ? 'text-yellow-primary' : 'text-zinc-600') }} text-sm hover:text-yellow-primary">Produk</a></li>
                     <li class="mb-5"><a href="/dashboard/order" class="text-zinc-600 text-sm hover:text-yellow-primary">Pemesanan</a></li>
                     <li class="mb-5"><a href="/dashboard/setting" class="text-zinc-600 text-sm hover:text-yellow-primary">Pengaturan</a></li>
                 </ul>
@@ -102,8 +101,6 @@
         {{-- section --}}
         @yield('container')
     </div>
-
-    @stack('livewire-script')
     @stack('unique')
     @stack('nav-admin')
     @stack('detail-card-product')

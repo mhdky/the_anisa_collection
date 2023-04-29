@@ -43,6 +43,7 @@ for(let b = 0; b < buttonOption.length || b < optionMenu.length || b < closeOpti
         document.querySelector('body').style.overflow = 'auto';
     });
 
+    // show alert delete
     btnHapusProductAdm[b].addEventListener('click', () => {
         optionMenu[b].style.display = 'none';
         closeOptionMenu[b].style.display = 'none';
@@ -50,6 +51,7 @@ for(let b = 0; b < buttonOption.length || b < optionMenu.length || b < closeOpti
         alertHapusProductAdm.style.display = 'flex';
     });
 
+    // close alert delete
     noDeleteProductAdm.addEventListener('click', () => {
         alertHapusProductAdm.style.display = 'none';
     });
