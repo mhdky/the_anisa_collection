@@ -4,7 +4,7 @@
     <div class="w-full flex-[2] mt-[65px] pb-20 md-900:mt-[64px]">
         {{-- tambah produk --}}
         <div class="bg-white w-full h-14 fixed z-10 px-3 pt-3">
-            <a href="/dashboard/product/add" class="bg-white w-[152px] h-[32px] flex justify-evenly items-center rounded-md border border-yellow-primary hover:bg-yellow-50">
+            <a href="/dashboard/product/add" class="bg-white w-[152px] h-9 flex justify-evenly items-center rounded-md border border-yellow-primary hover:bg-yellow-50">
                 <p class="text-zinc-600 text-[14px]">Tambah Produk</p>
                 <div class="bg-yellow-primary w-4 h-4 rounded-sm flex justify-center items-center"><i class="fas fa-plus text-white text-[12px]"></i></div>
             </a>
@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="optionMenu bg-white py-1 border border-zinc-200 rounded-md absolute z-20 right-5 top-2 hidden md-800:right-7">
-                        <a href="#" class="flex items-center w-32 h-9 px-3 hover:bg-zinc-100 cursor-default md-800:cursor-pointer">
+                        <a href="/dashboard/product/{{ $product->url }}/edit" class="flex items-center w-32 h-9 px-3 hover:bg-zinc-100 cursor-default md-800:cursor-pointer">
                             <i class="fa-solid fa-pen-to-square text-zinc-600 mr-3"></i>
                             <p class="text-zinc-600 text-[14px]">Edit</p>
                         </a>
