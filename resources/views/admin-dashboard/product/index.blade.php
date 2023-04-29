@@ -12,9 +12,14 @@
 
         {{-- container card produk --}}
         <div class="w-full mt-16 flex flex-col items-center px-3">
+            <form id="delete-post-form" method="POST">
+                @csrf
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            </form>
             @foreach ($products as $product)
                 {{-- card produk --}}
-                <div class="cardProductBorder border border-zinc-200 w-full mb-4 p-3 rounded-md relative">
+                <div class="cardProductBorder border border-zinc-200 w-full mb-4 p-3 rounded-md relative" data-product-id="{{ $product->id }}">
                     {{-- button option --}}
                     <div class="buttonOption w-4 h-5 absolute right-1 top-2 flex flex-col justify-between items-center md-800:cursor-pointer md-800:right-2 md-800:top-3">
                         <span class="bg-zinc-600 w-1 h-[5px] rounded-full"></span>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardProductController extends Controller
 {
@@ -46,5 +47,19 @@ class DashboardProductController extends Controller
         Product::create($validateData);
 
         return redirect('/dashboard/product')->with('ok', 'Produk berhasil ditambahkan');
+    }
+
+    // delete product
+    // hapus post
+    public function destroy(Product $product) {
+        if ($product->image) {
+            Storage::delete($product->image);
+        }
+
+        $product->delete();
+
+        return response()->json([
+            'message' => 'product berhasil dihapus'
+        ]);
     }
 }

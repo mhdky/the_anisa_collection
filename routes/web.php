@@ -34,6 +34,8 @@ Route::get('/dashboard/product', [DashboardProductController::class, 'index'])->
 // add product
 Route::get('/dashboard/product/add', [DashboardProductController::class, 'create'])->middleware('admin');
 Route::post('/dashboard/product/add', [DashboardProductController::class, 'store'])->middleware('admin');
+// delete product
+Route::delete('/dashboard/product/{product:id}/delete', [DashboardProductController::class, 'destroy']);
 
 // product for collection
 Route::get('/collection/{category:slug}', [ProductController::class, 'productCategory']);

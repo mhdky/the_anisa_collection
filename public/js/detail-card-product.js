@@ -25,10 +25,10 @@ const buttonOption = document.querySelectorAll('.buttonOption');
 const optionMenu = document.querySelectorAll('.optionMenu');
 const closeOptionMenu = document.querySelectorAll('.closeOptionMenu');
 const btnHapusProductAdm = document.querySelectorAll('.btnHapusProductAdm');
-const alertHapusProductAdm = document.querySelector('.alertHapusProductAdm');
-const noDeleteProductAdm = document.querySelector('.noDeleteProductAdm');
+const alertHapusProductAdm = document.querySelectorAll('.alertHapusProductAdm');
+const noDeleteProductAdm = document.querySelectorAll('.noDeleteProductAdm');
 
-for(let b = 0; b < buttonOption.length || b < optionMenu.length || b < closeOptionMenu.length || b < btnHapusProductAdm.length;  b++) {
+for(let b = 0; b < buttonOption.length || b < optionMenu.length || b < closeOptionMenu.length || b < btnHapusProductAdm.length || b < alertHapusProductAdm.length || b < noDeleteProductAdm.length;  b++) {
     // show option menu
     buttonOption[b].addEventListener('click', () => {
         optionMenu[b].style.display = 'block';
@@ -48,11 +48,37 @@ for(let b = 0; b < buttonOption.length || b < optionMenu.length || b < closeOpti
         optionMenu[b].style.display = 'none';
         closeOptionMenu[b].style.display = 'none';
         document.querySelector('body').style.overflow = 'auto';
-        alertHapusProductAdm.style.display = 'flex';
+        alertHapusProductAdm[b].style.display = 'flex';
     });
 
     // close alert delete
-    noDeleteProductAdm.addEventListener('click', () => {
-        alertHapusProductAdm.style.display = 'none';
+    noDeleteProductAdm[b].addEventListener('click', () => {
+        alertHapusProductAdm[b].style.display = 'none';
+    });
+}
+
+// delete product 
+function deleteProduct(id) {
+    const token = document.querySelector('input[name="_token"]').value;
+    fetch('/dashboard/product/' + id + '/delete', {
+        method: 'DELETE',
+        headers: {
+            'X-CSRF-TOKEN': token
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            document.querySelector(`[data-product-id="${id}"]`).remove();
+            const alertHapusProductAdms = document.querySelectorAll('.alertHapusProductAdm');
+            alertHapusProductAdms.forEach(alertHapusProductAdm => {
+                alertHapusProductAdm.style.display = 'none';
+            });
+        } else {
+            alert('Failed to delete post');
+        }
+    })
+    .catch(error => {
+        console.error(error);
+        alert('Failed to delete post');
     });
 }
