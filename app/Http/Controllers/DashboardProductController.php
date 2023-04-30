@@ -13,7 +13,7 @@ class DashboardProductController extends Controller
     public function index() {
         return view('admin-dashboard.product.index', [
             'title' => 'Anisa Collection - Admin Dashboard - Product',
-            'products' => Product::latest()->get()
+            'products' => Product::latest()->searchingDashboard()->paginate(12)->withQueryString()
         ]);
     }
 

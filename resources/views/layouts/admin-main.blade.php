@@ -55,9 +55,9 @@
     <div class="searchAdm bg-white w-full h-screen fixed z-20 hidden">
         <div class="w-full px-3">
             {{-- search mobile --}}
-            <form action="#" autocomplete="off" class="flex items-center mt-5">
+            <form method="GET" action="/dashboard/product" autocomplete="off" class="flex items-center mt-5">
                 <div class="closeSearchMobileAdm mr-3"><i class="fas fa-arrow-left"></i></div>
-                <input type="search" name="search" value="{{ request('search') }}" placeholder="Search product" oninput="FnSearchMobile()" class="inputSearchMobileAdm w-full flex-[2] rounded-[5px] bg-gray-100 border border-gray-300 outline-none focus:border-gray-300 focus:ring-0">
+                <input type="search" name="search" value="{{ request('search') }}" placeholder="Search product" oninput="FnSearchMobile()" class="inputSearchMobileAdm inputSearchMobile w-full flex-[2] rounded-[5px] bg-gray-100 border border-gray-300 outline-none focus:border-gray-300 focus:ring-0">
                 <button type="submit" disabled class="btnSearchMobile"></button>
             </form>
         </div>
@@ -72,10 +72,11 @@
 
         <div class="w-full h-full pl-4 flex-[2] flex justify-between items-center">
             {{-- search desktop --}}
-            <div class="bg-zinc-100 w-60 h-8 rounded-[5px] flex items-center pl-3">
+            <form method="GET" action="/dashboard/product" class="bg-zinc-100 w-60 h-8 rounded-[5px] flex items-center pl-3">
                 <i class="fas fa-search text-zinc-600 text-[12px]"></i>
-                <input type="search" name="" id="" placeholder="Search product" class="bg-transparent w-full h-full outline-none border-none text-[13px] focus:ring-0 placeholder:text-gray-600">
-            </div>
+                <input type="search" name="search" id="" value="{{ request('search') }}" placeholder="Search product" oninput="FnSearchDesktop()" class="inputSearchDesktop bg-transparent w-full h-full outline-none border-none text-[13px] focus:ring-0 placeholder:text-gray-600">
+                <button type="submit" disabled class="btnSearchDesktop"></button>
+            </form>
 
             {{-- admin name --}}
             @auth

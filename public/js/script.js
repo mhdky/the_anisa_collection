@@ -34,7 +34,7 @@ closeformSearch.addEventListener('click', () => {
     closeformSearch.style.display = 'none';
 });
 
-// input search desabled and none disabled
+// input search desktop desabled and none disabled
 function FnSearchDesktop() {
     const inputSearchDesktop = document.querySelector('.inputSearchDesktop').value.replace(/\s/g,'');
     const btnSearchDesktop = document.querySelector('.btnSearchDesktop');

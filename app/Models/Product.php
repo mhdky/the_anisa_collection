@@ -22,6 +22,12 @@ class Product extends Model
         }
     }
 
+    public function scopeSearchingDashboard($query) {
+        if(request('search')) {
+            return $query->where('name', 'like', '%' . request('search') . '%');
+        }
+    }
+
     protected static function boot()
     {
         parent::boot();

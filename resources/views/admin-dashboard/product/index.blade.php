@@ -99,6 +99,9 @@
                     </div>
                 </div>
             @endforeach
+
+            {{-- pagination --}}
+        <div class="w-full flex justify-center my-3 sm-640:mt-10 sm-640:mb-20">{{ $products->links() }}</div>
         </div>
     </div>
 

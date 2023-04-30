@@ -19,13 +19,12 @@ class ProductFactory extends Factory
         return [
             'category_id' => mt_rand(1,2),
             'name' => fake()->sentence(mt_rand(5,7)),
-            'url' => uniqid() . uniqid() . uniqid(),
             'detail' => fake()->paragraph(mt_rand(3,5)),
             'price' => mt_rand(700000, 3700000),
-            'image' => 'product-' . mt_rand(1,20) . '.jpg',
+            'image' => 'file/product-' . mt_rand(1,20) . '.jpg',
             'stock' => mt_rand(30,150),
             'size' => 'XL',
-            'merek' => 'nike',
+            'merek' => 'Prada',
             'bahan' => 'catton combed 20s',
             'jenis_lengan' => 'lengan panjang'
         ];
