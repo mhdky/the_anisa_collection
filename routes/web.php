@@ -34,6 +34,9 @@ Route::get('/dashboard/product/add', [DashboardProductController::class, 'create
 Route::post('/dashboard/product/add', [DashboardProductController::class, 'store'])->middleware('admin');
 // delete product
 Route::delete('/dashboard/product/{product:id}/delete', [DashboardProductController::class, 'destroy'])->middleware('admin');
+Route::get('/dashboard/product/{product:id}/delete', function() {
+    return abort(404);
+});
 
 // product for collection
 Route::get('/collection/{category:slug}', [ProductController::class, 'productCategory']);
