@@ -19,6 +19,8 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 
+    @livewireStyles
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -98,7 +100,7 @@
                     <li class="mb-5"><a href="/" class="text-zinc-600 text-sm hover:text-yellow-primary">Home</a></li>
                     <li class="mb-5"><a href="/dashboard/product" class="{{ (Request::is('dashboard/product*') ? 'text-yellow-primary' : 'text-zinc-600') }} text-sm hover:text-yellow-primary">Produk</a></li>
                     <li class="mb-5"><a href="/dashboard/order" class="text-zinc-600 text-sm hover:text-yellow-primary">Pemesanan</a></li>
-                    <li class="mb-5"><a href="/dashboard/setting" class="text-zinc-600 text-sm hover:text-yellow-primary">Pengaturan</a></li>
+                    <li class="mb-5"><a href="/dashboard/setting" class="{{ (Request::is('dashboard/setting*') ? 'text-yellow-primary' : 'text-zinc-600') }} text-sm hover:text-yellow-primary">Pengaturan</a></li>
                 </ul>
             </div>
         </div>
@@ -110,6 +112,7 @@
     @stack('nav-admin')
     @stack('detail-card-product')
     @stack('trix-upload')
+    @livewireScripts
     <script src="https://kit.fontawesome.com/209072fbdb.js" crossorigin="anonymous"></script>
 </body>
 </html>

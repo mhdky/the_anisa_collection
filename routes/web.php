@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardProductController;
+use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,9 @@ Route::get('/dashboard/product/{product:id}/delete', function() {
 
 // product for collection
 Route::get('/collection/{category:slug}', [ProductController::class, 'productCategory']);
+
+// setting
+Route::get('/dashboard/setting', [DashboardSettingController::class, 'index'])->middleware('admin');
 
 Route::middleware([
     'auth:sanctum',
