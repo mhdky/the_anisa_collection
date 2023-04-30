@@ -39,3 +39,7 @@
         transform: translateY(0);
     }
 }
+
+trix-toolbar [data-trix-button-group="file-tools"] {
+    @apply hidden
+}

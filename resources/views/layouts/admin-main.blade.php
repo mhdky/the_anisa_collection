@@ -15,6 +15,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
+    {{-- trix editor --}}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -105,6 +109,7 @@
     @stack('unique')
     @stack('nav-admin')
     @stack('detail-card-product')
+    @stack('trix-upload')
     <script src="https://kit.fontawesome.com/209072fbdb.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -74,11 +74,11 @@ function deleteProduct(id) {
                 alertHapusProductAdm.style.display = 'none';
             });
         } else {
-            alert('Failed to delete post');
+            alert('Gagal menghapus produk');
         }
     })
     .catch(error => {
         console.error(error);
-        alert('Failed to delete post');
+        alert('Gagal menghapus produk');
     });
 }

@@ -100,8 +100,12 @@
                     @error('detail')
                         <p class="text-red-500 text-[14px] mt-1">{{ $message }}</p>
                     @enderror
-                    <textarea name="detail" id="detail" required minlength="1" maxlength="100000" class="border-zinc-300 text-zinc-600 text-[14px] h-20 mt-2 rounded-md focus:bg-zinc-50 focus:border-zinc-300 focus:ring-0">{{ old('detail') }}</textarea>
-                    
+                    {{-- <textarea name="detail" id="detail" required minlength="1" maxlength="100000" class="border-zinc-300 text-zinc-600 text-[14px] h-20 mt-2 rounded-md focus:bg-zinc-50 focus:border-zinc-300 focus:ring-0">{{ old('detail') }}</textarea> --}}
+                    <div class="mt-3">
+                        <input id="detail" type="hidden" name="detail" value="{{ old('detail') }}">
+                        <trix-editor input="detail"></trix-editor>
+                    </div>
+
                     {{-- image --}}
                     <label for="image" class="text-zinc-600 text-[14px] mt-5">Gambar Produk</label>
                     @error('image')
@@ -118,4 +122,8 @@
 
 @push('nav-admin')
     <script src="{{ asset('js/nav-admin.js') }}"></script>
+@endpush
+
+@push('trix-upload')
+    <script src="{{ asset('js/trix-upload.js') }}"></script>
 @endpush

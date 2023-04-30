@@ -66,7 +66,7 @@
                         {{-- button detail mobile --}}
                         <div class="buttonDetilMobile absolute right-2 bottom-2 text-zinc-600 text-[14px] md-800:cursor-pointer"><p>...Selengkapnya</p></div>
                         {{-- button hidden detail mobile --}}
-                        <div class="buttonDetilMobileHidden hidden absolute right-2 bottom-1 text-zinc-600 text-[14px] md-800:cursor-pointer md-800:right-3 md-800:bottom-2"><p>Tutup</p></div>
+                        <div class="buttonDetilMobileHidden hidden absolute z-[2] right-2 bottom-1 text-zinc-600 text-[14px] md-800:cursor-pointer md-800:right-3 md-800:bottom-2"><p>Tutup</p></div>
 
                         <div class="detailDescriptionCardMobile w-full mt-3 relative hidden">
                             {{-- merk --}}
@@ -97,7 +97,9 @@
 
                             {{-- deskripsi --}}
                             <p class="text-[14px] text-zinc-400 mt-4 md-768:mt-5">Deskripsi</p>
-                            <p class="text-[14px] text-zinc-600 text-justify leading-[18px] mt-1 mb-5 md-1000:w-[800px]">{{ $product->detail }}</p>
+                            <div class="md-1000:w-[800px] text-[14px] text-zinc-600 text-justify leading-[18px] list-disc">
+                                <p class="-mt-4 mb-5 list-disc">{!! $product->detail !!}</p>
+                            </div>
                         </div>
                     </div>
                 @endforeach

@@ -83,7 +83,7 @@
                 Deskripsi Produk
             </h1>
     
-            <p class="text-slate-secondary text-sm text-justify leading-7">{{ $product->detail }}</p>
+            <p class="text-slate-secondary text-sm text-justify leading-7">{!! $product->detail !!}</p>
         </div>
     </div>
 
