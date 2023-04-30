@@ -35,6 +35,9 @@ Route::post('/dashboard/product/add', [DashboardProductController::class, 'store
 // edit product
 Route::get('/dashboard/product/{product:url}/edit', [DashboardProductController::class, 'edit'])->middleware('admin');
 Route::put('/dashboard/product/{product:id}/update', [DashboardProductController::class, 'update'])->middleware('admin');
+Route::get('/dashboard/product/{product:id}/update', function() {
+    return abort('404');
+});
 // delete product
 Route::delete('/dashboard/product/{product:id}/delete', [DashboardProductController::class, 'destroy'])->middleware('admin');
 Route::get('/dashboard/product/{product:id}/delete', function() {
