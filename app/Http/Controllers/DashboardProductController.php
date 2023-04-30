@@ -49,8 +49,43 @@ class DashboardProductController extends Controller
         return redirect('/dashboard/product')->with('ok', 'Produk berhasil ditambahkan');
     }
 
+    // halaman edit product
+    public function edit(Product $product) {
+        return view('admin-dashboard.product.edit', [
+            'title' => 'Anisa Collection - Halaman Edit Produk',
+            'product' => $product,
+            'categories' => Category::all()
+        ]);
+    }
+    
+    // update product
+    public function update(Request $request, Product $product) {
+        $validateData = $request->validate([
+            'category_id' => 'required',
+            'name' => 'required|min:1|max:200',
+            'detail' => 'required|min:1|max:100000',
+            'price' => 'required|min:1|max:15',
+            'image' => 'image|file|max:1024',
+            'stock' => 'required|min:1|max:15',
+            'size' => 'required',
+            'merek' => 'max:30',
+            'bahan' => 'max:100',
+            'jenis_lengan' => 'max:100',
+        ]);
+
+        if($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            } 
+            $validateData['image'] = $request->file('image')->store('file');
+        }
+
+        Product::where('id', $product->id)->update($validateData);
+
+        return redirect('/dashboard/product');
+    }
+
     // delete product
-    // hapus post
     public function destroy(Product $product) {
         if ($product->image) {
             Storage::delete($product->image);

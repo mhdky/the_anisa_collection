@@ -32,6 +32,9 @@ Route::get('/dashboard/product', [DashboardProductController::class, 'index'])->
 // add product
 Route::get('/dashboard/product/add', [DashboardProductController::class, 'create'])->middleware('admin');
 Route::post('/dashboard/product/add', [DashboardProductController::class, 'store'])->middleware('admin');
+// edit product
+Route::get('/dashboard/product/{product:url}/edit', [DashboardProductController::class, 'edit'])->middleware('admin');
+Route::put('/dashboard/product/{product:id}/update', [DashboardProductController::class, 'update'])->middleware('admin');
 // delete product
 Route::delete('/dashboard/product/{product:id}/delete', [DashboardProductController::class, 'destroy'])->middleware('admin');
 Route::get('/dashboard/product/{product:id}/delete', function() {
