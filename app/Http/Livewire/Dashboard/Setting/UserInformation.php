@@ -29,7 +29,7 @@ class UserInformation extends Component
         $user->email = $this->email;
         $user->save();
 
-        session()->flash('ok', 'Berhasil tersimpan');
+        session()->flash('ok', 'Profil berhasil diubah');
     }
 
     public function render()

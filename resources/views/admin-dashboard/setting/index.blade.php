@@ -10,6 +10,15 @@
 
             @livewire('dashboard.setting.user-information')
         </div>
+
+        {{-- update password --}}
+        <div class="w-full mt-10 border border-zinc-200 rounded-md overflow-hidden">
+            <h1 class="bg-zinc-50 w-full h-12 flex items-center px-4 border-b border-zinc-200 text-zinc-600 text-[18px]">
+                Ganti Password
+            </h1>
+
+            @livewire('dashboard.setting.update-password')
+        </div>
     </div>
 @endsection
 

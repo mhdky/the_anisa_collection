@@ -11,25 +11,7 @@ class DashboardSettingController extends Controller
     public function index(Request $request) {
         $user = $request->user();
         return view('admin-dashboard.setting.index', [
-            'title' => 'Anisa Collection - Setting',
-            'user' => $user
+            'title' => 'Anisa Collection - Setting'
         ]);
-    }
-
-    // update profile information
-    public function update(Request $request) {
-        $user = Auth::user();
-
-        $request->validate([
-            'name' => 'required|string|max:30',
-            'email' => 'required|string|email|max:30|unique:users,email,'.$user->id,
-        ]);
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-
-        // $user->update();
-
-        return redirect('/dashboard/setting');
     }
 }
