@@ -143,7 +143,7 @@
                     <p class="text-yellow-primary text-lg font-bold">Lokasi</p>
                 </div>
                 {{-- detail --}}
-                <p class="mt-2">Jl. Sidodadi Dusun 3 Kec. Kampung Rakyat, Labuhan Batu Selatan</p>
+                <p class="mt-2">{{ $storeInformation->store_address }}</p>
 
                 {{-- icon telepon --}}
                 <div class="flex items-center mt-5">
@@ -151,7 +151,7 @@
                     <p class="text-yellow-primary text-lg font-bold">Telepon / Whatsapp</p>
                 </div>
                 {{-- detail --}}
-                <p class="mt-2">+6282246924258</p>
+                <p class="mt-2">{{ $storeInformation->phone_number }}</p>
             </div>
         </div>
     </div>

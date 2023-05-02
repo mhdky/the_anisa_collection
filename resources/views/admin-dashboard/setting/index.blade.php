@@ -19,6 +19,15 @@
 
             @livewire('dashboard.setting.update-password')
         </div>
+        
+        {{-- Informasi Toko --}}
+        <div class="w-full mt-10 border border-zinc-200 rounded-md overflow-hidden">
+            <h1 class="bg-zinc-50 w-full h-12 flex items-center px-4 border-b border-zinc-200 text-zinc-600 text-[18px]">
+                Informasi Toko
+            </h1>
+
+            @livewire('dashboard.setting.store-information-form')
+        </div>
     </div>
 @endsection
 

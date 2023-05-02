@@ -5,8 +5,7 @@ namespace App\Http\Livewire\Dashboard\Setting;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class UserInformation extends Component
-{
+class UserInformation extends Component {
     public $name;
     public $email;
 

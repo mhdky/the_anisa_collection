@@ -9,26 +9,26 @@
 
         {{-- temukan kami --}}
         <ul class="mb-5 md-768:mt-2">
-            <li class="text-white text-lg mb-2">Temukan Kami</li>
-            <li><a href="/" class="text-gray-primary hover:text-white">Instagram</a></li>
-            <li><a href="/" class="text-gray-primary hover:text-white">Facebook</a></li>
-            <li><a href="/" class="text-gray-primary hover:text-white">Whatsapp</a></li>
+            <li class="text-white text-lg mb-6">Temukan Kami</li>
+            <li class="mb-5"><a href="{{ ($storeInformation->instagram == NULL ? '#' : $storeInformation->instagram) }}" class="text-gray-primary hover:text-white">Instagram</a></li>
+            <li class="mb-5"><a href="{{ ($storeInformation->facebook == NULL ? '#' : $storeInformation->facebook) }}" class="text-gray-primary hover:text-white">Facebook</a></li>
+            <li class="mb-5" onclick="window.location='https:{{ '/'.'/' }}wa.me/{{ $storeInformation->phone_number }}/?text=Hallo, apakah produk masih tersedia?'"><div class="text-gray-primary hover:text-white md-800:cursor-pointer">Whatsapp</div></li>
         </ul>
 
         {{-- toko --}}
         <ul class="mb-5 md-768:mt-2">
-            <li class="text-white text-lg mb-2">Toko</li>
-            <li><a href="/about" class="text-gray-primary hover:text-white">Tentang</a></li>
-            <li><a href="/kontak" class="text-gray-primary hover:text-white">Kontak</a></li>
-            <li><a href="/testimonial" class="text-gray-primary hover:text-white">Tetimonial</a></li>
+            <li class="text-white text-lg mb-6">Toko</li>
+            <li class="mb-5"><a href="/about" class="text-gray-primary hover:text-white">Tentang</a></li>
+            <li class="mb-5"><a href="/kontak" class="text-gray-primary hover:text-white">Kontak</a></li>
+            <li class="mb-5"><a href="/testimonial" class="text-gray-primary hover:text-white">Tetimonial</a></li>
         </ul>
 
         {{-- kami selalu ada --}}
-        <ul class="mb-5 md-768:mt-2">
-            <li class="text-white text-lg mb-2">Kami Selalu Ada</li>
-            <li><a href="/" class="text-gray-primary hover:text-white">anisacollection@gmail.com</a></li>
-            <li class="text-gray-primary">Jam Kerja:</li>
-            <li class="text-gray-primary">(09.00 - 22.00 WIB)</li>
+        <ul class="mb-5 md-768:mt2">
+            <li class="text-white text-lg mb-6">Kami Selalu Ada</li>
+            <li class="mb-5"><a href="mailto:{{ $storeInformation->store_email }}" class="text-gray-primary hover:text-white">{{ $storeInformation->store_email }}</a></li>
+            <li class="text-gray-primary mb-5">Jam Kerja:</li>
+            <li class="text-gray-primary mb-5">({{ $storeInformation->open }} - {{ $storeInformation->close }} WIB)</li>
         </ul>
     </div>
 

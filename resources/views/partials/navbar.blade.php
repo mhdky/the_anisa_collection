@@ -142,7 +142,7 @@
 
     {{-- whatsapp custumer services --}}
     <div class="fixed flex bottom-5 left-5">
-        <div class="whatsapp bg-black-primary w-12 h-12 rounded-full flex justify-center items-center border border-green-600 shadow-md shadow-green-900 md-830:cursor-pointer" onclick="window.location='https:{{ '/'.'/' }}wa.me/082246924258/?text=Hallo, apakah produk masih tersedia?'">
+        <div class="whatsapp bg-black-primary w-12 h-12 rounded-full flex justify-center items-center border border-green-600 shadow-md shadow-green-900 md-830:cursor-pointer" onclick="window.location='https:{{ '/'.'/' }}wa.me/{{ $storeInformation->phone_number }}/?text=Hallo, apakah produk masih tersedia?'">
             <i class="fab fa-whatsapp text-green-600 text-2xl"></i>
         </div>
 

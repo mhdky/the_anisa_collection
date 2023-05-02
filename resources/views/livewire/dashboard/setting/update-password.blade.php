@@ -25,7 +25,7 @@
         <div class="flex justify-end"><button type="submit" class="bg-zinc-50 border border-zinc-200 w-24 h-[35px] mt-5 rounded-md text-zinc-600 text-[14px]">Simpan</button></div>
     </form>
 
-    @if (session()->has('okUpdatePassword'))
+    @if (session()->has('ok'))
 
         @include('partials.dashboard.alert-ok')
 

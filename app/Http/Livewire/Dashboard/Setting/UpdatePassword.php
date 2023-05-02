@@ -38,7 +38,7 @@ class UpdatePassword extends Component
             'password_confirmation' => '',
         ];
 
-        session()->flash('okUpdatePassword', 'Password berhasil diganti');
+        session()->flash('ok', 'Data berhasil tersimpan');
     }
 
     public function render()

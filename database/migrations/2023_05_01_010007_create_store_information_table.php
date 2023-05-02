@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('store_email');
             $table->string('instagram')->nullable();
             $table->string('facebook')->nullable();
-            $table->string('working_hours');
+            $table->string('open');
+            $table->string('close');
             $table->timestamps();
         });
     }
