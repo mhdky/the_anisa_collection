@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BagController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\HomeController;
@@ -47,6 +48,10 @@ Route::get('/dashboard/product/{product:id}/delete', function() {
 
 // product for collection
 Route::get('/collection/{category:slug}', [ProductController::class, 'productCategory']);
+
+//cart
+Route::get('/bag', [BagController::class, 'index'])->middleware('auth');
+
 
 // setting
 Route::get('/dashboard/setting', [DashboardSettingController::class, 'index'])->middleware('admin');

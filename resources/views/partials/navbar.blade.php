@@ -11,10 +11,10 @@
         {{-- bag atau sign in --}}
         @auth
             {{-- bag --}}
-            <div class="relative">
+            <a href="/bag" class="relative">
                 <img src="{{ asset('img/bag.png') }}" alt="Bag" class="w-[22px]">
                 <div class="bg-red-500 w-4 h-4 rounded-full absolute bottom-4 left-4 flex justify-center items-center text-white text-[0.6rem] font-bold">9+</div>
-            </div>
+            </a>
         @else
             {{-- sign in --}}
             <a href="/login" class="text-[0.9rem] font-medium">Login</a>
@@ -88,7 +88,7 @@
                 <div class="flex items-center">
                     {{-- bag --}}
                     <div class="relative">
-                        <a href="/"><img src="{{ asset('img/bag.png') }}" alt="Bag" class="w-5"></a>
+                        <a href="/bag"><img src="{{ asset('img/bag.png') }}" alt="Bag" class="w-5"></a>
                         {{-- jumlah isi bag --}}
                         <div class="bg-red-500 w-4 h-4 rounded-full absolute bottom-3 left-3 flex justify-center items-center text-white text-[0.7rem] font-bold">9+</div>
                     </div>
