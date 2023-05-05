@@ -5,6 +5,8 @@ use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Models\City;
+use App\Models\Province;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,8 +51,14 @@ Route::get('/dashboard/product/{product:id}/delete', function() {
 // product for collection
 Route::get('/collection/{category:slug}', [ProductController::class, 'productCategory']);
 
-//cart
+//bag
 Route::get('/bag', [BagController::class, 'index'])->middleware('auth');
+
+// shipping cost
+Route::get('/shipping_cost', function() {
+    $cities = City::where('province_id', 33)->get(); 
+    dd($cities);
+});
 
 
 // setting

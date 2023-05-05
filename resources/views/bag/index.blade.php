@@ -10,7 +10,7 @@
                 <div class="w-max flex border-b border-zinc-200">
                     <p class="w-72 px-3 py-2 text-zinc-800 font-bold">Product</p>
                     <p class="w-40 px-3 py-2 text-zinc-800 font-bold">Price</p>
-                    <p class="w-32 px-3 py-2 text-zinc-800 font-bold">Jumlah</p>
+                    <p class="w-32 px-3 py-2 text-zinc-800 font-bold">Quantity</p>
                     <p class="w-40 px-3 py-2 text-zinc-800 font-bold">Subtotal</p>
                 </div>
                 <div class="w-max flex border-b border-zinc-200">
@@ -58,9 +58,19 @@
                 <h2 class="text-black-primary font-bold">PRODUCT TOTAL</h2>
             </div>
 
-            <div class="w-full flex justify-between py-4 px-4">
-                <h3 class="text-black-primary text-[14px] font-medium">Total</h3>
+            <div class="w-full flex justify-between mt-5 pb-4 px-4">
+                <h3 class="text-black-primary text-[14px] font-medium">Subtotal</h3>
                 <h2 class="text-black-primary text-[14px] font-medium">Rp 1.000.000</h2>
+            </div>
+
+            <div class="w-full flex justify-between pb-4 px-4">
+                <h3 class="text-black-primary text-[14px] font-medium">Shipping Cost</h3>
+                <h2 class="text-black-primary text-[14px] font-medium">Rp 32.000</h2>
+            </div>
+
+            <div class="w-full flex justify-between pb-4 px-4">
+                <h3 class="text-black-primary text-[14px] font-medium">Total</h3>
+                <h2 class="text-black-primary text-[14px] font-medium">Rp 1.032.000</h2>
             </div>
 
             <form action="">
