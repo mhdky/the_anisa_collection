@@ -13,42 +13,28 @@
                     <p class="w-32 px-3 py-2 text-zinc-800 font-bold">Quantity</p>
                     <p class="w-40 px-3 py-2 text-zinc-800 font-bold">Subtotal</p>
                 </div>
-                <div class="w-max flex border-b border-zinc-200">
-                    <div class="w-72 px-3 py-2 flex items-center">
-                        {{-- edit product bag --}}
-                        <form action="" method="post" class="mr-3">
-                            @csrf
-                            <button type="submit" class="border border-black-primary w-5 h-5 rounded-full flex justify-center items-center">
-                                <i class="fas fa-times text-black-primary text-[13px]"></i>
-                            </button>
-                        </form>
-                        {{-- image --}}
-                        <img src="{{ asset('img/product-1.jpg') }}" alt="" class="w-20 h-20 mr-3 object-cover">
-                        {{-- product title --}}
-                        <h2 class="text-[14px] font-medium">{{ Str::title('Lorem ipsum dolor sit amet consectetur') }}</h2>
+                @foreach ($bag as $tas)
+                    <div class="w-max flex border-b border-zinc-200">
+                        <div class="w-72 px-3 py-2 flex items-center">
+                            {{-- delete product bag --}}
+                            <form action="" method="post" class="mr-3">
+                                @csrf
+                                <button type="submit" class="border border-black-primary w-5 h-5 rounded-full flex justify-center items-center">
+                                    <i class="fas fa-times text-black-primary text-[13px]"></i>
+                                </button>
+                            </form>
+                            {{-- image --}}
+                            <div class="bg-pink-400 w-20 h-20 mr-3">
+                                <img src="{{ asset('storage/' . $tas->product->image) }}" alt="" class="w-full h-full object-cover">
+                            </div>
+                            {{-- product title --}}
+                            <a href="{{ '/product/' . $tas->product->url }}" class="text-[14px] font-medium h-max flex-[2]">{{ Str::title($tas->product->name) }}</a>
+                        </div>
+                        <p class="w-40 flex items-center px-3 py-2 text-[14px]">Rp. {{ number_format($tas->product->price, '0', '', '.') }}</p>
+                        <p class="w-32 flex items-center px-3 py-2 text-[14px]">{{ number_format($tas->total_order, '0', '', '.') }}</p>
+                        <p class="w-40 flex items-center px-3 py-2 text-[14px]">Rp. {{ number_format($tas->total_price, '0', '', '.') }}</p>
                     </div>
-                    <p class="w-40 flex items-center px-3 py-2 text-[14px]">Rp. 200.500</p>
-                    <p class="w-32 flex items-center px-3 py-2 text-[14px]">2</p>
-                    <p class="w-40 flex items-center px-3 py-2 text-[14px]">Rp. 500.000</p>
-                </div>
-                <div class="w-max flex border-b border-zinc-200">
-                    <div class="w-72 px-3 py-2 flex items-center">
-                        {{-- edit product bag --}}
-                        <form action="" method="post" class="mr-3">
-                            @csrf
-                            <button type="submit" class="border border-black-primary w-5 h-5 rounded-full flex justify-center items-center">
-                                <i class="fas fa-times text-black-primary text-[13px]"></i>
-                            </button>
-                        </form>
-                        {{-- image --}}
-                        <img src="{{ asset('img/product-11.jpg') }}" alt="" class="w-20 h-20 mr-3 object-cover">
-                        {{-- product title --}}
-                        <h2 class="text-[14px] font-medium">{{ Str::title('Lorem ipsum dolor sit amet consectetur') }}</h2>
-                    </div>
-                    <p class="w-40 flex items-center px-3 py-2 text-[14px]">Rp. 200.500</p>
-                    <p class="w-32 flex items-center px-3 py-2 text-[14px]">2</p>
-                    <p class="w-40 flex items-center px-3 py-2 text-[14px]">Rp. 500.000</p>
-                </div>
+                @endforeach
             </div>
         </div>
 
@@ -59,18 +45,10 @@
             </div>
 
             <div class="w-full flex justify-between mt-5 pb-4 px-4">
-                <h3 class="text-black-primary text-[14px] font-medium">Subtotal</h3>
-                <h2 class="text-black-primary text-[14px] font-medium">Rp 1.000.000</h2>
-            </div>
-
-            <div class="w-full flex justify-between pb-4 px-4">
-                <h3 class="text-black-primary text-[14px] font-medium">Shipping Cost</h3>
-                <h2 class="text-black-primary text-[14px] font-medium">Rp 32.000</h2>
-            </div>
-
-            <div class="w-full flex justify-between pb-4 px-4">
                 <h3 class="text-black-primary text-[14px] font-medium">Total</h3>
-                <h2 class="text-black-primary text-[14px] font-medium">Rp 1.032.000</h2>
+                @if ($order)
+                    <h2 class="text-black-primary text-[14px] font-medium">Rp {{ number_format($order->total_price, '0', '', '.') }}</h2>
+                @endif
             </div>
 
             <form action="">

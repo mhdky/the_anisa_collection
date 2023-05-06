@@ -16,6 +16,10 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function order_detail() {
+        return $this->hasMany(OrderDetail::class);
+    }
+
     public function scopeSearching($query) {
         if(request('search')) {
             return $query->where('name', 'like', '%' . request('search') . '%');

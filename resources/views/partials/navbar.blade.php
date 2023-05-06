@@ -13,7 +13,11 @@
             {{-- bag --}}
             <a href="/bag" class="relative">
                 <img src="{{ asset('img/bag.png') }}" alt="Bag" class="w-[22px]">
-                <div class="bg-red-500 w-4 h-4 rounded-full absolute bottom-4 left-4 flex justify-center items-center text-white text-[0.6rem] font-bold">9+</div>
+                @if ($bag->count() > 0 && $bag->count() < 10)
+                    <div class="bg-red-500 w-4 h-4 rounded-full absolute bottom-4 left-4 flex justify-center items-center text-white text-[0.6rem] font-bold">{{ $bag->count() }}</div>
+                @elseif($bag->count() >= 10)
+                    <div class="bg-red-500 w-4 h-4 rounded-full absolute bottom-4 left-4 flex justify-center items-center text-white text-[0.6rem] font-bold">{{ '9+' }}</div>
+                @endif
             </a>
         @else
             {{-- sign in --}}
@@ -90,7 +94,11 @@
                     <div class="relative">
                         <a href="/bag"><img src="{{ asset('img/bag.png') }}" alt="Bag" class="w-5"></a>
                         {{-- jumlah isi bag --}}
-                        <div class="bg-red-500 w-4 h-4 rounded-full absolute bottom-3 left-3 flex justify-center items-center text-white text-[0.7rem] font-bold">9+</div>
+                        @if ($bag->count() > 0 && $bag->count() < 10)
+                            <div class="bg-red-500 w-4 h-4 rounded-full absolute bottom-3 left-3 flex justify-center items-center text-white text-[0.7rem] font-bold">{{ $bag->count() }}</div>
+                        @elseif($bag->count() >= 10)
+                            <div class="bg-red-500 w-4 h-4 rounded-full absolute bottom-3 left-3 flex justify-center items-center text-white text-[0.7rem] font-bold">{{ '9+' }}</div>
+                        @endif
                     </div>
 
                     {{-- nama pengguna --}}

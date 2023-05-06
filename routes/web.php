@@ -4,9 +4,9 @@ use App\Http\Controllers\BagController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Models\City;
-use App\Models\Province;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +50,12 @@ Route::get('/dashboard/product/{product:id}/delete', function() {
 
 // product for collection
 Route::get('/collection/{category:slug}', [ProductController::class, 'productCategory']);
+
+// orders
+Route::post('/order/{product:id}', [OrderController::class, 'order'])->middleware('auth');
+Route::get('/order/{product:id}', function() {
+    return abort('404');
+});
 
 //bag
 Route::get('/bag', [BagController::class, 'index'])->middleware('auth');

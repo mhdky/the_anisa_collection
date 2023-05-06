@@ -32,14 +32,21 @@
                     
                     <form action="/order/{{ $product->id }}" method="post">
                         @csrf
-                    <tr>
-                        <td class="w-24 text-sm text-[#929292] font-bold py-1">Jumlah Order</td>
-                        <td class="text-sm text-[#929292] font-bold py-1 w-14 text-center">:</td>
-                        <td class="text-sm text-slate-secondary font-bold py-1 "><input type="number" name="jumlah_order" min="1" max="{{ $product->stock }}" required class="bg-transparent w-full h-7 rounded-[5px]"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="pt-3"><button type="submit" class="bg-yellow-primary w-full py-2 rounded-[5px] text-white font-bold hover:bg-yellow-hover">Shop now</button></td>
-                    </tr>
+                        <tr>
+                            <td class="w-24 text-sm text-[#929292] font-bold py-1">Jumlah Order</td>
+                            <td class="text-sm text-[#929292] font-bold py-1 w-14 text-center">:</td>
+                            <td class="text-sm text-slate-secondary font-bold py-1 "><input type="number" name="total_order" min="1" max="{{ $product->stock }}" required class="bg-transparent w-full h-7 rounded-[5px]"></td>
+                        </tr>
+                        @if (session()->has('gagal'))
+                            <tr>
+                                <td class="w-24 text-sm text-[#929292] font-bold py-1"></td>
+                                <td class="text-sm text-[#929292] font-bold py-1 w-14 text-center"></td>
+                                <td class="text-sm text-red-500 font-bold py-1">{{ session('gagal') }}</td>
+                            </tr>
+                        @endif
+                        <tr>
+                            <td colspan="3" class="pt-3"><button type="submit" class="bg-yellow-primary w-full py-2 rounded-[5px] text-white font-bold hover:bg-yellow-hover">Shop now</button></td>
+                        </tr>
                     </form>
                 </table>
             </div>
