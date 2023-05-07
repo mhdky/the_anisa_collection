@@ -3,94 +3,85 @@
 @section('container')
     @include('partials.navbar')
 
-    <div class="w-full flex flex-col mt-16 md-768:bg-gray-secondary md-768:flex-row md-768:mt-5 md-768:w-[96%] md-768:mx-auto md-768:rounded-[10px] md-768:overflow-hidden lg-1100:w-[1065px]">
-        {{-- image --}}
-        <div class="bg-zinc-50 w-full mx-auto p-5 md-768:w-1/2 md-768:h-max">
-            <img src="{{ asset('storage/' . $product->image) }}" alt="Product" class="w-full">
-        </div>
+    <div class="w-full lg-1100:w-[1100px] lg-1100:mx-auto">
+        <div class="w-full mt-[65px] p-4 flex flex-col sm-740:flex-row md-768:mt-0">
+            {{-- image product --}}
+            <div class="w-full sm-740:w-1/2 sm-740:h-max sm-740:pr-5">
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full">
+            </div>
     
-        <div class="bg-zinc-50 w-full mt-3 mx-auto py-5 flex flex-col md-768:w-1/2 md-768:mt-0">
-            {{-- product price --}}                
-            <p class="bg-yellow-secondary w-max text-sm text-yellow-primary font-bold mb-2 pl-5 pr-2 py-2 border border-yellow-primary rounded-r-[5px] md-768:order-2 md-768:mt-3 md-768:ml-5 md-768:pl-2 md-768:rounded-l-[5px]">Rp. {{ number_format($product->price, 0, '', '.') }}</p>
+            <div class="w-full mt-7 sm-740:w-1/2 sm-740:h-max">
+                {{-- product name --}}
+                <h1 class="text-xl font-bold">{{ Str::title($product->name) }}</h1>
+    
+                {{-- product price --}}
+                <h3 class="text-yellow-primary text-lg font-medium mt-2 pb-2">Rp. {{ number_format($product->price, '0', '', '.') }}</h3>
             
-            {{-- product name --}}
-            <h1 class="text-slate-secondary text-lg font-bold mx-5 md-768:order-1 md-768:text-2xl">{{ Str::title($product->name) }}</h1>
+                {{-- product size --}}
+                <div class="flex mt-7">
+                    <p class="font-medium w-32">Fit Size</p>
+                    <p class="text-zinc-500 font-medium">{{ $product->size }}</p>
+                </div>
     
-            {{-- detail --}}
-            <div class="w-full px-5 mt-3 md-768:order-3">
-                <table class="w-full">
-                    <tr>
-                        <td class="w-24 text-sm text-[#929292] font-bold py-1">Stock</td>
-                        <td class="text-sm text-[#929292] font-bold py-1 w-14 text-center">:</td>
-                        <td class="text-sm text-slate-secondary font-bold py-1">{{ $product->stock }}</td>
-                    </tr>
-                    <tr>
-                        <td class="w-24 text-sm text-[#929292] font-bold py-1">Ukuran</td>
-                        <td class="text-sm text-[#929292] font-bold py-1 w-14 text-center">:</td>
-                        <td class="text-sm text-slate-secondary font-bold py-1">{{ $product->size }}</td>
-                    </tr>
-                    
-                    <form action="/order/{{ $product->id }}" method="post">
-                        @csrf
-                        <tr>
-                            <td class="w-24 text-sm text-[#929292] font-bold py-1">Jumlah Order</td>
-                            <td class="text-sm text-[#929292] font-bold py-1 w-14 text-center">:</td>
-                            <td class="text-sm text-slate-secondary font-bold py-1 "><input type="number" name="total_order" min="1" max="{{ $product->stock }}" required class="bg-transparent w-full h-7 rounded-[5px]"></td>
-                        </tr>
-                        @if (session()->has('gagal'))
-                            <tr>
-                                <td class="w-24 text-sm text-[#929292] font-bold py-1"></td>
-                                <td class="text-sm text-[#929292] font-bold py-1 w-14 text-center"></td>
-                                <td class="text-sm text-red-500 font-bold py-1">{{ session('gagal') }}</td>
-                            </tr>
-                        @endif
-                        <tr>
-                            <td colspan="3" class="pt-3"><button type="submit" class="bg-yellow-primary w-full py-2 rounded-[5px] text-white font-bold hover:bg-yellow-hover">Shop now</button></td>
-                        </tr>
-                    </form>
-                </table>
+                {{-- product stock --}}
+                <div class="flex mt-5">
+                    <p class="font-medium w-32">Stock</p>
+                    <p class="text-zinc-500 font-medium">{{ $product->stock }}</p>
+                </div>
+    
+                <form action="/order/{{ $product->id }}" method="post" class="mt-5 sm-740:flex sm-740:flex-col">
+                    @csrf
+                    {{-- total order --}}
+                    <div class="w-full flex items-center">
+                        <p class="font-medium w-32">Quantity</p>
+                        <div class="flex items-center">
+                            <input type="hidden" value="{{ $product->stock }}" class="thisStock">
+                            <div class="btnMinus w-6 h-6 flex justify-center items-center rounded-md hover:bg-zinc-100 md-800:cursor-pointer"><i class="fas fa-minus text-zinc-500 text-[13px]"></i></div>
+                            <input type="number" name="total_order" value="1" min="1" max="{{ $product->stock }}" class="InputQuantity w-14 py-0 px-2 border-0 text-zinc-500 text-center focus:border-0 focus:ring-0">
+                            <div class="btnPlus w-6 h-6 flex justify-center items-center rounded-md hover:bg-zinc-100 md-800:cursor-pointer"><i class="fas fa-plus text-zinc-500 text-[13px]"></i></div>
+                        </div>
+                    </div>
+    
+                    {{-- error --}}
+                    @if (session()->has('gagal'))
+                        <div class="flex">
+                            <span class="w-32"></span>
+                            <p class="text-red-500 text-sm mt-2">{{ session('gagal') }}</p>
+                        </div>
+                    @endif
+    
+                    <button type="submit" class="bg-black-primary w-full mt-7 py-3 text-white font-medium rounded-md">Add To Shopping Bag</button>
+                </form>
             </div>
         </div>
-    </div>
-    
-    <div class="w-full flex md-768:justify-center md-800:w-full md-800:justify-start md-800:pl-4 md-850:pl-5 lg-1100:w-[1100px] lg-1100:mx-auto lg-1100:pl-[18px]">
-        <div class="bg-zinc-50 w-full mt-3 p-5 md-768:w-[96%] md-768:rounded-[10px] md-800:w-[768px]">
-            {{-- name section spesifikasi product --}}
-            <h1 class="bg-zinc-100 w-full mb-3 p-2 text-slate-secondary font-bold">
-                Spesifikasi Produk
-            </h1>
-    
-            <table class="w-full">
-                @if ($product->merek !== NULL)
-                    <tr>
-                        <td class="w-[132px] text-sm text-[#929292] font-bold py-1">Merek</td>
-                        <td class="text-sm text-slate-secondary font-bold py-1">{{ Str::title($product->merek) }}</td>
-                    </tr>
-                @endif
-                @if ($product->bahan !== NULL)
-                    <tr>
-                        <td class="w-[132px] text-sm text-[#929292] font-bold py-1">Bahan</td>
-                        <td class="text-sm text-slate-secondary font-bold py-1">{{ Str::title($product->bahan) }}</td>
-                    </tr>
-                @endif
-                @if ($product->jenis_lengan !== NULL)
-                    <tr>
-                        <td class="w-[132px] text-sm text-[#929292] font-bold py-1">Jenis Lengan</td>
-                        <td class="text-sm text-slate-secondary font-bold py-1">{{ Str::title($product->jenis_lengan) }}</td>
-                    </tr>
-                @endif
-                <tr>
-                    <td class="w-[132px] text-sm text-[#929292] font-bold py-1">Ukuran</td>
-                    <td class="text-sm text-slate-secondary font-bold py-1">{{ $product->size }}</td>
-                </tr>
-            </table>
-    
-            {{-- name section Deskripsi product --}}
-            <h1 class="bg-zinc-100 w-full mt-5 mb-3 p-2 text-slate-secondary font-bold">
-                Deskripsi Produk
-            </h1>
-    
-            <p class="text-slate-secondary text-sm text-justify leading-7">{!! $product->detail !!}</p>
+
+        {{-- spesifikasi product --}}
+        <div class="w-full mt-10 px-4">
+            <h1 class="text-lg font-bold pb-3 border-b border-zinc-300">PRODUCT SPECIFICATIONS</h1>
+
+            {{-- product merk --}}
+            <div class="flex mt-7">
+                <p class="font-medium w-32 h-max">Merk</p>
+                <p class="text-zinc-500 font-medium h-max flex-[2]">{{ Str::title($product->merek) }}</p>
+            </div>
+
+            {{-- bahan --}}
+            <div class="flex mt-7">
+                <p class="font-medium w-32 h-max">Material</p>
+                <p class="text-zinc-500 font-medium h-max flex-[2]">{{ Str::title($product->bahan) }}</p>
+            </div>
+
+            {{-- Jenis lengan --}}
+            <div class="flex mt-7">
+                <p class="font-medium w-32 h-max">Jenis Lengan</p>
+                <p class="text-zinc-500 font-medium h-max flex-[2]">{{ Str::title($product->jenis_lengan) }}</p>
+            </div>
+
+            <div class="mt-7">
+                <p class="font-medium">Description</p>
+                <p class="text-zinc-500 mt-2 md-768:w-[700px]">{!! $product->detail . 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus saepe maiores voluptatibus velit enim esse reiciendis soluta maxime, inventore obcaecati!  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus saepe maiores voluptatibus velit enim esse reiciendis soluta maxime, inventore obcaecati! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus saepe maiores voluptatibus velit enim esse reiciendis soluta maxime, inventore obcaecati! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus saepe maiores voluptatibus velit enim esse reiciendis soluta maxime, inventore obcaecati! ' !!}</p>
+                
+            </div>
         </div>
     </div>
 
@@ -100,5 +91,11 @@
 @push('script')
     <script src="{{ asset('js/script.js') }}"></script>
 @endpush
+@push('quantity-counter')
+    <script src="{{ asset('js/quantity-counter.js') }}"></script>
+    @endpush
+@push('script-alert-ok')
+    <script src="{{ asset('js/script-alert-ok.js') }}"></script>
+@endpush
 
-{{-- @include('partials.alert-ok-to-cart') --}}
+@include('partials.alert-ok-to-cart')

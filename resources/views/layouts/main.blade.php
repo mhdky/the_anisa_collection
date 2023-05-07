@@ -26,6 +26,8 @@
 
     @stack('script')
     @stack('drop-down-js')
+    @stack('quantity-counter')
+    @stack('script-alert-ok')
     @stack('livewire-script')
     @stack('unique')
     <script src="https://kit.fontawesome.com/209072fbdb.js" crossorigin="anonymous"></script>

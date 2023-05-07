@@ -29,7 +29,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 // product
 Route::get('/product', [ProductController::class, 'show']);
-Route::get('product/{product:url}', [ProductController::class, 'detailProduct']);
+Route::get('/product/{product:url}', [ProductController::class, 'detailProduct']);
 
 // dashboad product
 Route::get('/dashboard/product', [DashboardProductController::class, 'index'])->middleware('admin');
