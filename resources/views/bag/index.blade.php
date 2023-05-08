@@ -51,10 +51,7 @@
                 @endif
             </div>
 
-            <form action="">
-                @csrf
-                <button type="submit" class="bg-black-primary w-full py-3 rounded-md text-white text-[14px]">Process</button>
-            </form>
+            <button class="bg-black-primary w-full py-3 rounded-md text-white text-[14px]" onclick="window.location='/checkout'">Proses</button>
         </div>
     </div>
 

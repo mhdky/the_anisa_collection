@@ -34,18 +34,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password')
         ]);
 
-        
-        // $table->foreignId('category_id');
-        // $table->string('name');
-        // $table->string('url');
-        // $table->text('detail');
-        // $table->integer('price');
-        // $table->string('image');
-        // $table->integer('stock');
-        // $table->string('size');
-        // $table->string('merek')->nullable();
-        // $table->string('bahan')->nullable();
-        // $table->string('jenis_lengan')->nullable();
 
         Product::create([
             'category_id' => 1,

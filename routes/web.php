@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BagController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\HomeController;
@@ -59,6 +60,9 @@ Route::get('/order/{product:id}', function() {
 
 //bag
 Route::get('/bag', [BagController::class, 'index'])->middleware('auth');
+
+// checkout
+Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth');
 
 // shipping cost
 Route::get('/shipping_cost', function() {
