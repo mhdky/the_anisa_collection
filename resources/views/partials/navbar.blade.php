@@ -45,14 +45,15 @@
                 {{-- nama pengguna mobile --}}
                 <h1 class="text-yellow-primary text-xl font-bold mt-3">{{ Str::limit(Str::title(Auth::user()->name), 25) }}</h1>
                 {{-- my profile mobile --}}
-                <a href="/profile" class="text-gray-500 font-bold mt-3 pb-3 block">My Profile</a>
+                <a href="/profile" class="text-gray-500 font-bold mt-3 block">My Profile</a>
+                <a href="/order" class="text-gray-500 font-bold mt-3 pb-3 block">My Order</a>
                 @can('admin')
                     <a href="/dashboard/product" class="text-gray-500 font-bold mt-3 mb-5 block">Admin Dashboard</a>
                 @endcan
                 {{-- sign out mobile --}}
                 <form method="POST" action="{{ route('logout') }}" class="border-t border-gray-300">
                     @csrf
-                    <button type="submit" class="text-red-500 font-semibold mt-3">Sign out</button>
+                    <button type="submit" class="text-red-500 font-semibold mt-3">Logout</button>
                 </form>
             </div>
         @endauth
@@ -115,6 +116,11 @@
                                     <i class="fas fa-user text-white text-[0.9rem] mr-2"></i>
                                     <p class="text-white text-[0.8rem]">My profile</p>
                                 </a>
+                                {{-- order --}}
+                                <a href="/order" class="myprofile w-full h-10 px-2 flex items-center {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
+                                    <img src="{{ asset('img/bag_order.png') }}" alt="Bag" class="w-5 -ml-1 mr-[6px]">
+                                    <p class="text-white text-[0.8rem]">My order</p>
+                                </a>
                                 {{-- admin dashboard --}}
                                 @can('admin')
                                     <a href="/dashboard/product" class="w-full h-10 px-2 flex items-center {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
@@ -127,7 +133,7 @@
                                     @csrf
                                     <button type="submit" class="w-full h-full rounded-b-md flex items-center px-2">
                                         <i class="fas fa-sign-out-alt text-white text-[0.9rem] mr-2"></i>
-                                        <p class="text-white text-[0.8rem]">Sign out</p>
+                                        <p class="text-white text-[0.8rem]">Logout</p>
                                     </button>
                                 </form>
                             </div>

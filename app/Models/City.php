@@ -12,4 +12,8 @@ class City extends Model
     public function province() {
         return $this->belongsTo(Province::class);
     }
+
+    public function shippings() {
+        return $this->hasMany(Shipping::class);
+    }
 }

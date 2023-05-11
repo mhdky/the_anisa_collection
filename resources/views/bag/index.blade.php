@@ -13,12 +13,16 @@
                     <p class="w-32 px-3 py-2 text-zinc-800 font-bold">Quantity</p>
                     <p class="w-40 px-3 py-2 text-zinc-800 font-bold">Subtotal</p>
                 </div>
+                @if ($bag->count() < 1)
+                    <p class="w-full text-center pt-20 pb-10 font-medium">Product Nothing Yet</p>
+                @endif
                 @foreach ($bag as $tas)
                     <div class="w-max flex border-b border-zinc-200">
                         <div class="w-72 px-3 py-2 flex items-center">
                             {{-- delete product bag --}}
-                            <form action="" method="post" class="mr-3">
+                            <form action="/bag/{{ $tas->id }}/delete" method="post" class="mr-3">
                                 @csrf
+                                @method('delete')
                                 <button type="submit" class="border border-black-primary w-5 h-5 rounded-full flex justify-center items-center">
                                     <i class="fas fa-times text-black-primary text-[13px]"></i>
                                 </button>
@@ -51,7 +55,11 @@
                 @endif
             </div>
 
-            <button class="bg-black-primary w-full py-3 rounded-md text-white text-[14px]" onclick="window.location='/checkout'">Proses</button>
+            @if (empty($order->url) || $bag->count() < 1)
+                <button class="bg-black-primary w-full py-3 rounded-md text-white text-[14px]">Checkout</button>
+            @else
+                <button class="bg-black-primary w-full py-3 rounded-md text-white text-[14px]" onclick="window.location='/checkout/{{ $order->url }}'">Checkout</button>
+            @endif
         </div>
     </div>
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BagController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\DashboardOrderController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\HomeController;
@@ -52,17 +53,30 @@ Route::get('/dashboard/product/{product:id}/delete', function() {
 // product for collection
 Route::get('/collection/{category:slug}', [ProductController::class, 'productCategory']);
 
+// dashboard order
+Route::get('/dashboard/order', [DashboardOrderController::class, 'index'])->middleware('admin');
+
 // orders
 Route::post('/order/{product:id}', [OrderController::class, 'order'])->middleware('auth');
 Route::get('/order/{product:id}', function() {
     return abort('404');
 });
+// all order
+Route::get('/order', [OrderController::class, 'index'])->middleware('auth');
+// pay order
+Route::get('/pay/{url_pembayaran}', [OrderController::class, 'pay'])->middleware('auth');
+Route::patch('/pay/{order:id}', [OrderController::class, 'payStore'])->middleware('auth');
+Route::patch('/paysecond/{order:id}', [OrderController::class, 'payStoreSecond'])->middleware('auth');
 
 //bag
 Route::get('/bag', [BagController::class, 'index'])->middleware('auth');
+// delete product in bag
+Route::delete('/bag/{order_detail:id}/delete', [BagController::class, 'destroy'])->middleware('auth');
 
 // checkout
-Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth');
+Route::get('/checkout/{order:url}', [CheckoutController::class, 'index'])->middleware('auth');
+// checkout data detail
+Route::post('/checkout/{order:id}', [CheckoutController::class, 'store'])->middleware('auth');
 
 // shipping cost
 Route::get('/shipping_cost', function() {

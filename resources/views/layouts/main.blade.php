@@ -29,6 +29,8 @@
     @stack('quantity-counter')
     @stack('script-alert-ok')
     @stack('livewire-script')
+    @stack('form-pay')
+    @stack('preview-image')
     @stack('unique')
     <script src="https://kit.fontawesome.com/209072fbdb.js" crossorigin="anonymous"></script>
 </body>

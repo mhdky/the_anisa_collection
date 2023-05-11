@@ -21,7 +21,7 @@ class ProductController extends Controller
 
         return view('product.index', [
             'title' => 'Anisa Collection - All Product',
-            'products' => Product::latest()->searching()->paginate(12)->withQueryString(),
+            'products' => Product::where('stock', '>' , 0)->latest()->searching()->paginate(12)->withQueryString(),
             'storeInformation' => StoreInformation::first(),
             'bag' => $bag
         ]);
@@ -37,7 +37,7 @@ class ProductController extends Controller
 
         return view('product.index', [
             'title' => 'Anisa Collection - ' . $category->name,
-            'products' => $category->product()->latest()->paginate(12)->withQueryString(),
+            'products' => $category->product()->where('stock', '>' , 0)->latest()->paginate(12)->withQueryString(),
             'storeInformation' => StoreInformation::first(),
             'bag' => $bag
         ]);

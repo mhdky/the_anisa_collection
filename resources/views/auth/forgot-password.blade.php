@@ -2,7 +2,7 @@
     <x-authentication-card>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Lupa kata sandi Anda? Tidak masalah. Beri tahu kami alamat email Anda dan kami akan mengirimi Anda link untuk setel ulang kata sandi melalui email yang telah didaftarkan.') }}
+            {{ __('Lupa password? Tidak masalah. Beri tahu kami alamat email Anda dan kami akan mengirimi Anda link untuk setel ulang kata sandi melalui email yang telah didaftarkan.') }}
         </div>
 
         @if (session('status'))

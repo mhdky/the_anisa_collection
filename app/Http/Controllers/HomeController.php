@@ -20,7 +20,7 @@ class HomeController extends Controller
 
         return view('home', [
             'title' => 'Anisa Collection - Live for fashion',
-            'products' => Product::latest()->take(4)->get(),
+            'products' => Product::where('stock', '>' , 0)->latest()->take(4)->get(),
             'storeInformation' => StoreInformation::first(),
             'bag' => $bag
         ]);
