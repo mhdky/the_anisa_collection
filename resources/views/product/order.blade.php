@@ -44,7 +44,7 @@
                         <p class="bg-green-500 w-max py-1 px-2 text-white rounded-md md-768:text-[14px]">Sudah Dibayar</p>
                     @endif
 
-                    @if ($order->nomor_resi === null)
+                    @if ($order->nomor_resi === null && $order->status_pembayaran !== 0)
                         <div class="flex items-center mt-4">
                             <i class="fas fa-spinner mr-2"></i>
                             <p class="text-[14px] font-medium">Menunggu Nomor Resi</p>

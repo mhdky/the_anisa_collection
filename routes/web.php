@@ -55,6 +55,8 @@ Route::get('/collection/{category:slug}', [ProductController::class, 'productCat
 
 // dashboard order
 Route::get('/dashboard/order', [DashboardOrderController::class, 'index'])->middleware('admin');
+// nomor resi
+Route::patch('/dashboard/order/{order:id}', [DashboardOrderController::class, 'store'])->middleware('admin');
 
 // orders
 Route::post('/order/{product:id}', [OrderController::class, 'order'])->middleware('auth');

@@ -113,6 +113,8 @@
     @stack('detail-card-product')
     @stack('trix-upload')
     @stack('preview-image')
+    @stack('detail-order')
+    @stack('script-alert-ok')
     @livewireScripts
     <script src="https://kit.fontawesome.com/209072fbdb.js" crossorigin="anonymous"></script>
 </body>
