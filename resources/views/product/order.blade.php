@@ -50,7 +50,19 @@
                             <p class="text-[14px] font-medium">Menunggu Nomor Resi</p>
                         </div>
                     @else
-                        
+                        <div class="w-max mt-6">
+                            <p class="font-medium text-[14px] mb-2">Nomor Resi</p>
+                            <div class="w-full flex justify-between">
+                                <p class="nomorResi bg-zinc-200 w-max mr-1 py-1 px-2 border border-zinc-300 rounded-md flax-[2] text-[14px]">{{ $order->nomor_resi }}</p>
+                                <div class="copyResi w-8 h-8 flex justify-center items-center bg-zinc-200 border border-zinc-300 rounded-md md-800:cursor-pointer">
+                                    <i class="fa-solid fa-clone text-zinc-600 text-[13px]"></i>
+                                </div>
+                                {{-- notif copyResi --}}
+                                <div class="alertResi w-8 h-8 hidden justify-center items-center">
+                                    <img src="{{ asset('img/checklist.png') }}" alt="checklist" class="w-4">
+                                </div>
+                            </div>
+                        </div>
                     @endif
 
                     {{-- subtotal --}}
@@ -116,4 +128,7 @@
 
 @push('script')
     <script src="{{ asset('js/script.js') }}"></script>
+@endpush
+@push('script')
+    <script src="{{ asset('js/copy.js') }}"></script>
 @endpush
