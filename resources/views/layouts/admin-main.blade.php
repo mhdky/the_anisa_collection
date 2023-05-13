@@ -46,7 +46,13 @@
             <p class="text-zinc-600 text-sm font-medium">Produk</p>
         </a>
 
-        <a href="/dashboard/order" class="{{ (Request::is('dashboard/order') ? 'bg-zinc-200' : '') }} h-full flex flex-col justify-center items-center px-4">
+        <a href="/dashboard/order" class="{{ (Request::is('dashboard/order') ? 'bg-zinc-200' : '') }} h-full flex flex-col justify-center items-center px-4 relative">
+            @foreach ($orders as $order)
+                @if ($order->nomor_resi === null)
+                    <div class="bg-red-500 w-3 h-3 rounded-full absolute right-7 top-1"></div>
+                @endif
+            @endforeach
+            
             <img src="{{ asset('img/bag-ds.png') }}" alt="Pemesanan" class="w-[20px] mb-1">
             <p class="text-zinc-600 text-sm font-medium">Pemesanan</p>
         </a>
@@ -99,7 +105,17 @@
                 <ul class="mx-8 my-10 inline-block">
                     <li class="mb-5"><a href="/" class="text-zinc-600 text-sm hover:text-yellow-primary">Home</a></li>
                     <li class="mb-5"><a href="/dashboard/product" class="{{ (Request::is('dashboard/product*') ? 'text-yellow-primary' : 'text-zinc-600') }} text-sm hover:text-yellow-primary">Produk</a></li>
-                    <li class="mb-5"><a href="/dashboard/order" class="{{ (Request::is('dashboard/order*') ? 'text-yellow-primary' : 'text-zinc-600') }} text-sm hover:text-yellow-primary">Pemesanan</a></li>
+                    <li class="mb-5 relative">
+                        <a href="/dashboard/order" class="{{ (Request::is('dashboard/order*') ? 'text-yellow-primary' : 'text-zinc-600') }} text-sm hover:text-yellow-primary">
+                            Pemesanan
+                        </a>
+
+                        @foreach ($orders as $order)
+                            @if ($order->nomor_resi === null)
+                                <div class="bg-red-500 w-2 h-2 rounded-full absolute -left-2 top-1"></div>
+                            @endif
+                        @endforeach
+                    </li>
                     <li class="mb-5"><a href="/dashboard/setting" class="{{ (Request::is('dashboard/setting*') ? 'text-yellow-primary' : 'text-zinc-600') }} text-sm hover:text-yellow-primary">Pengaturan</a></li>
                 </ul>
             </div>

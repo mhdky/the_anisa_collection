@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\BagController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardOrderController;
@@ -29,6 +30,9 @@ use Illuminate\Support\Facades\Route;
 // home
 Route::get('/', [HomeController::class, 'index']);
 
+// my account
+Route::get('/account', [AccountController::class, 'index'])->middleware('auth');
+
 // product
 Route::get('/product', [ProductController::class, 'show']);
 Route::get('/product/{product:url}', [ProductController::class, 'detailProduct']);
@@ -57,6 +61,9 @@ Route::get('/collection/{category:slug}', [ProductController::class, 'productCat
 Route::get('/dashboard/order', [DashboardOrderController::class, 'index'])->middleware('admin');
 // nomor resi
 Route::patch('/dashboard/order/{order:id}', [DashboardOrderController::class, 'store'])->middleware('admin');
+Route::get('/dashboard/order/{order:id}', function() {
+    return abort('404');
+});
 
 // orders
 Route::post('/order/{product:id}', [OrderController::class, 'order'])->middleware('auth');
@@ -69,23 +76,22 @@ Route::get('/order', [OrderController::class, 'index'])->middleware('auth');
 Route::get('/pay/{url_pembayaran}', [OrderController::class, 'pay'])->middleware('auth');
 Route::patch('/pay/{order:id}', [OrderController::class, 'payStore'])->middleware('auth');
 Route::patch('/paysecond/{order:id}', [OrderController::class, 'payStoreSecond'])->middleware('auth');
+Route::get('/paysecond/{order:id}', function() {
+    return abort('404');
+});
 
 //bag
 Route::get('/bag', [BagController::class, 'index'])->middleware('auth');
 // delete product in bag
 Route::delete('/bag/{order_detail:id}/delete', [BagController::class, 'destroy'])->middleware('auth');
+Route::get('/bag/{order_detail:id}/delete', function() {
+    return abort('404');
+});
 
 // checkout
 Route::get('/checkout/{order:url}', [CheckoutController::class, 'index'])->middleware('auth');
 // checkout data detail
 Route::post('/checkout/{order:id}', [CheckoutController::class, 'store'])->middleware('auth');
-
-// shipping cost
-Route::get('/shipping_cost', function() {
-    $cities = City::where('province_id', 33)->get(); 
-    dd($cities);
-});
-
 
 // setting
 Route::get('/dashboard/setting', [DashboardSettingController::class, 'index'])->middleware('admin');

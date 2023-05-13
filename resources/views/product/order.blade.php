@@ -44,18 +44,22 @@
                         <p class="bg-green-500 w-max py-1 px-2 text-white rounded-md md-768:text-[14px]">Sudah Dibayar</p>
                     @endif
 
+                    {{-- menunggu order --}}
                     @if ($order->nomor_resi === null && $order->status_pembayaran !== 0)
                         <div class="flex items-center mt-4">
                             <i class="fas fa-spinner mr-2"></i>
                             <p class="text-[14px] font-medium">Menunggu Nomor Resi</p>
-                        </div>
-                    @else
+                        </div>           
+                    @endif
+
+                    {{-- nomor resi --}}
+                    @if ($order->nomor_resi !== null)
                         <div class="w-max mt-6">
                             <p class="font-medium text-[14px] mb-2">Nomor Resi</p>
                             <div class="w-full flex justify-between">
-                                <p class="nomorResi bg-zinc-200 w-max mr-1 py-1 px-2 border border-zinc-300 rounded-md flax-[2] text-[14px]">{{ $order->nomor_resi }}</p>
-                                <div class="copyResi w-8 h-8 flex justify-center items-center bg-zinc-200 border border-zinc-300 rounded-md md-800:cursor-pointer">
-                                    <i class="fa-solid fa-clone text-zinc-600 text-[13px]"></i>
+                                <p class="nomorResi bg-zinc-200 w-max py-1 px-2 border border-zinc-300 rounded-tl-md rounded-bl-md flax-[2] text-[14px]">{{ $order->nomor_resi }}</p>
+                                <div class="copyResi w-8 h-8 flex justify-center items-center bg-zinc-200 border border-zinc-300 rounded-tr-md rounded-br-md md-800:cursor-pointer">
+                                    <i class="fa-solid fa-clone text-zinc-600 text-[12px]"></i>
                                 </div>
                                 {{-- notif copyResi --}}
                                 <div class="alertResi w-8 h-8 hidden justify-center items-center">

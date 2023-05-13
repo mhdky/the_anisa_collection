@@ -14,7 +14,36 @@
         @if ($pembayaran->status_pembayaran !== 1)
             <p class="mt-7 mb-5 text-lg font-medium">Silahkan lakukan pembayaran sebesar <span class="text-yellow-primary">Rp. {{ number_format($pembayaran->total_amount, '0', '', '.') }}</span> ke Nomor Rekening yang telah kami sediakan di bawah, agar kami dapat memproses pesanan Anda.</p>
         @else
-            <p class="mt-7 mb-5 text-lg font-medium">Terma kasih telah melakukan pembayaran sebesar <span class="text-yellow-primary">Rp. {{ number_format($pembayaran->total_amount, '0', '', '.') }}</span>. Jika terdapat kesalahan dalam melakukan Konfirmasi Pembayaran Anda dapat mengubahnya. Terima Kasih telah berbelanja di Anisa Collection.</p>
+            <p class="mt-7 mb-5 text-lg font-medium">Terima kasih telah melakukan pembayaran sebesar <span class="text-yellow-primary">Rp. {{ number_format($pembayaran->total_amount, '0', '', '.') }}</span>. Jika terdapat kesalahan dalam melakukan Konfirmasi Pembayaran Anda dapat mengubahnya. Terima Kasih telah berbelanja di Anisa Collection.</p>
+        
+            <div class="bg-zinc-50 w-full mb-7 p-3 rounded-md border border-zinc-100">
+                {{-- gambar bukti bayar --}}
+                <div class="w-72 h-max mt-2 mx-auto">
+                    <img src="{{ asset('storage/' . $pembayaran->gambar_bukti_pembayaran) }}" class="w-full h-max">
+                </div>
+                
+                <div class="w-full my-5">
+                    {{-- tanggal pembayaran --}}
+                    <p class="font-medium w-40 mb-1">Tanggal Pembayaran</p>
+                    <P class="text-zinc-600 font-medium mb-3">{{ (Carbon\Carbon::parse($pembayaran->tanggal_pembayaran)->translatedFormat('d F, Y')) }}</P>
+                    
+                    {{-- tanggal pemesanan --}}
+                    <p class="font-medium w-40 mb-1">Tanggal pemesanan</p>
+                    <P class="text-zinc-600 font-medium mb-3">{{ (Carbon\Carbon::parse($pembayaran->tanggal_pemesanan)->translatedFormat('d F, Y H:i')) }} WIB</P>
+                
+                    {{-- nama akun bank --}}
+                    <p class="font-medium w-40 mb-1">Nama Akun Bank</p>
+                    <P class="text-zinc-600 font-medium mb-3">{{ Str::upper($pembayaran->nama_akun_bank) }}</P>
+
+                    {{-- nama  bank --}}
+                    <p class="font-medium w-40 mb-1">Nama Bank</p>
+                    <p class="text-zinc-600 font-medium mb-3">{{ Str::upper($pembayaran->nama_bank) }}</p>
+
+                    {{-- jumlah pembayaran --}}
+                    <p class="font-medium w-40 mb-1">Jumlah Pembayaran</p>
+                    <P class="text-zinc-600 font-medium mb-3">Rp. {{ number_format($pembayaran->jumlah_transfer, '0', '', '.') }}</P>
+                </div>
+            </div>
         @endif
     
         {{-- detail bank --}}
@@ -64,28 +93,28 @@
             @error('tanggal_pembayaran')
                 <p class="text-red-500">{{ $message }}</p>
             @enderror
-            <input type="date" name="tanggal_pembayaran" id="tanggal_pembayaran" value="{{ old('tanggal_pembayaran', $pembayaran->tanggal_pembayaran) }}" class="w-full rounded-md focus:border-black-primary focus:ring-0">
+            <input type="date" name="tanggal_pembayaran" id="tanggal_pembayaran" required max="11" value="{{ old('tanggal_pembayaran', $pembayaran->tanggal_pembayaran) }}" class="w-full rounded-md focus:border-black-primary focus:ring-0">
 
             {{-- nama akun bank --}}
-            <label for="nama_akun_bank" class="mt-5 mb-2 font-medium">Nama Akun</label>
+            <label for="nama_akun_bank" class="mt-5 mb-2 font-medium">Nama Akun Bank</label>
             @error('nama_akun_bank')
                 <p class="text-red-500">{{ $message }}</p>
             @enderror
-            <input type="text" name="nama_akun_bank" id="nama_akun_bank" placeholder="Masukan Nama Akun" value="{{ old('nama_akun_bank', $pembayaran->nama_akun_bank) }}" class="w-full rounded-md focus:border-black-primary focus:ring-0">
+            <input type="text" name="nama_akun_bank" id="nama_akun_bank" placeholder="Masukan Nama Akun" required maxlength="30" value="{{ old('nama_akun_bank', $pembayaran->nama_akun_bank) }}" class="w-full rounded-md focus:border-black-primary focus:ring-0">
             
             {{-- nama bank --}}
             <label for="nama_bank" class="mt-5 mb-2 font-medium">Nama Bank</label>
             @error('nama_bank')
                 <p class="text-red-500">{{ $message }}</p>
             @enderror
-            <input type="text" name="nama_bank" id="nama_bank" placeholder="Masukan Nama Bank" value="{{ old('nama_bank', $pembayaran->nama_bank) }}" class="w-full rounded-md focus:border-black-primary focus:ring-0">
+            <input type="text" name="nama_bank" id="nama_bank" placeholder="Masukan Nama Bank" required maxlength="30" value="{{ old('nama_bank', $pembayaran->nama_bank) }}" class="w-full rounded-md focus:border-black-primary focus:ring-0">
             
             {{-- jumlah transfer --}}
             <label for="jumlah_transfer" class="mt-5 mb-2 font-medium">Jumlah Yang Ditransfer</label>
             @error('jumlah_transfer')
                 <p class="text-red-500">{{ $message }}</p>
             @enderror
-            <input type="number" name="jumlah_transfer" id="jumlah_transfer" placeholder="Masukan Jumlah Yang Ditransfer" value="{{ old('jumlah_transfer', $pembayaran->jumlah_transfer) }}" class="w-full rounded-md focus:border-black-primary focus:ring-0">
+            <input type="number" name="jumlah_transfer" id="jumlah_transfer" required placeholder="Masukan Jumlah Yang Ditransfer" value="{{ old('jumlah_transfer', $pembayaran->jumlah_transfer) }}" class="w-full rounded-md focus:border-black-primary focus:ring-0">
             
             @if ($pembayaran->gambar_bukti_pembayaran)
                 <img src="{{ asset('storage/' . $pembayaran->gambar_bukti_pembayaran) }}" class="img-preview w-56 mt-6 inline-block">
@@ -109,7 +138,7 @@
             </div>
         @else
             <div class="bg-yellow-primary py-3 px-3 text-white font-medium rounded-md">
-                Ubah data pembayaran jika terdapat kesalahan. <span class="showForm border-b border-white md-800:cursor-pointer">Ubah / Lihat Data Pembayaran »</span>
+                Ubah data pembayaran jika terdapat kesalahan. <span class="showForm border-b border-white md-800:cursor-pointer">Ubah Data Pembayaran »</span>
             </div>
         @endif
     </div>

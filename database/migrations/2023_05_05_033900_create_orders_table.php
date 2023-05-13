@@ -26,11 +26,12 @@ return new class extends Migration
             $table->string('email_pembeli')->nullable();
             $table->string('nama_pembeli')->nullable();
             $table->string('alamat_pembeli')->nullable();
-            $table->integer('kode_pos_pembeli')->nullable();
+            $table->string('kode_pos_pembeli')->nullable();
             $table->string('nohp_pembeli')->nullable();
-            $table->string('pesan_pembeli')->nullable();
+            $table->text('pesan_pembeli')->nullable();
             $table->string('url_pembayaran')->nullable();
             $table->date('tanggal_pembayaran')->nullable();
+            $table->dateTime('tanggal_pemesanan')->nullable();
             $table->string('nama_akun_bank')->nullable();
             $table->string('nama_bank')->nullable();
             $table->string('jumlah_transfer')->nullable();

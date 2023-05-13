@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\Dashboard\Setting;
+namespace App\Http\Livewire\Account;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
-class UpdatePassword extends Component
+class ChangePessword extends Component
 {
     public $state = [
         'current_password' => '',
@@ -24,7 +24,7 @@ class UpdatePassword extends Component
         $user = Auth::user();
 
         if (!Hash::check($this->state['current_password'], $user->password)) {
-            $this->addError('state.current_password', 'Password saat ini salah.');
+            $this->addError('state.current_password', 'The current password is incorrect');
             return;
         }
 
@@ -40,9 +40,9 @@ class UpdatePassword extends Component
 
         session()->flash('ok', 'Data berhasil tersimpan');
     }
-
+    
     public function render()
     {
-        return view('livewire.dashboard.setting.update-password');
+        return view('livewire.account.change-pessword');
     }
 }

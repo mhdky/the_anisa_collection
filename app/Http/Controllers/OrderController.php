@@ -7,6 +7,7 @@ use App\Models\OrderDetail;
 use App\Models\Product;
 use App\Models\Shipping;
 use App\Models\StoreInformation;
+use Carbon\Carbon;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -70,7 +71,7 @@ class OrderController extends Controller
             $bag = collect();
         }
 
-        $orders = Order::where('user_id', Auth::user()->id)->where('status', '!=', 0)->latest()->get();
+        $orders = Order::where('user_id', Auth::user()->id)->where('status', '!=', 0)->where('total_price', '!=', 0)->latest()->get();
 
         $products = [];
         
@@ -130,9 +131,8 @@ class OrderController extends Controller
     // update order pay
     public function payStore(Request $request, Order $order) {
         $validateData = $request->validate([
-            'tanggal_pembayaran' => 'required|max:100',
+            'tanggal_pembayaran' => 'required|max:11',
             'nama_akun_bank' => 'required|max:30',
-            'nama_bank' => 'required|max:30',
             'nama_bank' => 'required|max:30',
             'jumlah_transfer' => 'required|max:30',
             'gambar_bukti_pembayaran' => 'required|image|file|max:1080',
@@ -142,6 +142,7 @@ class OrderController extends Controller
 
         $order = Order::where('user_id', Auth::user()->id)->where('id', $order->id)->where('status', '!=', 0)->first();
         $order->tanggal_pembayaran = $validateData['tanggal_pembayaran'];
+        $order->tanggal_pemesanan = Carbon::now()->format('Y-m-d H:i:s');
         $order->nama_akun_bank = $validateData['nama_akun_bank'];
         $order->nama_bank = $validateData['nama_bank'];
         $order->jumlah_transfer = $validateData['jumlah_transfer'];
@@ -162,9 +163,8 @@ class OrderController extends Controller
     // update order pay second
     public function payStoreSecond(Request $request, Order $order) {
         $validateData = $request->validate([
-            'tanggal_pembayaran' => 'required|max:100',
+            'tanggal_pembayaran' => 'required|max:11',
             'nama_akun_bank' => 'required|max:30',
-            'nama_bank' => 'required|max:30',
             'nama_bank' => 'required|max:30',
             'jumlah_transfer' => 'required|max:30',
             'gambar_bukti_pembayaran' => 'image|file|max:1080',

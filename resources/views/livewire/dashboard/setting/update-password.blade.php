@@ -5,7 +5,7 @@
         @error('state.current_password')
             <p class="text-red-500 text-[14px] mb-2">{{ $message }}</p>
         @enderror
-        <input type="password" id="current_password" minlength="8" maxlength="255" wire:model.lazy="state.current_password" required placeholder="Password Saat Ini" class="bg-zinc-50 border-zinc-200 w-full h-[35px] rounded-md text-zinc-600 text-[14px] placeholder:text-zinc-600 focus:bg-zinc-100 focus:border-zinc-200 focus:ring-0">
+        <input type="password" id="current_password" maxlength="255" wire:model.lazy="state.current_password" required placeholder="Password Saat Ini" class="bg-zinc-50 border-zinc-200 w-full h-[35px] rounded-md text-zinc-600 text-[14px] placeholder:text-zinc-600 focus:bg-zinc-100 focus:border-zinc-200 focus:ring-0">
         
         {{-- password baru --}}
         <label for="password" class="text-zinc-600 text-[14px] mt-7 mb-1">Password Baru</label>

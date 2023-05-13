@@ -20,7 +20,6 @@
             <li class="text-white text-lg mb-6">Toko</li>
             <li class="mb-5"><a href="/about" class="text-gray-primary hover:text-white">Tentang</a></li>
             <li class="mb-5"><a href="/kontak" class="text-gray-primary hover:text-white">Kontak</a></li>
-            <li class="mb-5"><a href="/testimonial" class="text-gray-primary hover:text-white">Tetimonial</a></li>
         </ul>
 
         {{-- kami selalu ada --}}

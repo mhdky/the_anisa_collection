@@ -52,7 +52,7 @@
                         @csrf
                         @method('patch')
 
-                        <input type="text" name="nomor_resi" placeholder="Kirim Nomor Resi" required value="{{ old('nomor_resi', $order->nomor_resi) }}" class="bg-transparent h-full w-full mr-2 px-0 flex-[2] border-none text-[14px] focus:border-none focus:ring-0 md-1000:text-[12px]">
+                        <input type="text" name="nomor_resi" placeholder="Kirim Nomor Resi" minlength="7" maxlength="20" required value="{{ old('nomor_resi', $order->nomor_resi) }}" class="bg-transparent h-full w-full mr-2 px-0 flex-[2] border-none text-[14px] focus:border-none focus:ring-0 md-1000:text-[12px]">
                         @if ($order->nomor_resi == 0)
                             <button type="submit" class="bg-black-primary py-1 px-5 text-white rounded-md text-[14px] md-1000:text-[12px]">Kirim</button>
                         @else
@@ -69,20 +69,20 @@
                     {{-- subtotal, ongkos kirim, dan total --}}
                     <div class="mt-5 pb-5 border-b border-zinc-200">
                         {{-- subtotal --}}
-                        <div class="w-72 mb-3 flex justify-between items-center">
-                            <p class="w-40 font-medium md-1000:text-[14px]">Subtotal</p>
+                        <div class="w-full mb-3 flex justify-between items-center sm-366:w-[340px]">
+                            <p class="w-full flex-[2] font-medium md-1000:text-[14px]">Subtotal</p>
                             <p class="text-zinc-600 font-medium md-1000:text-[14px]">Rp. {{ number_format($order->total_price, '0', '', '.') }}</p>
                         </div>
 
                         {{-- ongkos kirim --}}
-                        <div class="w-72 mb-3 flex justify-between items-center">
-                            <p class="w-40 font-medium md-1000:text-[14px]">Biaya Pengiriman</p>
+                        <div class="w-full mb-3 flex justify-between items-center sm-366:w-[340px]">
+                            <p class="w-full flex-[2] font-medium md-1000:text-[14px]">Biaya Pengiriman (JNE REG)</p>
                             <p class="text-zinc-600 font-medium md-1000:text-[14px]">Rp. {{ number_format($order->ongkos_kirim_pembeli, '0', '', '.') }}</p>
                         </div>
 
                         {{-- total --}}
-                        <div class="w-72 mb-3 flex justify-between items-center">
-                            <p class="w-40 font-medium md-1000:text-[14px]">Total</p>
+                        <div class="w-full mb-3 flex justify-between items-center sm-366:w-[340px]">
+                            <p class="w-full flex-[2] font-medium md-1000:text-[14px]">Total</p>
                             <p class="text-yellow-primary font-medium md-1000:text-[14px]">Rp. {{ number_format($order->total_amount, '0', '', '.') }}</p>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                         {{-- nama --}}
                         <div class="mb-5 flex flex-col md-1000:flex-row">
                             <p class="w-40 mb-1 font-medium md-1000:text-[14px]">Nama Penerima</p>
-                            <p class="w-full text-zinc-600 font-medium md-1000:text-[14px] flex-[2]">{{ $order->nama_pembeli }}</p>
+                            <p class="w-full text-zinc-600 font-medium md-1000:text-[14px] flex-[2]">{{ Str::title($order->nama_pembeli) }}</p>
                         </div>
 
                         {{-- email --}}
@@ -144,9 +144,15 @@
                                     <p class="text-zinc-600 font-medium md-1000:text-[14px]">{{ (Carbon\Carbon::parse($order->tanggal_pembayaran)->translatedFormat('d F, Y')) }}</p>
                                 </div>
 
+                                {{-- tanggal pemesanan --}}
+                                <div class="mb-3 md-1000:flex">
+                                    <p class="font-medium mb-1 md-1000:text-[14px] md-1000:w-52">Tanggal Pemesanan</p>
+                                    <p class="text-zinc-600 font-medium md-1000:text-[14px]">{{ (Carbon\Carbon::parse($order->pemesanan)->translatedFormat('d F, Y H:i')) }} WIB</p>
+                                </div>
+
                                 {{-- nama akun --}}
                                 <div class="mb-3 md-1000:flex">
-                                    <p class="font-medium mb-1 md-1000:text-[14px] md-1000:w-52">Nama Akun</p>
+                                    <p class="font-medium mb-1 md-1000:text-[14px] md-1000:w-52">Nama Akun Bank</p>
                                     <p class="text-zinc-600 font-medium md-1000:text-[14px]">{{ Str::upper($order->nama_akun_bank) }}</p>
                                 </div>
 
@@ -166,10 +172,14 @@
                     </div>
                 </div>
 
-                <p class="ShowDetailOrder mt-5 pb-5 border-b border-zinc-200 font-medium md-1000:text-[14px] md-800:cursor-pointer">Lihat Detail Pembelian..</p>
+                <p class="ShowDetailOrder mt-5 pb-5 border-b border-zinc-200 font-medium md-1000:text-[14px] md-800:cursor-pointer">Lihat Detail Pemesanan..</p>
                 <p class="hideDetailOrder hidden mt-5 pb-5 border-b border-zinc-200 font-medium md-1000:text-[14px] md-800:cursor-pointer">Tutup Detail Pembelian..</p>
             </div>
         @endforeach
+
+        @if ($orders->count() < 1)
+            <div class="w-full h-screen flex justify-center text-[15px] font-medium">Tidak Ada Pemesaanan Saat Ini</div>
+        @endif
     </div>
 
     @foreach ($orders as $order)

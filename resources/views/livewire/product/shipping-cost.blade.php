@@ -18,7 +18,7 @@
     @enderror
     <select wire:model="cityId" name="city_id" id="city" required class="p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0">
         <option selected disabled>--Pilih Kota--</option>
-        @foreach ($cities as $city)
+        @foreach ($cities as $city)            
             <option value="{{ $city->id }}">{{ $city->name }}</option>
         @endforeach
     </select>

@@ -16,17 +16,47 @@ class DashboardProductController extends Controller
 {
     // tampil produk
     public function index() {
+        $orders = Order::where('status_pembayaran', '!=', 0)->where('total_price', '!=', 0)
+        ->orderByRaw('ISNULL(nomor_resi) DESC')
+        ->orderByDesc('created_at')
+        ->get();;
+
+        $products = [];
+        
+        foreach ($orders as $order) {
+            $orderDetails = $order->order_detail()->latest()->get();
+            foreach ($orderDetails as $orderDetail) {
+                $products[] = $orderDetail->product;
+            }
+        }
+
         return view('admin-dashboard.product.index', [
             'title' => 'Anisa Collection - Admin Dashboard - Product',
-            'products' => Product::latest()->searchingDashboard()->paginate(12)->withQueryString()
+            'products' => Product::latest()->searchingDashboard()->paginate(12)->withQueryString(),
+            'orders' => $orders
         ]);
     }
 
     // halaman tambah produk
     public function create() {
+        $orders = Order::where('status_pembayaran', '!=', 0)->where('total_price', '!=', 0)
+        ->orderByRaw('ISNULL(nomor_resi) DESC')
+        ->orderByDesc('created_at')
+        ->get();;
+
+        $products = [];
+        
+        foreach ($orders as $order) {
+            $orderDetails = $order->order_detail()->latest()->get();
+            foreach ($orderDetails as $orderDetail) {
+                $products[] = $orderDetail->product;
+            }
+        }
+
         return view('admin-dashboard.product.add', [
             'title' => 'Anisa Collection - Tambah Produk',
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'orders' => $orders
         ]);
     }
 

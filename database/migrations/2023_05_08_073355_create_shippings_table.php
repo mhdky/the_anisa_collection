@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('email_penerima');
             $table->string('nama_penerima');
             $table->string('alamat_penerima');
-            $table->integer('code_pos');
+            $table->string('code_pos');
             $table->string('nohp_penerima');
-            $table->string('pesan_penerima');
+            $table->text('pesan_penerima');
             $table->timestamps();
         });
     }

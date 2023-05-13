@@ -57,8 +57,8 @@ class CheckoutController extends Controller
             'nama_penerima' => 'required|max:200',
             'alamat_penerima' => 'required|max:255',
             'code_pos' => 'required|max:255',
-            'nohp_penerima' => 'required|max:255',
-            'pesan_penerima' => 'required|max:255',
+            'nohp_penerima' => 'required|max:17',
+            'pesan_penerima' => 'required|max:400',
         ]);
 
         $shipping = new Shipping;

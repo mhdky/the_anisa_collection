@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Redis;
 class DashboardOrderController extends Controller
 {
     public function index() {
-        $orders = Order::where('status_pembayaran', '!=', 0)
+        $orders = Order::where('status_pembayaran', '!=', 0)->where('total_price', '!=', 0)
         ->orderByRaw('ISNULL(nomor_resi) DESC')
         ->orderByDesc('created_at')
         ->get();;
@@ -31,7 +31,7 @@ class DashboardOrderController extends Controller
 
     public function store(Request $request, Order $order) {
         $validateData = $request->validate([
-            'nomor_resi' => 'required|max:30',
+            'nomor_resi' => 'required|min:7|max:20',
         ]);
 
         $order = Order::where('id', $order->id)->where('status_pembayaran', '!=', 0)->first();

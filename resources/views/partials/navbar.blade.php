@@ -45,7 +45,7 @@
                 {{-- nama pengguna mobile --}}
                 <h1 class="text-yellow-primary text-xl font-bold mt-3">{{ Str::limit(Str::title(Auth::user()->name), 25) }}</h1>
                 {{-- my profile mobile --}}
-                <a href="/profile" class="text-gray-500 font-bold mt-3 block">My Profile</a>
+                <a href="/account" class="text-gray-500 font-bold mt-3 block">My Account</a>
                 <a href="/order" class="text-gray-500 font-bold mt-3 pb-3 block">My Order</a>
                 @can('admin')
                     <a href="/dashboard/product" class="text-gray-500 font-bold mt-3 mb-5 block">Admin Dashboard</a>
@@ -112,9 +112,9 @@
                             <div class="relative w-full h-full">
                                 <i class="upicon fas fa-sort-up absolute -top-[5px] left-1/2 -translate-x-1/2 {{ (Request::is('/') ? 'text-black-primary' : 'text-black-primary') }}"></i>
                                 {{-- profile --}}
-                                <a href="/profile" class="myprofile w-full h-10 rounded-t-md px-2 flex items-center {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
+                                <a href="/account" class="myprofile w-full h-10 rounded-t-md px-2 flex items-center {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
                                     <i class="fas fa-user text-white text-[0.9rem] mr-2"></i>
-                                    <p class="text-white text-[0.8rem]">My profile</p>
+                                    <p class="text-white text-[0.8rem]">My Account</p>
                                 </a>
                                 {{-- order --}}
                                 <a href="/order" class="myprofile w-full h-10 px-2 flex items-center {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">

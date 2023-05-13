@@ -18,21 +18,21 @@
                 @error('email_penerima')
                     <p class="text-red-500 text-[14px] mb-1">{{ $message }}</p>
                 @enderror
-                <input type="email" name="email_penerima" id="email" required value="{{ Auth::user()->email }}" class="p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0">
+                <input type="email" name="email_penerima" id="email" maxlength="200" required value="{{ old('email_penerima', Auth::user()->email) }}" class="p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0">
                 
                 {{-- name --}}
                 <label for="name" class="mb-1 mt-5">Nama Penerima</label>
                 @error('nama_penerima')
                     <p class="text-red-500 text-[14px] mb-1">{{ $message }}</p>
                 @enderror
-                <input type="text" name="nama_penerima" id="name" required value="{{ Auth::user()->name }}" class="p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0">
+                <input type="text" name="nama_penerima" id="name" maxlength="200" required value="{{ old('nama_penerima', Auth::user()->name) }}" class="p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0">
                 
                 {{-- address --}}
                 <label for="address" class="mb-1 mt-5">Alamat Lengkap</label>
                 @error('alamat_penerima')
                     <p class="text-red-500 text-[14px] mb-1">{{ $message }}</p>
                 @enderror
-                <textarea name="alamat_penerima" id="alamat_penerima" required placeholder="Masukan alamat lengkap" class="p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0"></textarea>
+                <textarea name="alamat_penerima" id="alamat_penerima" maxlength="255" required value="{{ old('alamat_penerima') }}" placeholder="Masukan alamat lengkap" class="p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0"></textarea>
                 
                 @livewire('product.shipping-cost')
                 
@@ -41,28 +41,28 @@
                 @error('kecamatan')
                     <p class="text-red-500 text-[14px] mb-1">{{ $message }}</p>
                 @enderror
-                <input type="text" name="kecamatan" id="kecamatan" required placeholder="Masukan Nama Kecamatan" class="p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0">
+                <input type="text" name="kecamatan" id="kecamatan" maxlength="50" value="{{ old('kecamatan') }}" required placeholder="Masukan Nama Kecamatan" class="p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0">
                 
-                {{-- No hp --}}
+                {{-- kode pos --}}
                 <label for="code_pos" class="mb-1 mt-5">Kode Pos</label>
                 @error('code_pos')
                     <p class="text-red-500 text-[14px] mb-1">{{ $message }}</p>
                 @enderror
-                <input type="number" name="code_pos" id="code_pos" minlength="1" maxlength="5" required placeholder="Masukan Code Pos" class="p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0">
+                <input type="text" name="code_pos" id="code_pos" minlength="1" maxlength="7" value="{{ old('code_pos') }}" required placeholder="Masukan Code Pos" class="p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0">
                 
                 {{-- No hp --}}
                 <label for="No hp" class="mb-1 mt-5">Nomor Handphone</label>
                 @error('nohp_penerima')
                     <p class="text-red-500 text-[14px] mb-1">{{ $message }}</p>
                 @enderror
-                <input type="tel" name="nohp_penerima" id="No hp" required placeholder="No hp yang aktif" class="p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0">
+                <input type="tel" name="nohp_penerima" id="No hp" maxlength="17" required value="{{ old('nohp_penerima') }}" placeholder="No hp yang aktif" class="p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0">
                 
                 {{-- pesan --}}
                 <label for="pesan" class="mb-1 mt-5">Pesan</label>
                 @error('pesan_penerima')
                     <p class="text-red-500 text-[14px] mb-1">{{ $message }}</p>
                 @enderror
-                <textarea name="pesan_penerima" id="pesan_penerima" placeholder="Masukan Pesan" required class="h-32 p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0"></textarea>
+                <textarea name="pesan_penerima" id="pesan_penerima" placeholder="Masukan Pesan" maxlength="400" required class="h-32 p-2 border-black-primary rounded-md focus:border-black-primary focus:ring-0">{{ old('pesan_penerima') }}</textarea>
             
                 <button type="submit" class="bg-black-primary w-full mt-5 p-2 text-white font-medium rounded-md" onclick="return confirm('Yakin semua data telah di isi dengan benar?')">Check Out</button>
             </form>
