@@ -48,40 +48,21 @@
     
         {{-- detail bank --}}
         <div class="mb-7">
-            <h3 class="text-yellow-primary text-lg font-bold mb-3">Muhammad Rizki</h3>
+            <h3 class="text-yellow-primary text-lg font-bold mb-3">{{ Str::upper($storeInformation->name_bank_account) }}</h3>
 
             <div class="flex items-center">
                 <p class="font-medium w-40">Bank</p>
-                <P class="text-zinc-600 font-medium">BRI</P>
+                <p class="text-zinc-600 font-medium">{{ Str::upper($storeInformation->bank_name) }}</p>
             </div>
 
             <div class="flex items-center my-2">
                 <p class="font-medium w-40">Nomor Rekening</p>
-                <p class="text-zinc-600 font-medium">983409838765</p>
+                <p class="text-zinc-600 font-medium">{{ $storeInformation->rekening_number }}</p>
             </div>
 
             <div class="flex items-center">
                 <p class="font-medium w-40">Kode Bank</p>
-                <p class="text-zinc-600 font-medium">002</p>
-            </div>
-        </div>
-
-        <div class="mb-7">
-            <h3 class="text-yellow-primary text-lg font-bold mb-3">Effenril Agung Marpaung</h3>
-
-            <div class="flex items-center">
-                <p class="font-medium w-40">Bank</p>
-                <P class="text-zinc-600 font-medium">BCA</P>
-            </div>
-
-            <div class="flex items-center my-2">
-                <p class="font-medium w-40">Nomor Rekening</p>
-                <p class="text-zinc-600 font-medium">123456789012</p>
-            </div>
-
-            <div class="flex items-center">
-                <p class="font-medium w-40">Kode Bank</p>
-                <p class="text-zinc-600 font-medium">440</p>
+                <p class="text-zinc-600 font-medium">{{ $storeInformation->bank_code }}</p>
             </div>
         </div>
 

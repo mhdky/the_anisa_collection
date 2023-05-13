@@ -193,6 +193,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         StoreInformation::create([
+            'name_bank_account' => 'MHD RIZKI',
+            'bank_name' => 'BRI',
+            'rekening_number' => '8ISD88120',
+            'bank_code' => '002',
             'store_address'  => 'Sidodadi',
             'phone_number' => '082246924258',
             'store_email' => 'mhdky502@gmail.com',

@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('store_information', function (Blueprint $table) {
             $table->id();
+            $table->string('name_bank_account');
+            $table->string('bank_name');
+            $table->string('rekening_number');
+            $table->string('bank_code');
             $table->string('store_address');
             $table->string('phone_number');
             $table->string('store_email');

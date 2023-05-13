@@ -1,7 +1,35 @@
 <div>
     <form wire:submit.prevent="updateStore" autocomplete="off" class="w-full flex flex-col p-5">
+        {{-- name_bank_account --}}
+        <label for="name_bank_account" class="text-zinc-600 text-[14px] mb-1">Nama Akun Bank</label>
+        @error('name_bank_account')
+            <p class="text-red-500 text-[14px] mb-2">{{ $message }}</p>
+        @enderror
+        <input type="text" id="name_bank_account" minlength="3" maxlength="255" wire:model="name_bank_account" required placeholder="Alamat Toko" class="bg-zinc-50 border-zinc-200 w-full h-[35px] rounded-md text-zinc-600 text-[14px] placeholder:text-zinc-600 focus:bg-zinc-100 focus:border-zinc-200 focus:ring-0">
+        
+        {{-- bank_name --}}
+        <label for="bank_name" class="text-zinc-600 text-[14px] mt-7 mb-1">Nama Bank</label>
+        @error('bank_name')
+            <p class="text-red-500 text-[14px] mb-2">{{ $message }}</p>
+        @enderror
+        <input type="text" id="bank_name" minlength="3" maxlength="255" wire:model="bank_name" required placeholder="Alamat Toko" class="bg-zinc-50 border-zinc-200 w-full h-[35px] rounded-md text-zinc-600 text-[14px] placeholder:text-zinc-600 focus:bg-zinc-100 focus:border-zinc-200 focus:ring-0">
+        
+        {{-- rekening_number --}}
+        <label for="rekening_number" class="text-zinc-600 text-[14px] mt-7 mb-1">Nomor Rekening</label>
+        @error('rekening_number')
+            <p class="text-red-500 text-[14px] mb-2">{{ $message }}</p>
+        @enderror
+        <input type="text" id="rekening_number" minlength="3" maxlength="255" wire:model="rekening_number" required placeholder="Alamat Toko" class="bg-zinc-50 border-zinc-200 w-full h-[35px] rounded-md text-zinc-600 text-[14px] placeholder:text-zinc-600 focus:bg-zinc-100 focus:border-zinc-200 focus:ring-0">
+        
+        {{-- bank_code --}}
+        <label for="bank_code" class="text-zinc-600 text-[14px] mt-7 mb-1">Kode Bank</label>
+        @error('bank_code')
+            <p class="text-red-500 text-[14px] mb-2">{{ $message }}</p>
+        @enderror
+        <input type="text" id="bank_code" minlength="3" maxlength="255" wire:model="bank_code" required placeholder="Alamat Toko" class="bg-zinc-50 border-zinc-200 w-full h-[35px] rounded-md text-zinc-600 text-[14px] placeholder:text-zinc-600 focus:bg-zinc-100 focus:border-zinc-200 focus:ring-0">
+        
         {{-- store_address --}}
-        <label for="store_address" class="text-zinc-600 text-[14px] mb-1">Alamat Toko</label>
+        <label for="store_address" class="text-zinc-600 text-[14px] mt-7 mb-1">Alamat Toko</label>
         @error('store_address')
             <p class="text-red-500 text-[14px] mb-2">{{ $message }}</p>
         @enderror
