@@ -24,7 +24,7 @@ class DashboardOrderController extends Controller
         }
 
         return view('admin-dashboard.product.order', [
-            'title' => 'Order | Anisa Collection',
+            'title' => 'Users Order | Anisa Collection',
             'orders' => $orders,
         ]);
     }

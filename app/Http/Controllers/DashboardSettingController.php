@@ -27,7 +27,7 @@ class DashboardSettingController extends Controller
         }
 
         return view('admin-dashboard.setting.index', [
-            'title' => 'Anisa Collection - Setting',
+            'title' => 'Settings | Anisa Collection',
             'orders' => $orders
         ]);
     }

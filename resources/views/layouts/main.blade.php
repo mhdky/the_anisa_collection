@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
+    <meta name="description" content="Penjualan pakaian terlengkap, termurah dan terpercaya">
+    <meta name="keywords" content="Clothing online store">
+    <link rel="icon" type="image" href="{{ asset('img/logo-anisa-collection.svg') }}">
+
+    {{-- open graph --}}
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:description" content="Penjualan pakaian terlengkap, termurah dan terpercaya">
+    @if (!empty($product))
+        @if (Request::is('product/' . $product->url))
+            <meta property="og:image" content="{{ asset('storage/' . $product->image) }}">
+        @else
+            <meta property="og:image" content="{{ asset('img/logo-anisa-collection.svg') }}">
+        @endif
+    @else
+        <meta property="og:image" content="{{ asset('img/logo-anisa-collection.svg') }}">
+    @endif
+    <meta property="og:url" content="{{ config('app.url') }}">
+    <meta property="og:type" content="Clothing online store">
+
+    {{-- meta twitter --}}
+    <meta name="twitter:card" content="product">
+    <meta name="twitter:title" content="{{ $title }}">
+    <meta name="twitter:description" content="Penjualan pakaian terlengkap, termurah dan terpercaya">
+    @if (!empty($product))
+        @if (Request::is('product/' . $product->url))
+            <meta name="twitter:image" content="{{ asset('storage/' . $product->image) }}">
+        @else
+            <meta name="twitter:image" content="{{ asset('img/logo-anisa-collection.svg') }}">
+        @endif
+    @else
+        <meta name="twitter:image" content="{{ asset('img/logo-anisa-collection.svg') }}">
+    @endif
+
+    <meta name="pinterest-rich-pin" content="true">
 
     <!-- Fonts roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

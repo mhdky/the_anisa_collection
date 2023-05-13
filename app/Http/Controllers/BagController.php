@@ -19,7 +19,7 @@ class BagController extends Controller
         }
         
         return view('bag.index', compact('order', 'bag'), [
-            'title' => 'Bag - Anisa Collection',
+            'title' => 'Shopping Bag | Anisa Collection',
             'storeInformation' => StoreInformation::first(),
             'bag' => $bag
         ]);

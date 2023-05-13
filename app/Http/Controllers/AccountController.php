@@ -20,7 +20,7 @@ class AccountController extends Controller
         }
 
         return view('account.index', [
-            'title' => 'Anisa Collection - Live for fashion',
+            'title' => 'My Account | Anisa Collection',
             'storeInformation' => StoreInformation::first(),
             'bag' => $bag
         ]);

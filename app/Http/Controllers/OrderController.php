@@ -83,7 +83,7 @@ class OrderController extends Controller
         }
 
         return view('product.order', [
-            'title' => 'Order | Anisa Collection',
+            'title' => 'My Order | Anisa Collection',
             'storeInformation' => StoreInformation::first(),
             'bag' => $bag,
             'orders' => $orders,

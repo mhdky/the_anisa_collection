@@ -105,3 +105,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+// cant
+Route::get('/dashboard', function() {
+    return abort('404');
+});
+Route::get('/user/profile', function() {
+    return abort('404');
+});

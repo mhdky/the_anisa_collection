@@ -31,7 +31,7 @@ class DashboardProductController extends Controller
         }
 
         return view('admin-dashboard.product.index', [
-            'title' => 'Anisa Collection - Admin Dashboard - Product',
+            'title' => 'Admin Product Page | Anisa Collection',
             'products' => Product::latest()->searchingDashboard()->paginate(12)->withQueryString(),
             'orders' => $orders
         ]);
@@ -54,7 +54,7 @@ class DashboardProductController extends Controller
         }
 
         return view('admin-dashboard.product.add', [
-            'title' => 'Anisa Collection - Tambah Produk',
+            'title' => 'Add Product | Anisa Collection',
             'categories' => Category::all(),
             'orders' => $orders
         ]);
@@ -86,9 +86,17 @@ class DashboardProductController extends Controller
 
     // halaman edit product
     public function edit(Product $product) {
+        $orders = Order::where('status_pembayaran', '!=', 0)->where('total_price', '!=', 0)
+        ->orderByRaw('ISNULL(nomor_resi) DESC')
+        ->orderByDesc('created_at')
+        ->get();;
+
+        $products = [];
+
         return view('admin-dashboard.product.edit', [
-            'title' => 'Anisa Collection - Halaman Edit Produk',
+            'title' => 'Update Product | Anisa Collection',
             'product' => $product,
+            'orders' => $orders,
             'categories' => Category::all()
         ]);
     }

@@ -5,7 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        @if (Request::is('login'))
+            <title>Login | Anisa Collection</title>
+        @elseif(Request::is('forgot-password'))
+            <title>Forgot Password | Anisa Collection</title>
+        @elseif(Request::is('register'))
+            <title>Register | Anisa Collection</title>
+        @elseif(Request::is('reset-password*'))
+            <title>Reset Password | Anisa Collection</title>
+        @endif
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
