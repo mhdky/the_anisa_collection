@@ -130,7 +130,7 @@
 
                         @foreach ($orders as $order)
                             @if ($order->nomor_resi === null)
-                                <div class="bg-red-500 w-2 h-2 rounded-full absolute -left-2 top-1"></div>
+                                <div class="bg-red-500 w-2 h-2 rounded-full absolute -right-2 top-1"></div>
                             @endif
                         @endforeach
                     </li>

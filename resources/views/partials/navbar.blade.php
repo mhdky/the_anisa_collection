@@ -45,8 +45,8 @@
                 {{-- nama pengguna mobile --}}
                 <h1 class="text-yellow-primary text-xl font-bold mt-3">{{ Str::limit(Str::title(Auth::user()->name), 25) }}</h1>
                 {{-- my profile mobile --}}
-                <a href="/account" class="text-gray-500 font-bold mt-3 block">My Account</a>
-                <a href="/order" class="text-gray-500 font-bold mt-3 pb-3 flex">
+                <a href="/account" class="{{ (Request::is('account') ? 'text-yellow-primary' : 'text-gray-500') }} font-bold mt-3 block">My Account</a>
+                <a href="/order" class="{{ (Request::is('order') ? 'text-yellow-primary' : 'text-gray-500') }} font-bold mt-3 pb-3 flex">
                     <p>My Order</p>
                     @foreach ($the_orders as $the_order)
                         @if ($the_order->status_pembayaran == 0 )
@@ -83,7 +83,7 @@
                                 <div class="relative w-full h-full p-[3px] flex items-center">
                                     <i class="fas fa-sort-up text-yellow-primary absolute -top-[5px] left-[22px]"></i>
                                     <input type="search" name="search" value="{{ request('search') }}" placeholder="Masukan keyword pencarian" oninput="FnSearchDesktop()" id="input-search" class="inputSearchDesktop bg-white text-sm w-full h-full rounded-l-[3px] border border-white outline-none focus:ring-transparent focus:border-transparent">
-                                    <button type="submit" disabled class="btnSearchDesktop bg-yellow-primary h-full rounded-r-[3px] px-4"><i class="fas fa-search text-white text-sm"></i></button>
+                                    <button type="submit" disabled class="btnSearchDesktop bg-white h-full rounded-r-[3px] px-4"><i class="fas fa-search text-zinc-500 text-sm"></i></button>
                                 </div>
                             </div>
                         </form>
@@ -117,14 +117,14 @@
                         {{-- profil dan logout --}}
                         <div class="profile-logout {{ (Request::is('/') ? 'bg-black-primary' : 'bg-black-primary') }} hidden w-32 absolute z-40 top-12 left-[1px] rounded-md shadow-md shadow-zinc-900">
                             <div class="relative w-full h-full">
-                                <i class="upicon fas fa-sort-up absolute -top-[5px] left-1/2 -translate-x-1/2 {{ (Request::is('/') ? 'text-black-primary' : 'text-black-primary') }}"></i>
+                                <i class="{{ (Request::is('account') ? 'text-[#424242]' : '') }} upicon fas fa-sort-up absolute -top-[5px] left-1/2 -translate-x-1/2 {{ (Request::is('/') ? 'text-black-primary' : 'text-black-primary') }}"></i>
                                 {{-- profile --}}
-                                <a href="/account" class="myprofile w-full h-10 rounded-t-md px-2 flex items-center {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
+                                <a href="/account" class="{{ (Request::is('account') ? 'bg-black-hover' : 'myprofile') }} w-full h-10 rounded-t-md px-2 flex items-center {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
                                     <i class="fas fa-user text-white text-[0.9rem] mr-2"></i>
                                     <p class="text-white text-[0.8rem]">My Account</p>
                                 </a>
                                 {{-- order --}}
-                                <a href="/order" class="myprofile w-full h-10 px-2 flex items-center relative {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
+                                <a href="/order" class="{{ (Request::is('order') ? 'bg-black-hover' : '') }} w-full h-10 px-2 flex items-center relative {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
                                     @foreach ($the_orders as $the_order)
                                         @if ($the_order->status_pembayaran == 0 )
                                             <div class="bg-red-500 w-2 h-2 rounded-full absolute right-9 top-3"></div>
