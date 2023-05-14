@@ -46,7 +46,14 @@
                 <h1 class="text-yellow-primary text-xl font-bold mt-3">{{ Str::limit(Str::title(Auth::user()->name), 25) }}</h1>
                 {{-- my profile mobile --}}
                 <a href="/account" class="text-gray-500 font-bold mt-3 block">My Account</a>
-                <a href="/order" class="text-gray-500 font-bold mt-3 pb-3 block">My Order</a>
+                <a href="/order" class="text-gray-500 font-bold mt-3 pb-3 flex">
+                    <p>My Order</p>
+                    @foreach ($the_orders as $the_order)
+                        @if ($the_order->status_pembayaran == 0 )
+                            <div class="bg-red-500 w-3 h-3 rounded-full"></div>
+                        @endif
+                    @endforeach
+                </a>
                 @can('admin')
                     <a href="/dashboard/product" class="text-gray-500 font-bold mt-3 mb-5 block">Admin Dashboard</a>
                 @endcan
@@ -117,7 +124,12 @@
                                     <p class="text-white text-[0.8rem]">My Account</p>
                                 </a>
                                 {{-- order --}}
-                                <a href="/order" class="myprofile w-full h-10 px-2 flex items-center {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
+                                <a href="/order" class="myprofile w-full h-10 px-2 flex items-center relative {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
+                                    @foreach ($the_orders as $the_order)
+                                        @if ($the_order->status_pembayaran == 0 )
+                                            <div class="bg-red-500 w-2 h-2 rounded-full absolute right-9 top-3"></div>
+                                        @endif
+                                    @endforeach
                                     <img src="{{ asset('img/bag_order.png') }}" alt="Bag" class="w-5 -ml-1 mr-[6px]">
                                     <p class="text-white text-[0.8rem]">My order</p>
                                 </a>

@@ -13,42 +13,52 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
-    public function index() {
-
-        if(Auth::check()) {
+    public function index()
+    {
+        // cek jika ada pesanan di halaman bag
+        if (Auth::check()) {
             $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
             $bag = OrderDetail::where('order_id', optional($order)->id);
         } else {
             $bag = collect();
         }
 
-        if(!empty($order->url)) {
+        if (!empty($order->url)) {
             if ($order->url === 'back' || $bag->count() < 1) {
                 return back();
             }
-        }        
-        
-        return view('product.checkout', compact('order', 'bag'),[
+        }
+
+        // cek jika ada pesanan di halaman order
+        if (Auth::check()) {
+            $the_orders = Order::where('user_id', Auth::user()->id)->where('status', '!=', 0)->where('total_price', '!=', 0)->get();
+        } else {
+            $the_orders = collect();
+        }
+
+        return view('product.checkout', compact('order', 'bag'), [
             'title' => 'Check Out Product | Anisa Collection',
             'storeInformation' => StoreInformation::first(),
             'bag' => $bag,
+            'the_orders' => $the_orders
         ]);
     }
 
-    public function store(Request $request, Order $order) {
-        if(Auth::check()) {
+    public function store(Request $request, Order $order)
+    {
+        if (Auth::check()) {
             $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
             $bag = OrderDetail::where('order_id', optional($order)->id);
         } else {
             $bag = collect();
         }
 
-        if(!empty($order->url)) {
+        if (!empty($order->url)) {
             if ($order->url === 'back' || $bag->count() < 1) {
                 return back();
             }
-        }    
-        
+        }
+
         $validateData = $request->validate([
             'city_id' => 'required|max:50',
             'province_id' => 'required|max:50',
