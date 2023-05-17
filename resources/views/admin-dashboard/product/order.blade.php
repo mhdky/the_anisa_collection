@@ -88,40 +88,40 @@
                     </div>
 
                     {{-- detail pengiriman --}}
-                    <div class="mt-5 pb-5 border-b border-zinc-200">
+                    <div class="mt-5 pb-5 border-b border-zinc-200 md-900:w-[600px]">
                         <h1 class="font-medium text-lg mb-4 md-1000:text-base">DETAIL PENGIRIMAN</h1>
                         {{-- nama --}}
-                        <div class="mb-5 flex flex-col md-1000:flex-row">
+                        <div class="mb-5 flex flex-col overflow-auto md-1000:flex-row">
                             <p class="w-40 mb-1 font-medium md-1000:text-[14px]">Nama Penerima</p>
                             <p class="w-full text-zinc-600 font-medium md-1000:text-[14px] flex-[2]">{{ Str::title($order->nama_pembeli) }}</p>
                         </div>
 
                         {{-- email --}}
-                        <div class="mb-5 flex flex-col md-1000:flex-row">
+                        <div class="mb-5 flex flex-col overflow-auto md-1000:flex-row">
                             <p class="w-40 mb-1 font-medium md-1000:text-[14px]">Email Penerima</p>
                             <p class="w-full text-zinc-600 font-medium md-1000:text-[14px] flex-[2]">{{ $order->email_pembeli }}</p>
                         </div>
 
                         {{-- nomor hp --}}
-                        <div class="mb-5 flex flex-col md-1000:flex-row">
+                        <div class="mb-5 flex flex-col overflow-auto md-1000:flex-row">
                             <p class="w-40 mb-1 font-medium md-1000:text-[14px]">Handphone</p>
                             <p class="w-full text-zinc-600 font-medium md-1000:text-[14px] flex-[2]">{{ $order->nohp_pembeli }}</p>
                         </div>
 
                         {{-- alamat --}}
-                        <div class="mb-5 flex flex-col md-1000:flex-row">
+                        <div class="mb-5 flex flex-col overflow-auto md-1000:flex-row">
                             <p class="w-40 mb-1 font-medium md-1000:text-[14px]">Alamat</p>
                             <p class="w-full text-zinc-600 font-medium md-1000:text-[14px] flex-[2]">{{ Str::upper($order->kecamatan_pembeli . ', ' . $order->kota_pembeli . ', ' . $order->provinsi_pembeli) . ', ' . $order->kode_pos_pembeli }}</p>
                         </div>
 
                         {{-- Alamat lengkap --}}
-                        <div class="mb-5 flex flex-col md-1000:flex-row">
+                        <div class="mb-5 flex flex-col overflow-auto md-1000:flex-row">
                             <p class="w-40 mb-1 font-medium md-1000:text-[14px]">Alamat Lengkap</p>
                             <p class="w-full text-zinc-600 font-medium md-1000:text-[14px] flex-[2]">{{ Str::upper($order->alamat_pembeli) }}</p>
                         </div>
 
                         {{-- Pesan --}}
-                        <div class="w-72 flex flex-col">
+                        <div class="flex flex-col overflow-auto">
                             <p class="w-40 mb-1 font-medium md-1000:text-[14px]">Pesan</p>
                             <p class="w-full text-zinc-600 font-medium md-1000:text-[14px] flex-[2]">{{ $order->pesan_pembeli }}</p>
                         </div>

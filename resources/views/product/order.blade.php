@@ -101,9 +101,9 @@
                         <div class="w-full flex items-center">
                             <div class="border-r border-zinc-400 pr-2">
                                 {{-- nama pembeli --}}
-                                <h2 class="text-[14px]">{{ Str::title($order->nama_pembeli) }}</h2>
+                                <h2 class="text-[14px] max-w-[170px] overflow-auto sm-423:max-w-[230px] sm-500:max-w-[300px]">{{ Str::title($order->nama_pembeli) }}</h2>
                                 {{-- email pembeli --}}
-                                <h3 class="text-[14px] text-zinc-600">{{ $order->email_pembeli }}</h3>
+                                <h3 class="text-[14px] text-zinc-600 max-w-[170px] overflow-auto sm-423:max-w-[230px] sm-500:max-w-[300px]">{{ $order->email_pembeli }}</h3>
                             </div>
 
                             {{-- no hp pembeli --}}
@@ -111,10 +111,10 @@
                         </div>
 
                         {{-- alamat lengkap pembeli --}}
-                        <p class="text-[14px] font-medium my-4">{{ Str::title($order->alamat_pembeli) }}</p>
+                        <p class="text-[14px] font-medium my-4 overflow-auto">{{ Str::title($order->alamat_pembeli) }}</p>
 
                         {{-- alamat pengiriman pembeli --}}
-                        <p class="text-[14px] font-medium">{{ Str::upper($order->kecamatan_pembeli) . ', ' . Str::upper($order->kota_pembeli) . ', ' . Str::upper($order->provinsi_pembeli) . ', ' . Str::upper($order->kode_pos_pembeli) }}</p>
+                        <p class="text-[14px] font-medium overflow-auto">{{ Str::upper($order->kecamatan_pembeli) . ', ' . Str::upper($order->kota_pembeli) . ', ' . Str::upper($order->provinsi_pembeli) . ', ' . Str::upper($order->kode_pos_pembeli) }}</p>
                     </div>
                 </div>
             </div>

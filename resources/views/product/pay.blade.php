@@ -25,23 +25,23 @@
                 <div class="w-full my-5">
                     {{-- tanggal pembayaran --}}
                     <p class="font-medium w-40 mb-1">Tanggal Pembayaran</p>
-                    <P class="text-zinc-600 font-medium mb-3">{{ (Carbon\Carbon::parse($pembayaran->tanggal_pembayaran)->translatedFormat('d F, Y')) }}</P>
+                    <P class="text-zinc-600 font-medium mb-6">{{ (Carbon\Carbon::parse($pembayaran->tanggal_pembayaran)->translatedFormat('d F, Y')) }}</P>
                     
                     {{-- tanggal pemesanan --}}
                     <p class="font-medium w-40 mb-1">Tanggal pemesanan</p>
-                    <P class="text-zinc-600 font-medium mb-3">{{ (Carbon\Carbon::parse($pembayaran->tanggal_pemesanan)->translatedFormat('d F, Y H:i')) }} WIB</P>
+                    <P class="text-zinc-600 font-medium mb-6">{{ (Carbon\Carbon::parse($pembayaran->tanggal_pemesanan)->translatedFormat('d F, Y H:i')) }} WIB</P>
                 
                     {{-- nama akun bank --}}
                     <p class="font-medium w-40 mb-1">Nama Akun Bank</p>
-                    <P class="text-zinc-600 font-medium mb-3">{{ Str::upper($pembayaran->nama_akun_bank) }}</P>
+                    <P class="text-zinc-600 font-medium mb-6 overflow-auto">{{ Str::upper($pembayaran->nama_akun_bank) }}</P>
 
                     {{-- nama  bank --}}
                     <p class="font-medium w-40 mb-1">Nama Bank</p>
-                    <p class="text-zinc-600 font-medium mb-3">{{ Str::upper($pembayaran->nama_bank) }}</p>
+                    <p class="text-zinc-600 font-medium mb-6 overflow-auto">{{ Str::upper($pembayaran->nama_bank) }}</p>
 
                     {{-- jumlah pembayaran --}}
                     <p class="font-medium w-40 mb-1">Jumlah Pembayaran</p>
-                    <P class="text-zinc-600 font-medium mb-3">Rp. {{ number_format($pembayaran->jumlah_transfer, '0', '', '.') }}</P>
+                    <P class="text-zinc-600 font-medium mb-6 overflow-auto">Rp. {{ number_format($pembayaran->jumlah_transfer, '0', '', '.') }}</P>
                 </div>
             </div>
         @endif

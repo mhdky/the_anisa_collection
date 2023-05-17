@@ -46,11 +46,11 @@
                 <h1 class="text-yellow-primary text-xl font-bold mt-3">{{ Str::limit(Str::title(Auth::user()->name), 25) }}</h1>
                 {{-- my profile mobile --}}
                 <a href="/account" class="{{ (Request::is('account') ? 'text-yellow-primary' : 'text-gray-500') }} font-bold mt-3 block">My Account</a>
-                <a href="/order" class="{{ (Request::is('order') ? 'text-yellow-primary' : 'text-gray-500') }} font-bold mt-3 pb-3 flex">
+                <a href="/order" class="{{ (Request::is('order') ? 'text-yellow-primary' : 'text-gray-500') }} w-max font-bold mt-3 pb-3 flex relative">
                     <p>My Order</p>
                     @foreach ($the_orders as $the_order)
                         @if ($the_order->status_pembayaran == 0 )
-                            <div class="bg-red-500 w-3 h-3 rounded-full"></div>
+                            <div class="bg-red-500 w-3 h-3 rounded-full absolute -right-[14px] top-0.5"></div>
                         @endif
                     @endforeach
                 </a>
@@ -117,7 +117,6 @@
                         {{-- profil dan logout --}}
                         <div class="profile-logout {{ (Request::is('/') ? 'bg-black-primary' : 'bg-black-primary') }} hidden w-32 absolute z-40 top-12 left-[1px] rounded-md shadow-md shadow-zinc-900">
                             <div class="relative w-full h-full">
-                                <i class="{{ (Request::is('account') ? 'text-[#424242]' : '') }} upicon fas fa-sort-up absolute -top-[5px] left-1/2 -translate-x-1/2 {{ (Request::is('/') ? 'text-black-primary' : 'text-black-primary') }}"></i>
                                 {{-- profile --}}
                                 <a href="/account" class="{{ (Request::is('account') ? 'bg-black-hover' : 'myprofile') }} w-full h-10 rounded-t-md px-2 flex items-center {{ (Request::is('/') ? 'hover:bg-white-hover' : 'hover:bg-black-hover') }}">
                                     <i class="fas fa-user text-white text-[0.9rem] mr-2"></i>
@@ -131,7 +130,7 @@
                                         @endif
                                     @endforeach
                                     <img src="{{ asset('img/bag_order.png') }}" alt="Bag" class="w-5 -ml-1 mr-[6px]">
-                                    <p class="text-white text-[0.8rem]">My order</p>
+                                    <p class="text-white text-[0.8rem]">My Order</p>
                                 </a>
                                 {{-- admin dashboard --}}
                                 @can('admin')

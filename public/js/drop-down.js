@@ -14,12 +14,3 @@ closeProfileLogout.addEventListener('click', () => {
     closeProfileLogout.style.display = 'none';
     arrowDown.style.transform = 'rotate(0deg)';
 });
-
-const myprofile = document.querySelector('.myprofile');
-const upicon = document.querySelector('.upicon');
-myprofile.addEventListener('mouseenter', () => {
-    upicon.style.color = '#424242';
-});
-myprofile.addEventListener('mouseleave', () => {
-    upicon.style.color = '#1E1E1E';
-});
