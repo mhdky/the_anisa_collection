@@ -101,21 +101,6 @@ class OrderController extends Controller
     // pay order
     public function pay($url_pembayaran)
     {
-        // if(Auth::check()) {
-        //     $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
-        //     $bag = OrderDetail::where('order_id', optional($order)->id);
-        // } else {
-        //     $bag = collect();
-        // }
-
-        // $pembayaran = Order::where('user_id', Auth::user()->id)->where('url_pembayaran', $url_pembayaran)->where('status', '!=', 0)->first();
-
-        // return view('product.pay', [
-        //     'title' => 'Pay Product - Anisa Collection',
-        //     'storeInformation' => StoreInformation::first(),
-        //     'bag' => $bag,
-        //     'pembayaran' => $pembayaran
-        // ]);
         try {
             if (Auth::check()) {
                 $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();

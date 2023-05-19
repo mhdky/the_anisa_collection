@@ -73,7 +73,7 @@
     
     @if (empty($order->url))
         <div class="bg-white fixed top-0 right-0 bottom-0 left-0 z-40"></div>
-        <script>window.location='/'</script>
+        <script>window.location='/404'</script>
     @endif
 
 @endsection

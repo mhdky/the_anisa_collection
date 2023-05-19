@@ -25,7 +25,7 @@ class CheckoutController extends Controller
 
         if (!empty($order->url)) {
             if ($order->url === 'back' || $bag->count() < 1) {
-                return back();
+                return abort('404');
             }
         }
 
@@ -55,7 +55,7 @@ class CheckoutController extends Controller
 
         if (!empty($order->url)) {
             if ($order->url === 'back' || $bag->count() < 1) {
-                return back();
+                return abort('404');
             }
         }
 

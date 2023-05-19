@@ -113,3 +113,6 @@ Route::get('/dashboard', function() {
 Route::get('/user/profile', function() {
     return abort('404');
 });
+Route::get('/404', function() {
+    return abort('404');
+});

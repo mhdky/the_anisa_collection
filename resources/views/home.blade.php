@@ -76,7 +76,7 @@
     </div>
 
     {{-- anisa collection services --}}
-    <div class="w-full flex flex-wrap px-5 sm-640:justify-between sm-640:px-4 sm-740:px-3 md-768:px-4 lg-1100:w-[1100px] lg-1100:mx-auto">
+    <div class="w-full flex flex-wrap mt-3 px-5 sm-640:justify-between sm-640:px-4 sm-740:px-3 md-768:px-4 lg-1100:w-[1100px] lg-1100:mx-auto">
         {{-- name section anisa collection services  --}}
         <h1 class="w-full text-xl font-playfair font-bold mt-2 mb-5 sm-640:mx-1 sm-740:mx-3 md-768:text-2xl md-768:mx-2">Anisa Collection Services</h1>
         
