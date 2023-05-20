@@ -55,6 +55,15 @@
                         <option value="31" {{ (old('size', $product->size) === '31' ? 'selected' : '') }}>31</option>
                         <option value="32" {{ (old('size', $product->size) === '32' ? 'selected' : '') }}>32</option>
                         <option value="33" {{ (old('size', $product->size) === '33' ? 'selected' : '') }}>33</option>
+                        <option value="34" {{ (old('size', $product->size) === '34' ? 'selected' : '') }}>34</option>
+                        <option value="35" {{ (old('size', $product->size) === '35' ? 'selected' : '') }}>35</option>
+                        <option value="36" {{ (old('size', $product->size) === '36' ? 'selected' : '') }}>36</option>
+                        <option value="37" {{ (old('size', $product->size) === '37' ? 'selected' : '') }}>37</option>
+                        <option value="38" {{ (old('size', $product->size) === '38' ? 'selected' : '') }}>38</option>
+                        <option value="39" {{ (old('size', $product->size) === '39' ? 'selected' : '') }}>39</option>
+                        <option value="40" {{ (old('size', $product->size) === '40' ? 'selected' : '') }}>40</option>
+                        <option value="41" {{ (old('size', $product->size) === '41' ? 'selected' : '') }}>41</option>
+                        <option value="42" {{ (old('size', $product->size) === '42' ? 'selected' : '') }}>42</option>
                     </select>
 
                     {{-- price --}}

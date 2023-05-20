@@ -77,10 +77,9 @@
                 <p class="text-zinc-500 font-medium h-max flex-[2]">{{ Str::title($product->jenis_lengan) }}</p>
             </div>
 
-            <div class="mt-7">
+            <div class="mt-7 md-768:w-[700px] text-justify">
                 <p class="font-medium">Description</p>
-                <p class="text-zinc-500 mt-2 md-768:w-[700px]">{!! $product->detail . 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus saepe maiores voluptatibus velit enim esse reiciendis soluta maxime, inventore obcaecati!  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus saepe maiores voluptatibus velit enim esse reiciendis soluta maxime, inventore obcaecati! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus saepe maiores voluptatibus velit enim esse reiciendis soluta maxime, inventore obcaecati! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus saepe maiores voluptatibus velit enim esse reiciendis soluta maxime, inventore obcaecati! ' !!}</p>
-                
+                <p class="text-zinc-500 mt-2 md-768:w-[700px]">{!! $product->detail !!}</p>                
             </div>
         </div>
     </div>

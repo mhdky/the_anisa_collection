@@ -67,7 +67,7 @@ class DashboardProductController extends Controller
             'name' => 'required|min:1|max:200',
             'detail' => 'required|min:1|max:100000',
             'price' => 'required|min:1|max:15',
-            'image' => 'required|image|file|max:1024',
+            'image' => 'required|image|file|max:1500',
             'stock' => 'required|min:1|max:15',
             'size' => 'required',
             'merek' => 'max:30',

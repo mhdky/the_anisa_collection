@@ -58,6 +58,15 @@
                         <option value="31" {{ (old('size') === '31' ? 'selected' : '') }}>31</option>
                         <option value="32" {{ (old('size') === '32' ? 'selected' : '') }}>32</option>
                         <option value="33" {{ (old('size') === '33' ? 'selected' : '') }}>33</option>
+                        <option value="34" {{ (old('size') === '34' ? 'selected' : '') }}>34</option>
+                        <option value="35" {{ (old('size') === '35' ? 'selected' : '') }}>35</option>
+                        <option value="36" {{ (old('size') === '36' ? 'selected' : '') }}>36</option>
+                        <option value="37" {{ (old('size') === '37' ? 'selected' : '') }}>37</option>
+                        <option value="38" {{ (old('size') === '38' ? 'selected' : '') }}>38</option>
+                        <option value="39" {{ (old('size') === '39' ? 'selected' : '') }}>39</option>
+                        <option value="40" {{ (old('size') === '40' ? 'selected' : '') }}>40</option>
+                        <option value="41" {{ (old('size') === '41' ? 'selected' : '') }}>41</option>
+                        <option value="42" {{ (old('size') === '42' ? 'selected' : '') }}>42</option>
                     </select>
 
                     {{-- price --}}
