@@ -140,6 +140,10 @@
     <script src="{{ asset('js/nav-admin.js') }}"></script>
 @endpush
 
+@push('preview-image')
+    <script src="{{ asset('js/preview-image.js') }}"></script>
+@endpush
+
 @push('trix-upload')
     <script src="{{ asset('js/trix-upload.js') }}"></script>
 @endpush
