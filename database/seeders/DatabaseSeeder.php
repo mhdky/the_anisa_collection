@@ -37,18 +37,70 @@ class DatabaseSeeder extends Seeder
             'slug' => 'women'
         ]);
 
+        Product::create([
+            'category_id' => 2,
+            'name' => '3Second Basic Short Sleeve T-Shirt Mid Crop Logo Center Cotton Woman White 030123',
+            'size' => 'M',
+            'price' => 170000,
+            'merek' => '3Second',
+            'bahan' => '100% Cotton Combed',
+            'jenis_lengan' => 'Pendek',
+            'stock' => 17,
+            'detail' => 'Desain mid crop membuat kaos ini cukup pendek di bagian bawah dan cocok untuk dipadukan dengan celana high-waist atau rok. Kaos ini sangat cocok untuk digunakan dalam acara santai seperti jalan-jalan atau hangout bersama teman-teman. Dengan bahan katun yang berkualitas, Anda dapat yakin bahwa baju kaos ini akan bertahan lama dan tetap nyaman dipakai. Tampil trendi dan casual dengan kaos wanita dari 3Second ini!',
+            'image' => 'file/Xlv3NECmEcvHbxWZ7Mjz7eWQKyZLbjuIAL9pOXeL.jpg'
+        ]);
+
+        Product::create([
+            'category_id' => 1,
+            'name' => 'Erigo Light Weight Jacket Daniyal Corpi Blue',
+            'size' => 'XL',
+            'price' => 667000,
+            'merek' => 'Erigo',
+            'bahan' => 'Nylon',
+            'jenis_lengan' => 'Panjang',
+            'stock' => 21,
+            'detail' => 'Ringan mengambil gaya busana Jaket Anorak. Berbeda dengan Jaket Anorak lama yang berbahan kulit, Axelle Poseidon ini berbahan nilon. Dengan kualitas tahan air dan tahan panas yang telah teruji, jaket yang juga berjenis pullover ini dilengkapi dengan tudung dan tali pengikat, resleting setengah badan dan saku depan.',
+            'image' => 'file/pEC9Ad0VTrmHjZL8BHWf7V4vDrwXFX5HqBugJRjQ.webp'
+        ]);
+
+        Product::create([
+            'category_id' => 2,
+            'name' => "LEVI'S® WOMEN'S ULTIMATE WESTERN SHIRT",
+            'size' => 'L',
+            'price' => 699900,
+            'merek' => "LEVI'S",
+            'bahan' => '100% Cotton',
+            'jenis_lengan' => 'Panjang',
+            'stock' => 10,
+            'detail' => 'Dengan sedikit sentuhan maskulin, The Classic Shirt menampilkan logo bordir berwarna di bagian dada untuk sentuhan yang halus. Dilengkapi Western silhouette yang ikonik dan gaya All-American style yang tak lekang oleh waktu dengan snap buttons dan pointed Western yokes.',
+            'image' => 'file/5A2DEjV3r2UOCbCRhbpKhe8lxBHg2seNw4Y2j6PP.png'
+        ]);
+
+        Product::create([
+            'category_id' => 1,
+            'name' => 'T-Shirt Garis Lengan Panjang',
+            'size' => 'XL',
+            'price' => 299000,
+            'merek' => 'Uniqlo',
+            'bahan' => '100% Cotton',
+            'jenis_lengan' => 'Panjang',
+            'stock' => 7,
+            'detail' => 'T-shirt garis berbahan 100% katun. Desain yang mudah dipadankan.',
+            'image' => 'file/D6T7cXxM8bOLIWOzcOIpyUTtC1kCBIMGuD6ApYUs.png'
+        ]);
+
         StoreInformation::create([
             'name_bank_account' => 'MHD RIZKI',
             'bank_name' => 'BRI',
-            'rekening_number' => '8ISD88120',
+            'rekening_number' => '123456789',
             'bank_code' => '002',
-            'store_address'  => 'Sidodadi',
-            'phone_number' => '082246924258',
-            'store_email' => 'mhdky502@gmail.com',
+            'store_address'  => 'Sei Kalam Dusun 3 Kec. Kampung Rakyat, Labuhan Batu Selatan',
+            'phone_number' => '+6282246924258',
+            'store_email' => 'anisacollectionsdd@gmail.com',
             'instagram' => '',
             'facebook' => '',
             'open' => '09.00',
-            'close' => '10.00',
+            'close' => '22.00',
         ]);
 
         Province::create([
