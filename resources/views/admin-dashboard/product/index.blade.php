@@ -21,7 +21,7 @@
             @if ($products->count() > 0)
                 @foreach ($products as $product)
                     {{-- card produk --}}
-                    <div class="cardProductBorder border border-zinc-200 w-full mb-4 p-3 rounded-md relative" data-product-id="{{ $product->id }}">
+                    <div class="cardProductBorder border border-zinc-200 w-full mb-4 px-3 pt-3 pb-10 rounded-md relative" data-product-id="{{ $product->id }}">
                         {{-- button option --}}
                         <div class="buttonOption w-4 h-5 absolute right-1 top-2 flex flex-col justify-between items-center md-800:cursor-pointer md-800:right-2 md-800:top-3">
                             <span class="bg-zinc-600 w-1 h-[5px] rounded-full"></span>
@@ -51,7 +51,7 @@
                             <div class="w-full ml-3 flex-[2] md-768:ml-5">
                                 {{-- title --}}
                                 <p class="text-[14px] text-zinc-400">Judul Produk</p>
-                                <p class="text-[14px] text-zinc-600 leading-[17px] mt-1 lg-1280:w-[800px]">{{ Str::title($product->name) }}</p>
+                                <a href="/product/{{ $product->url }}" class="text-[14px] text-zinc-600 leading-[17px] mt-1 lg-1280:w-[800px]">{{ Str::title($product->name) }}</a>
 
                                 {{-- size --}}
                                 <p class="text-[14px] text-zinc-400 mt-3 md-768:mt-3">Ukuran</p>
@@ -64,7 +64,7 @@
                         </div>
 
                         {{-- button detail mobile --}}
-                        <div class="buttonDetilMobile absolute right-2 bottom-2 text-zinc-600 text-[14px] md-800:cursor-pointer"><p>...Selengkapnya</p></div>
+                        <div class="buttonDetilMobile absolute right-2 mt-2 bottom-2 text-zinc-600 text-[14px] md-800:cursor-pointer"><p>...Selengkapnya</p></div>
                         {{-- button hidden detail mobile --}}
                         <div class="buttonDetilMobileHidden hidden absolute z-[2] right-2 bottom-1 text-zinc-600 text-[14px] md-800:cursor-pointer md-800:right-3 md-800:bottom-2"><p>Tutup</p></div>
 
