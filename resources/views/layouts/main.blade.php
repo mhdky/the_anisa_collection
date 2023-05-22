@@ -61,6 +61,7 @@
     @stack('script')
     @stack('drop-down-js')
     @stack('quantity-counter')
+    @stack('go-back')
     @stack('script-alert-ok')
     @stack('livewire-script')
     @stack('form-pay')

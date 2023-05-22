@@ -4,7 +4,11 @@
     @include('partials.navbar')
 
     <div class="w-full lg-1100:w-[1100px] lg-1100:mx-auto">
-        <div class="w-full mt-[65px] p-4 flex flex-col sm-740:flex-row md-768:mt-0">
+        <div class="flex items-center ml-4 mt-[75px] md-768:mt-4 md-800:cursor-pointer" onclick="goBack()">
+            <i class="fas fa-arrow-left mr-2"></i>
+            <p class="font-medium">Back</p>
+        </div>
+        <div class="w-full p-4 flex flex-col sm-740:flex-row">
             {{-- image product --}}
             <div class="w-full sm-740:w-1/2 sm-740:h-max sm-740:pr-5">
                 <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full">
@@ -92,7 +96,12 @@
 @endpush
 @push('quantity-counter')
     <script src="{{ asset('js/quantity-counter.js') }}"></script>
-    @endpush
+@endpush
+
+@push('go-back')
+    <script src="{{ asset('js/go-back.js') }}"></script>
+@endpush
+
 @push('script-alert-ok')
     <script src="{{ asset('js/script-alert-ok.js') }}"></script>
 @endpush

@@ -147,6 +147,7 @@
     @stack('detail-card-product')
     @stack('trix-upload')
     @stack('preview-image')
+    @stack('go-back')
     @stack('detail-order')
     @stack('script-alert-ok')
     @livewireScripts

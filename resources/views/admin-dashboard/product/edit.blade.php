@@ -3,10 +3,10 @@
 @section('container')
     <div class="w-full flex-[2] mt-[65px] pb-20 md-900:mt-[64px]">
         <div class="w-full p-3">
-            <a href="/dashboard/product" class="flex items-center w-max">
+            <div class="flex items-center w-max md-800:cursor-pointer" onclick="goBack()">
                 <i class="fas fa-arrow-left text-zinc-600 mr-2"></i>
                 <p class="text-zinc-600 text-[14px] mt-0.5">Kembali</p>
-            </a>
+            </div>
 
             {{-- form add product --}}
             <div class="w-full flex justify-center mt-8">
@@ -142,6 +142,10 @@
 
 @push('preview-image')
     <script src="{{ asset('js/preview-image.js') }}"></script>
+@endpush
+
+@push('go-back')
+    <script src="{{ asset('js/go-back.js') }}"></script>
 @endpush
 
 @push('trix-upload')
