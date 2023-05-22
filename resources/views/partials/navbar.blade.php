@@ -166,15 +166,13 @@
     <div class="close-form-search fixed z-[19] top-0 right-0 bottom-0 left-0 hidden"></div>
 
     {{-- whatsapp custumer services --}}
-    <div class="fixed flex bottom-5 left-5">
+    <div class="fixed z-10 flex bottom-5 left-5">
         <div class="whatsapp bg-black-primary w-12 h-12 rounded-full flex justify-center items-center border border-green-600 shadow-md shadow-green-900 md-830:cursor-pointer" onclick="window.location='https:{{ '/'.'/' }}wa.me/{{ $storeInformation->phone_number }}/?text=Hallo, apakah produk masih tersedia?'">
             <i class="fab fa-whatsapp text-green-600 text-2xl"></i>
         </div>
 
-        <div class="whatsapp-cs bg-black-primary h-max mt-1 ml-3 p-2 hidden border border-gray-300 rounded-[5px] relative opacity-0 md-830:opacity-100">
+        <div class="whatsapp-cs bg-zinc-800 h-max mt-1 ml-3 p-2 hidden border border-zinc-700 rounded-[5px] relative opacity-0 md-830:opacity-100">
             <p class="text-white text-[0.8rem]">Custumer service</p>
-
-            <i class="fas fa-caret-left text-xl absolute bottom-2 -left-[6px]"></i>
         </div>
     </div>
 

@@ -55,3 +55,13 @@ function FnSearchMobile() {
         btnSearchMobile.disabled = true;
     }
 }
+
+const whatsapp = document.querySelector('.whatsapp');
+const whatsappCs = document.querySelector('.whatsapp-cs');
+whatsapp.addEventListener('mouseenter', () => {
+    whatsappCs.style.display = 'block';
+    whatsappCs.style.transitionDelay = '0.5s';
+});
+whatsapp.addEventListener('mouseleave', () => {
+    whatsappCs.style.display = 'none';
+});
