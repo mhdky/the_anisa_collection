@@ -21,7 +21,7 @@
                                 </div>
 
                                 {{-- keterangan produk --}}
-                                <div class="">
+                                <div class="flex-[2]">
                                     {{-- judul produk --}}
                                     <a href="/product/{{ $orderDetail->product->url }}" class="flex-[2] leading-5 font-medium">{{ Str::title($orderDetail->product->name) }}</a>
                                     {{-- ukuran produk --}}

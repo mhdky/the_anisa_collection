@@ -79,6 +79,9 @@ Route::patch('/paysecond/{order:id}', [OrderController::class, 'payStoreSecond']
 Route::get('/paysecond/{order:id}', function() {
     return abort('404');
 });
+Route::get('/ok', function() {
+    return back()->with('ok', 'Successfully added to shopping bag');
+});
 
 //bag
 Route::get('/bag', [BagController::class, 'index'])->middleware('auth');

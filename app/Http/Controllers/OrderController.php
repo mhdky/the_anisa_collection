@@ -60,6 +60,7 @@ class OrderController extends Controller
         $order->update();
 
         return back()->with('ok', 'Successfully added to shopping bag');
+        return redirect('/ok');
     }
 
     public function index()
