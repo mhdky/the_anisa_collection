@@ -147,7 +147,7 @@
                                 {{-- tanggal pemesanan --}}
                                 <div class="mb-3 md-1000:flex">
                                     <p class="font-medium mb-1 md-1000:text-[14px] md-1000:w-52">Tanggal Pemesanan</p>
-                                    <p class="text-zinc-600 font-medium md-1000:text-[14px]">{{ (Carbon\Carbon::parse($order->pemesanan)->translatedFormat('d F, Y H:i')) }} WIB</p>
+                                    <p class="text-zinc-600 font-medium md-1000:text-[14px]">{{ (Carbon\Carbon::parse($order->tanggal_pemesanan)->translatedFormat('d F, Y H:i')) }} WIB</p>
                                 </div>
 
                                 {{-- nama akun --}}

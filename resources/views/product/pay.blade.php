@@ -108,7 +108,7 @@
             @error('gambar_bukti_pembayaran')
                 <p class="text-red-500">{{ $message }}</p>
             @enderror
-            <input type="file" name="gambar_bukti_pembayaran" id="gambar_bukti_pembayaran" onchange="previewImg()" placeholder="Masukan Jumlah Yang Ditransfer" value="{{ old('gambar_bukti_pembayaran', $pembayaran->gambar_bukti_pembayaran) }}" class="imageAdm w-[99px] bg-pink-500 focus:border-black-primary focus:ring-0 overflow-hidden">
+            <input type="file" name="gambar_bukti_pembayaran" id="gambar_bukti_pembayaran" onchange="previewImg()" placeholder="Masukan Jumlah Yang Ditransfer" value="{{ old('gambar_bukti_pembayaran', $pembayaran->gambar_bukti_pembayaran) }}" class="imageAdm w-[99px] bg-white text-white focus:border-black-primary focus:ring-0 overflow-hidden">
         
             <button type="submit" class="bg-black-primary w-full mt-7 py-2 rounded-md text-white">{{ ($pembayaran->status_pembayaran !== 1 ? 'Simpan' : 'Ubah') }}</button>
         </form>
