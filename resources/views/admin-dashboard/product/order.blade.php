@@ -42,9 +42,15 @@
                 <div class="mt-5 pb-5 border-b border-zinc-200">
                     {{-- dikirim / belum --}}
                     @if ($order->nomor_resi === null)
-                        <p class="bg-red-500 w-max py-2 px-3 rounded-md text-white text-[14px] md-1000:text-[12px]">Belum Dikirim</p>
+                    <div class="flex items-center mb-5">
+                        <i class="fa-regular fa-circle-xmark text-red-500 mb-0.5"></i>
+                        <p class="text-red-500 font-bold ml-2 rounded-md md-768:text-[14px]">Belum Dikirim</p>
+                    </div>
                     @else
-                        <p class="bg-green-500 w-max py-2 px-3 rounded-md text-white text-[14px] md-1000:text-[12px]">Telah Dikirim</p>
+                        <div class="flex items-center mb-5">
+                            <i class="fa-solid fa-circle-check text-green-500"></i>
+                            <p class="text-green-500 font-bold ml-2 rounded-md md-768:text-[14px]">Sudah Dikirim</p>
+                        </div>
                     @endif
 
                     {{-- nomor resi --}}
