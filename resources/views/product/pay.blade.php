@@ -16,32 +16,36 @@
         @else
             <p class="mt-7 mb-5 text-lg font-medium">Terima kasih telah melakukan pembayaran sebesar <span class="text-yellow-primary">Rp. {{ number_format($pembayaran->total_amount, '0', '', '.') }}</span>. Jika terdapat kesalahan dalam melakukan Konfirmasi Pembayaran Anda dapat mengubahnya. Terima Kasih telah berbelanja di Anisa Collection.</p>
         
-            <div class="bg-zinc-50 w-full mb-7 p-3 rounded-md border border-zinc-100">
-                {{-- gambar bukti bayar --}}
-                <div class="w-72 h-max mt-2 mx-auto">
-                    <img src="{{ asset('storage/' . $pembayaran->gambar_bukti_pembayaran) }}" class="w-full h-max">
+            <div class="w-full mb-7 p-5 border-dashed border-2 border-black-primary rounded-md">
+                <div class="flex justify-center items-center">
+                    <p class="btnBuktiPembayaran font-medium mr-1 select-none md-800:cursor-pointer">Bukti Pembayaran</p>
+                    <i class="iconBuktiPembayaran fas fa-caret-right text-lg"></i>
                 </div>
-                
-                <div class="w-full my-5">
-                    {{-- tanggal pembayaran --}}
-                    <p class="font-medium w-40 mb-1">Tanggal Pembayaran</p>
-                    <P class="text-zinc-600 font-medium mb-6">{{ (Carbon\Carbon::parse($pembayaran->tanggal_pembayaran)->translatedFormat('d F, Y')) }}</P>
-                    
-                    {{-- tanggal pemesanan --}}
-                    <p class="font-medium w-40 mb-1">Tanggal pemesanan</p>
-                    <P class="text-zinc-600 font-medium mb-6">{{ (Carbon\Carbon::parse($pembayaran->tanggal_pemesanan)->translatedFormat('d F, Y H:i')) }} WIB</P>
-                
-                    {{-- nama akun bank --}}
-                    <p class="font-medium w-40 mb-1">Nama Akun Bank</p>
-                    <P class="text-zinc-600 font-medium mb-6 overflow-auto">{{ Str::upper($pembayaran->nama_akun_bank) }}</P>
 
-                    {{-- nama  bank --}}
-                    <p class="font-medium w-40 mb-1">Nama Bank</p>
-                    <p class="text-zinc-600 font-medium mb-6 overflow-auto">{{ Str::upper($pembayaran->nama_bank) }}</p>
-
-                    {{-- jumlah pembayaran --}}
-                    <p class="font-medium w-40 mb-1">Jumlah Pembayaran</p>
-                    <P class="text-zinc-600 font-medium mb-6 overflow-auto">Rp. {{ number_format($pembayaran->jumlah_transfer, '0', '', '.') }}</P>
+                <div class="buktiPembayaran hidden">
+                    <div class="w-full border-b border-black-primary py-3 px-2 font-medium">
+                        <h2 class="mb-1">Tanggal Pembayaran</h2>
+                        <p class="text-zinc-600">{{ (Carbon\Carbon::parse($pembayaran->tanggal_pembayaran)->translatedFormat('d F, Y')) }}</p>
+                    </div>
+                    <div class="w-full border-b border-black-primary mt-5 py-3 px-2 font-medium">
+                        <h2 class="mb-1">Tanggal Pemesanan</h2>
+                        <p class="text-zinc-600">{{ (Carbon\Carbon::parse($pembayaran->tanggal_pemesanan)->translatedFormat('d F, Y - H:i')) }} WIB</p>
+                    </div>
+                    <div class="w-full border-b border-black-primary mt-5 py-3 px-2 font-medium">
+                        <h2 class="mb-1">Nama Akun Bank</h2>
+                        <p class="text-zinc-600">{{ Str::upper($pembayaran->nama_akun_bank) }}</p>
+                    </div>
+                    <div class="w-full border-b border-black-primary mt-5 py-3 px-2 font-medium">
+                        <h2 class="mb-1">Nama Bank</h2>
+                        <p class="text-zinc-600">{{ Str::upper($pembayaran->nama_bank) }}</p>
+                    </div>
+                    <div class="w-full border-b border-black-primary my-5 py-3 px-2 font-medium">
+                        <h2 class="mb-1">Jumlah Pembayaran</h2>
+                        <p class="text-zinc-600">Rp. {{ number_format($pembayaran->jumlah_transfer, '0', '', '.') }}</p>
+                    </div>
+                    <div class="w-full sm-375:w-[300px]">
+                        <img src="{{ asset('storage/' . $pembayaran->gambar_bukti_pembayaran) }}" alt="">
+                    </div>
                 </div>
             </div>
         @endif

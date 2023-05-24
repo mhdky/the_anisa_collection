@@ -89,3 +89,11 @@ input[type=number] {
 .borderNavHomeShow {
     @apply border-b border-gray-200
 }
+
+.iconBuktiPembayaranRotate {
+    @apply rotate-90 mb-1
+}
+
+.buktiPembayaranShow {
+    @apply block
+}
