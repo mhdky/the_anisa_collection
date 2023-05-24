@@ -7,6 +7,7 @@
     <title>{{ $title }}</title>
     <meta name="description" content="Penjualan pakaian terlengkap, termurah dan terpercaya">
     <meta name="keywords" content="Clothing online store">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <link rel="icon" type="image" href="{{ asset('img/logo-anisa-collection.svg') }}">
 
     {{-- open graph --}}
