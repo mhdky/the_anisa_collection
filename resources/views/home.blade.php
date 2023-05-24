@@ -163,3 +163,7 @@
 @push('script')
     <script src="{{ asset('js/script.js') }}"></script>
 @endpush
+
+@push('border-nav-home')
+    <script src="{{ asset('js/border-nav-home.js') }}"></script>
+@endpush

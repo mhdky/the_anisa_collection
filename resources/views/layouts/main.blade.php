@@ -57,10 +57,13 @@
     @stack('liveware-style')
 </head>
 <body>
-    @yield('container')
+    <div class="md-768:mt-[68px] md-950:mt-[75px]">
+        @yield('container')
+    </div>
 
     @stack('script')
     @stack('drop-down-js')
+    @stack('border-nav-home')
     @stack('quantity-counter')
     @stack('go-back')
     @stack('script-alert-ok')

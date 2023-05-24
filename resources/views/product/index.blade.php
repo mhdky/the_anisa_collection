@@ -4,7 +4,7 @@
     @include('partials.navbar')
 
     {{-- name section dan card product --}}
-    <div class="w-full mt-20 lg-1100:w-[1100px] lg-1100:mx-auto md-768:mt-11">
+    <div class="w-full mt-20 lg-1100:w-[1100px] lg-1100:mx-auto md-768:mt-24">
         {{-- name section card product --}}
         <div class="flex justify-between items-center px-5">                
             @if (Request::is('product'))

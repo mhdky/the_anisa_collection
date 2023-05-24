@@ -67,7 +67,7 @@
     </div>
 
     {{-- navigation desktop --}}
-    <div class="bg-white hidden justify-center {{ (Request::is('/') ? '' : 'border-b border-gray-200') }} md-768:flex">
+    <div class="bg-white hidden justify-center fixed top-0 z-20 w-full {{ (Request::is('/') ? 'borderNavHome' : 'border-b border-gray-200') }} md-768:flex">
         <div class="w-full py-4 px-5 flex justify-between items-center lg-1100:w-[1100px]">
             {{-- logo dan list navigation desktop --}}
             <div class="flex items-center">

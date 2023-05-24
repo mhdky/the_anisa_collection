@@ -39,9 +39,15 @@
                 <div class="bg-zinc-50 w-full pb-4">
                     {{-- keterangan bayar belum --}}
                     @if ($order->status_pembayaran !== 1)
-                        <p class="bg-red-500 w-max py-1 px-2 text-white rounded-md md-768:text-[14px]">Belum Dibayar</p>
+                        <div class="flex items-center">
+                            <i class="fa-regular fa-circle-xmark text-red-500 mb-0.5"></i>
+                            <p class="text-red-500 font-bold ml-2 rounded-md md-768:text-[14px]">Belum Dibayar</p>
+                        </div>
                     @else
-                        <p class="bg-green-500 w-max py-1 px-2 text-white rounded-md md-768:text-[14px]">Sudah Dibayar</p>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-circle-check text-green-500"></i>
+                            <p class="text-green-500 font-bold ml-2 rounded-md md-768:text-[14px]">Sudah Dibayar</p>
+                        </div>
                     @endif
 
                     {{-- menunggu order --}}
