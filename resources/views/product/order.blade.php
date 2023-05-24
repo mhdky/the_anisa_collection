@@ -89,9 +89,9 @@
 
 
                     @if ($order->status_pembayaran !== 1)
-                        <p class="bg-zinc-200 w-full mt-5 py-2 text-zinc-600 text-[15px] text-center font-medium border border-zinc-300 rounded-md md-800:cursor-pointer" onclick="window.location='/pay/{{ $order->url_pembayaran }}'">Bayar Sekarang</p>
+                        <p class="bg-zinc-200 w-full mt-5 py-2 text-zinc-600 text-[15px] text-center font-medium border border-zinc-300 rounded-md select-none md-800:cursor-pointer" onclick="window.location='/pay/{{ $order->url_pembayaran }}'">Bayar Sekarang</p>
                     @else
-                        <p class="bg-zinc-200 w-full mt-5 py-2 text-zinc-600 text-[15px] text-center font-medium border border-zinc-300 rounded-md md-800:cursor-pointer" onclick="window.location='/pay/{{ $order->url_pembayaran }}'">Detail Pembayaran</p>
+                        <p class="bg-zinc-200 w-full mt-5 py-2 text-zinc-600 text-[15px] text-center font-medium border border-zinc-300 rounded-md select-none md-800:cursor-pointer" onclick="window.location='/pay/{{ $order->url_pembayaran }}'">Detail Pembayaran</p>
                     @endif
 
                     <p class="text-zinc-600 font-medium mt-7">Detail Pengiriman..</p>

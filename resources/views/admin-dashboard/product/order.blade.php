@@ -187,7 +187,7 @@
             <div class="bg-white w-full h-screen p-4 overflow-auto border border-zinc-200 sm-423:w-[300px] sm-423:mx-auto md-768:h-max md-768:rounded-md">
                 {{-- close gambar bukti pembayaran --}}
                 <div class="w-full  mb-5 flex justify-between items-center">
-                    <h1 class="font-medium">{{ Str::upper('muhammad rizki') }}</h1>
+                    <h1 class="font-medium">{{ Str::upper($order->nama_akun_bank) }}</h1>
                     <div class="tutupGambarPembayaran bg-zinc-50 w-8 h-8 rounded-full border border-zinc-200 flex justify-center items-center md-800:cursor-pointer"><i class="fas fa-times"></i></div>
                 </div>
 

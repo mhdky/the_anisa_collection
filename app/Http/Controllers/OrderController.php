@@ -59,7 +59,7 @@ class OrderController extends Controller
         $order->total_price = $order->total_price + $product->price * $request->total_order;
         $order->update();
 
-        return back()->with('ok', 'Successfully added to shopping bag');
+        // return back()->with('ok', 'Successfully added to shopping bag');
         return redirect('/ok');
     }
 

@@ -56,9 +56,9 @@
             </div>
 
             @if (empty($order->url) || $bag->count() < 1)
-                <button class="bg-black-primary w-full py-3 rounded-md text-white text-[14px]">Checkout</button>
+                <button class="bg-black-primary w-full py-3 rounded-md text-white text-[14px] select-none">Checkout</button>
             @else
-                <button class="bg-black-primary w-full py-3 rounded-md text-white text-[14px]" onclick="window.location='/checkout/{{ $order->url }}'">Checkout</button>
+                <button class="bg-black-primary w-full py-3 rounded-md text-white text-[14px] select-none" onclick="window.location='/checkout/{{ $order->url }}'">Checkout</button>
             @endif
         </div>
     </div>

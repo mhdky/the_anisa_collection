@@ -5,10 +5,10 @@
 
     <div class="w-full mt-[65px] mb-32 p-4 sm-740:w-[700px] sm-740:mx-auto md-768:mt-0">
         <div class="w-full">
-            <div class="w-max mb-7 flex items-center md-800:cursor-pointer" onclick="goBack()">
+            <a href="/order" class="w-max mb-7 flex items-center md-800:cursor-pointer">
                 <i class="fas fa-arrow-left mr-3"></i>
                 <p>Kembali</p>
-            </div>
+            </a>
         </div>
         <h1 class="text-xl text-center uppercase font-bold">product payment</h1>
         @if ($pembayaran->status_pembayaran !== 1)
@@ -139,10 +139,6 @@
 
 @push('preview-image')
     <script src="{{ asset('js/preview-image.js') }}"></script>
-@endpush
-
-@push('go-back')
-    <script src="{{ asset('js/go-back.js') }}"></script>
 @endpush
 
 @push('script-alert-ok')

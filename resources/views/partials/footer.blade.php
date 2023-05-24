@@ -18,7 +18,7 @@
         {{-- toko --}}
         <ul class="mb-5 md-768:mt-2">
             <li class="text-white text-lg mb-6">Toko</li>
-            <li class="mb-5"><a href="/about" class="text-gray-primary hover:text-white">Tentang</a></li>
+            <li class="mb-5"><a href="#" class="text-gray-primary hover:text-white">Tentang</a></li>
             <li class="mb-5"><div href="/kontak" class="text-gray-primary hover:text-white md-800:cursor-pointer" onclick="window.location='https:{{ '/'.'/' }}wa.me/{{ $storeInformation->phone_number }}/?text=Hallo, apakah produk masih tersedia?'">Kontak</div></li>
         </ul>
 

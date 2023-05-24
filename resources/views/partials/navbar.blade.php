@@ -36,8 +36,8 @@
         <ul class="mt-5 font-bold">
             <li class="my-3"><a href="/" class="{{ (Request::is('/') ? 'text-yellow-primary' : 'text-gray-500') }}">Home</a></li>
             <li class="my-3"><a href="/product" class="{{ (Request::is('product*') || Request::is('collection*') ? 'text-yellow-primary' : 'text-gray-500') }}">Product</a></li>
-            <li class="my-3"><a href="/howtoorder" class="{{ (Request::is('howtoorder') ? 'text-yellow-primary' : 'text-gray-500') }}">How To Order</a></li>
-            <li class="my-3"><a href="/aboutus" class="{{ (Request::is('aboutus') ? 'text-yellow-primary' : 'text-gray-500') }}">About Us</a></li>
+            <li class="my-3"><a href="#" class="{{ (Request::is('howtoorder') ? 'text-yellow-primary' : 'text-gray-500') }}">How To Order</a></li>
+            <li class="my-3"><a href="#" class="{{ (Request::is('aboutus') ? 'text-yellow-primary' : 'text-gray-500') }}">About Us</a></li>
         </ul>
         {{-- nama pengguna, my profile dan sign out mobile  --}}
         @auth
@@ -91,8 +91,8 @@
                     {{-- list navigation desktop --}}
                     <li class="mr-3"><a href="/" class="{{ (Request::is('/') ? 'text-yellow-primary' : '') }} text-[0.9rem] hover:text-yellow-primary md-950:text-sm">Home</a></li>
                     <li class="mr-3"><a href="/product" class="{{ (Request::is('product*') || Request::is('collection*') ? 'text-yellow-primary' : '') }} text-[0.9rem] hover:text-yellow-primary md-950:text-sm">Product</a></li>
-                    <li class="mr-3"><a href="/howtoorder" class="{{ (Request::is('howtoorder*') ? 'text-yellow-primary' : '') }} text-[0.9rem] hover:text-yellow-primary md-950:text-sm">How to order</a></li>
-                    <li class="mr-3"><a href="/aboutus" class="{{ (Request::is('aboutus') ? 'text-yellow-primary' : '') }} text-[0.9rem] hover:text-yellow-primary md-950:text-sm">About us</a></li>
+                    <li class="mr-3"><a href="#" class="{{ (Request::is('howtoorder*') ? 'text-yellow-primary' : '') }} text-[0.9rem] hover:text-yellow-primary md-950:text-sm">How to order</a></li>
+                    <li class="mr-3"><a href="#" class="{{ (Request::is('aboutus') ? 'text-yellow-primary' : '') }} text-[0.9rem] hover:text-yellow-primary md-950:text-sm">About us</a></li>
                 </ul>
             </div>
             {{-- bag dan nama pengguna --}}
