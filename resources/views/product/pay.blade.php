@@ -104,7 +104,7 @@
             @endif
 
             {{-- UPLOAD bukti pembayaran --}}
-            <label for="gambar_bukti_pembayaran" class="mt-2 mb-2 font-medium">Upload Gambar Pembayaran</label>
+            <label for="gambar_bukti_pembayaran" class="mt-2 mb-2 font-medium">Upload Bukti Gambar Pembayaran <br>(*max 1mb)</label>
             @error('gambar_bukti_pembayaran')
                 <p class="text-red-500">{{ $message }}</p>
             @enderror
