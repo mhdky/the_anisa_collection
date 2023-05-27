@@ -172,7 +172,7 @@
         </div>
 
         <div class="whatsapp-cs bg-zinc-800 h-max mt-1 ml-3 p-2 hidden border border-zinc-700 rounded-[5px] relative opacity-0 md-830:opacity-100">
-            <p class="text-white text-[0.8rem]">Custumer service</p>
+            <p class="text-white text-[0.8rem]">Customer Service</p>
         </div>
     </div>
 
