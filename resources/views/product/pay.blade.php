@@ -22,7 +22,7 @@
                     <i class="iconBuktiPembayaran fas fa-caret-right text-lg"></i>
                 </div>
 
-                <div class="buktiPembayaran hidden">
+                <div class="buktiPembayaran mt-8 hidden">
                     <div class="w-full border-b border-black-primary py-3 px-2 font-medium">
                         <h2 class="mb-1">Tanggal Pembayaran</h2>
                         <p class="text-zinc-600">{{ (Carbon\Carbon::parse($pembayaran->tanggal_pembayaran)->translatedFormat('d F, Y')) }}</p>

@@ -3,7 +3,7 @@
 @section('container')
     @include('partials.navbar')
 
-    <div class="w-full mt-20 mb-32 px-4 md-770:w-[770px] md-770:mx-auto">
+    <div class="w-full mt-20 mb-32 px-4 md-768:mt-32 md-770:w-[770px] md-770:mx-auto">
         {{-- product bag --}}
         <div class="w-full flex flex-col">
             <div class="w-full flex flex-col overflow-auto">
